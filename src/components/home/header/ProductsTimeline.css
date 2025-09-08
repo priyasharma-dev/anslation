@@ -1,0 +1,88 @@
+.products-timeline-container {
+  position: relative;
+  padding: 60px 40px;
+  border-radius: 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-timeline-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.products-timeline-svg {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.products-timeline-cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 35px; /* space between top and bottom row */
+  margin-top: 55px;
+}
+
+.products-row {
+  display: flex;
+  gap: 24px;
+}
+
+.products-top-row {
+  justify-content: flex-start;
+  margin-left: 20px; /* push inside curve */
+}
+
+.products-bottom-row {
+  justify-content: flex-end;
+  margin-right: 20px; /* push inside curve */
+}
+
+.products-card {
+  width: 150px;
+  height: 170px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 12px;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.products-card .icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.products-card h4 {
+  margin: 4px 0 2px 0; /* remove extra spacing */
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.products-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}

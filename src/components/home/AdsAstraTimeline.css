@@ -1,0 +1,90 @@
+.timeline-container {
+  position: relative;
+  /* background: radial-gradient(circle at center, #0a1630, #000814); */
+  padding: 60px 40px;
+  border-radius: 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+  
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  z-index: 2;
+}
+.timeline-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ccc; /* adjust color */
+  display: block;
+  margin-top: 4px;
+}
+
+
+.timeline-svg {
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* space between rows */
+  margin-top: 105px;
+}
+
+.row {
+  display: flex;
+  gap: 24px;
+}
+
+.top-row {
+  justify-content: flex-start; /* align left */
+  margin-top: -40px; /* tuck into top curve */
+}
+
+.bottom-row {
+  justify-content: center; /* keep bottom centered */
+  margin-bottom: 20px;
+}
+
+
+.product-card {
+  width: 130px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+.product-card .icon {
+  font-size: 2rem;
+  margin-bottom: 1px;
+}
+
+/* Slight adjustment for positioning */
+.top-row {
+  margin-top: -40px; /* tuck into top curve */
+}
+
+.bottom-row {
+  margin-bottom: 20px; /* sits nicely above bottom curve */
+}
