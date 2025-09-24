@@ -10,6 +10,8 @@ import {
   IconButton,
 } from "@mui/material";
 import { Email, Phone, LocationOn } from "@mui/icons-material";
+import { Link as RouterLink } from "react-router-dom";
+
 
 export default function Footer() {
   return (
@@ -94,8 +96,15 @@ export default function Footer() {
                   Company
                 </Typography>
                 <Stack spacing={1}>
-                  <Link href="#" color="inherit" fontSize={18} underline="hover">About</Link>
-                  <Link href="#" color="inherit" fontSize={18} underline="hover">Contact us</Link>
+<Link
+  component={RouterLink}
+  to="/about"
+  color="inherit"
+  fontSize={18}
+  underline="hover"
+>
+  About
+</Link>                  <Link href="#" color="inherit" fontSize={18} underline="hover">Contact us</Link>
                   <Link href="#" color="inherit" fontSize={18} underline="hover">Careers</Link>
                   <Link href="#" color="inherit" fontSize={18} underline="hover">Culture</Link>
                   <Link href="#" color="inherit" fontSize={18} underline="hover">Blog</Link>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./AdsAstraTimeline.css";
-import DataVerseSection from "./DataVerseSection";
+import DataVerseSection from "../../DataVerse/DataVerseSection";
 
 const products = new Array(11).fill({
   title: "DataVerse",

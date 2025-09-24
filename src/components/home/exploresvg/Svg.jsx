@@ -134,7 +134,7 @@ import {
   MousePointer,
   AlignRight
 } from 'lucide-react';
-import ProductsTimeline from './ProductsTimeline'; // import your component
+import ProductsTimeline from '../product/ProductsTimeline'; 
 
 
 

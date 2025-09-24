@@ -1,6 +1,6 @@
 import React, { useState } from "react"; // added useState
 import "./ProductsTimeline.css";
-import AdsAstraTimeline from "../AdsAstraTimeline";
+import AdsAstraTimeline from "../tools/adsastra/AdsAstraTimeline";
 
 const products = new Array(11).fill({
   title: "Ads-astra",
