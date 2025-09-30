@@ -18,12 +18,11 @@ function Home() {
         background: "black",
         position: "relative", 
         overflow: "hidden",
+        width:"90%"
       }}
     >
       {/* Background gradient */}
       <Ellipse81 />
-
-      {/* Content */}
       <Header />
       <Hero />
       <Svg />
