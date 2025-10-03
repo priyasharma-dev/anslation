@@ -23,15 +23,12 @@ function Home() {
     >
       {/* Background gradient */}
       <Ellipse81 />
-<<<<<<< HEAD
-=======
        <Rectangle82 />
        <Rectangle83 />
       <Ellipse82/>
       
 
       {/* Content */}
->>>>>>> 825bdd9 (WIP: local changes)
       <Header />
       <Hero />
       <Svg />
