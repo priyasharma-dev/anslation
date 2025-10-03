@@ -96,16 +96,16 @@ export default function Footer() {
                   Company
                 </Typography>
                 <Stack spacing={1}>
-<Link
-  component={RouterLink}
-  to="/about"
-  color="inherit"
-  fontSize={18}
-  underline="hover"
->
-  About
-</Link>                  <Link href="#" color="inherit" fontSize={18} underline="hover">Contact us</Link>
-                  <Link href="#" color="inherit" fontSize={18} underline="hover">Careers</Link>
+                  <Link
+                    component={RouterLink}
+                    to="/about"
+                    color="inherit"
+                    fontSize={18}
+                    underline="hover"
+                  >
+                    About
+                  </Link>                  <Link href="#" color="inherit" fontSize={18} underline="hover">Contact us</Link>
+                  <Link href="/career" color="inherit" fontSize={18} underline="hover">Careers</Link>
                   <Link href="#" color="inherit" fontSize={18} underline="hover">Culture</Link>
                   <Link href="#" color="inherit" fontSize={18} underline="hover">Blog</Link>
                 </Stack>
@@ -117,7 +117,7 @@ export default function Footer() {
                   Contact us
                 </Typography>
                 <Stack spacing={2}>
-                  <Stack direction="row"  spacing={1} alignItems="center">
+                  <Stack direction="row" spacing={1} alignItems="center">
                     <Email fontSize="small" />
                     <Typography fontSize={18}>Help@anslation.com</Typography>
                   </Stack>
