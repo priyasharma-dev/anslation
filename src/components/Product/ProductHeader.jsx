@@ -3,12 +3,12 @@ import React from 'react'
 function ProductHeader() {
   return (
     <>
-  <div className="container mx-auto max-w-3xl mt-12 px-4 border">
+  <div className="container mx-auto max-w-3xl mt-12 px-4 ">
   <div>
     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center leading-tight">
       Boost your
     </h1>
-    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center leading-tight">
+    <h2 className="text-4xl bg-gradient-to-b from-[#FFFFFF] to-[#7296CF] bg-clip-text text-transparent sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center leading-tight">
       rankings with AI.
     </h2>
   </div>
@@ -26,7 +26,6 @@ function ProductHeader() {
     </button>
   </div>
 </div>
-
     </>
   )
 }
