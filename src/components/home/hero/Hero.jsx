@@ -42,7 +42,7 @@ const Hero = () => {
             mb: 4,
           }}
         >
-          Join the next generation of companies using Anslatio to build scalable
+          Join the next generation of companies using Anslation to build scalable
           platforms, automate processes, integrate smart solutions, and accelerate
           digital transformation.
         </Typography>
