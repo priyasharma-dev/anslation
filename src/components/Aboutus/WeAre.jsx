@@ -6,7 +6,7 @@ import goal from "../../assets/Group 39571.png"
 
 function WeAre() {
   return (
-    <section  className="py-10 md:py-24"
+    <section  className="py-8 md:py-10"
      style={{
            background:
              "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49.04%, rgba(0, 111, 255, 0) 100%)",
@@ -40,7 +40,7 @@ function WeAre() {
             <div className='w-full md:w-1/2 flex justify-center'>
               <img src={mission} 
               alt="mission" 
-              srcset="" 
+              srcSet="" 
               className='w-full max-w-sm md:max-w-md px-5 md:px-10' />
             </div>
             <div className=' w-full md:w-1/2 px-5 md:px-10'>
@@ -48,14 +48,14 @@ function WeAre() {
               <div className='text-base md:text-lg leading-relaxed' >
                 <p >To empower businesses by delivering intelligent, scalable software solutions that fuel growth, enhance efficiency, and foster innovation.</p>
                 <div className='py-4 ' >
-                  <div className='grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-3 '>
+                  <div className='grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-3  '>
                     <div className='border rounded px-4 py-2 text-sm md:text-base text-center' >Intelligent</div>
                     <div className="border rounded px-4 py-2 bg-gradient-to-r from-[#1D73F3A3] to-[#000C27D1] text-sm md:text-base text-center">
                       Foster innovation
                     </div>
                     <div className='border rounded px-4 py-2 text-sm md:text-base text-center '  >Fuel growth</div>
                     <div className='border rounded px-4 py-2 text-sm md:text-base text-center'  > Enhance efficiency</div>
-                    <div className='border rounded px-4 py-2 text-sm md:text-base w-max '  >Scalable software solutions</div>
+                    <div className='border rounded px-4 py-2 text-sm md:text-base text-center  col-span-2 w-full whitespace-normal md:col-auto md:w-auto md:whitespace-nowrap md:shrink-0'>Scalable software solutions</div>
                   </div>
                 </div>
               </div>

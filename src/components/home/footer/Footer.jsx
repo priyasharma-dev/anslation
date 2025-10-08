@@ -9,7 +9,7 @@ import {
   Stack,
   IconButton,
 } from "@mui/material";
-import { Email, Phone, LocationOn } from "@mui/icons-material";
+import { Email, Phone, LocationOn,Facebook, Twitter, Instagram, LinkedIn, YouTube } from "@mui/icons-material";
 import { Link as RouterLink } from "react-router-dom";
 
 
@@ -34,11 +34,12 @@ export default function Footer() {
          container
          spacing={{ xs: 3,sm:4, md: 6,}}
           alignItems="flex-start"
-           justifyContent= "space-between"
+           justifyContent= "flex-start"
+           direction={{ xs: "column", sm: "column", md: "row" }} 
     
           >
                {/* LEFT SIDE - Brand */}
-              <Grid item xs={12} sm={6} md={4} lg={3}>
+              <Grid item xs={12} sm={12} md={4} lg={3}>
                <Typography 
                fontSize={{xs:26,sm:30,md:34}}
               fontWeight={600} 
@@ -48,28 +49,30 @@ export default function Footer() {
             </Typography>
             <Typography 
             fontSize={{xs:15,sm:16}}
-             mb={3} 
+             mb={{ xs: 1, sm: 1.25, md: 1.5 }} 
              lineHeight={1.6}>
               Driven by Questions.
               <br />
               Delivered as Solutions
             </Typography>
-
-            <Stack direction="row" spacing={1.5} flexWrap="wrap">
+              {/* Social Icons */}
+            <Stack direction="row" flexWrap="wrap"  alignItems="center"
+              justifyContent={{ xs: "center", md: "flex-start" }}
+              gap={{ xs: 0, sm: 0, md: 0 }} >
               <IconButton aria-label="Facebook" href="#" sx={{ color: "white" }}>
-                <i className="fab fa-facebook-f" />
+                <Facebook fontSize="small" />
               </IconButton>
               <IconButton aria-label="Twitter" href="#" sx={{ color: "white" }}>
-                <i className="fab fa-twitter" />
+                 <Twitter fontSize="small" />
               </IconButton>
               <IconButton aria-label="Instagram" href="#" sx={{ color: "white" }}>
-                <i className="fab fa-instagram" />
+                 <Instagram fontSize="small" />
               </IconButton>
               <IconButton aria-label="LinkedIn" href="#" sx={{ color: "white" }}>
-                <i className="fab fa-linkedin-in" />
+               <LinkedIn fontSize="small" />
               </IconButton>
               <IconButton aria-label="YouTube" href="#" sx={{ color: "white" }}>
-                <i className="fab fa-youtube" />
+                <YouTube fontSize="small" />
               </IconButton>
             </Stack>
           </Grid>
@@ -77,17 +80,58 @@ export default function Footer() {
           {/* RIGHT SIDE - 4 columns */}
           {/* Small left shift with negative margin if you want it a bit closer */}
          
-           <Grid item xs={12} sm={12} md={8} lg={8} sx={{ pl: 0, pr: 0, mx: 0 }}>
-            <Grid 
-            container
-              columnSpacing={{ xs:1.5, sm: 2, md: 6 }}   // ← control desktop gap here
-              rowSpacing={{ xs: 2, sm: 3 }} 
-             justifyContent="flex-start"
-             alignItems="flex-start"
-             >
+           <Grid item xs={12} sm={12} md={8} lg={8} sx={{ 
+            pl: 0, pr: 0, mx: 0,overflowX: "hidden",
+             "@media (min-width:600px) and (max-width:712.98px)": {
+                flexBasis: "100% !important",
+                maxWidth: "100% !important",
+                width: "100% !important",
+                mt: 2, // small spacing below the brand
+              }, 
+             }}>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "repeat(2, minmax(0, 1fr))", // default phones: 2 cols
+                  sm: "repeat(2, minmax(0, 1fr))", // tablets < md: 2 cols
+                  md: "repeat(4, minmax(0, 1fr))", // md+: 4 cols
+                },
+                gap: { xs: 2, sm: 3, md: 4 },
+                alignItems: "start",
+
+              
+
+                // 420–591px: stay 2 cols, slightly tighter
+                "@media (min-width:420px) and (max-width:591.98px)": {
+                  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                  columnGap: 12,
+                  rowGap: 8,
+                  "& .footer-link": { fontSize: 14 },
+                  "& .footer-heading": { marginBottom: 2 },
+                },
+
+                // 600–712px: 2 cols, tighten to avoid odd wraps
+                "@media (min-width:600px) and (max-width:712.98px)": {
+                  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                  columnGap: 14,
+                  rowGap: 8,
+                  "& .footer-link": { fontSize: 14 },
+                  "& .footer-heading": { marginBottom: 2 },
+                },
+
+                  // ✅ 713–899px: still 2 cols (explicit)
+              "@media (min-width:713px) and (max-width:899.98px)": {
+               gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+               columnGap: 16,
+                 rowGap: 8,
+                 },
+              }}
+            >
               {/* Product */}
-              <Grid item xs={6} sm={4} md={3} lg={3}>
+              <Box sx={{ minWidth: 0 }}>
                 <Typography
+                className="footer-heading"
                  fontSize={{ xs: 18, sm: 20 }} 
                  fontWeight={700}
                   mb={2}>
@@ -100,11 +144,11 @@ export default function Footer() {
                   <Link href="#" color="inherit" fontSize={{xs:14,sm:16}} underline="hover">K-tech tool</Link>
                   <Link href="#" color="inherit" fontSize={{xs:14,sm:16}} underline="hover">Trackers</Link>
                 </Stack>
-              </Grid>
+              </Box>
 
               {/* Service */}
-              <Grid item xs={6} sm={4} md={3} lg={3} >
-                <Typography 
+              <Box sx={{minWidth:0 }}>
+                <Typography className="footer-heading" 
                 fontSize={{ xs: 18, sm: 20 }}
                  fontWeight={700} 
                  mb={2}>
@@ -116,11 +160,11 @@ export default function Footer() {
                   <Link href="#" color="inherit" fontSize={{xs:14,sm:16}} underline="hover">Marketing Automation</Link>
                   <Link href="#" color="inherit" fontSize={{xs:14,sm:16}} underline="hover">Chat support</Link>
                 </Stack>
-              </Grid>
+              </Box>
 
               {/* Company */}
-              <Grid item xs={6} sm={4} md={3} lg={3} >
-                <Typography
+              <Box sx={{ minWidth: 0 }} >
+                <Typography className="footer-heading"
                  fontSize={{xs:18,sm:20}} 
                 fontWeight={700} 
                 mb={2}
@@ -142,17 +186,23 @@ export default function Footer() {
                   <Link href="#" color="inherit" fontSize={{ xs: 14, sm: 16 }} underline="hover">Culture</Link>
                   <Link href="#" color="inherit" fontSize={{ xs: 14, sm: 16 }} underline="hover">Blog</Link>
                 </Stack>
-              </Grid>
+              </Box>
 
               {/* Contact */}
-              <Grid item xs={6} sm={6} md={3} lg={3}>
-                <Typography fontSize={{ xs: 18, sm: 20 }} fontWeight={700} mb={2}>
+              <Box sx={{minWidth:0}}>
+                <Typography className="footer-heading" fontSize={{ xs: 18, sm: 20 }} fontWeight={700} mb={2}>
                   Contact us
                 </Typography>
                 <Stack spacing={1.5}>
                   <Stack direction="row"  spacing={1} alignItems="center">
                     <Email fontSize="small" />
-                    <Typography fontSize={{ xs: 14, sm: 16 }}>Help@anslation.com</Typography>
+                    <Typography fontSize={{ xs: 14, sm: 16 }} sx={{
+                     minWidth: 0,
+                     maxWidth: "100%",
+                     overflowWrap: "anywhere",   // ← allows breaking inside long tokens
+                     wordBreak: "break-word",
+                     lineHeight: 1.4,
+                     }}>Help@anslation.com</Typography>
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Phone fontSize="small" />
@@ -163,8 +213,8 @@ export default function Footer() {
                     <Typography fontSize={{ xs: 14, sm: 16 }}>Betul | Gurugram</Typography>
                   </Stack>
                 </Stack>
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
 

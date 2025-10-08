@@ -10,13 +10,24 @@ import {
     List,
     ListItem,
     ListItemText,
+    ListItemButton,
+     useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { DarkMode, ArrowDropDown,Menu } from "@mui/icons-material";
 import { Ellipse81 } from "../../../gradient/gradienttop";
+import { Link } from "react-router-dom";
+
 const navItems = ["Products", "Solutions", "Resources"];
 export default function Header() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const theme = useTheme();
+
+   const isDesktop = useMediaQuery("(min-width:960px)");
+   const isTabletUp = useMediaQuery("(min-width:600px)");
+    const isMobile = useMediaQuery("(max-width:599.98px)");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,11 +43,11 @@ export default function Header() {
       <>
       {/* Show background only when the navbar or drawer is toggled */}
       {showBackground && (
-        <>
-          <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: -1 }}>
+      
+          <Box sx={{ position: "absolute", inset:0, zIndex: -1 }}>
           <Ellipse81 /> {/* Background is rendered behind the AppBar */}
          </Box>
-        </>
+       
       )}
        
         <AppBar
@@ -45,56 +56,74 @@ export default function Header() {
                 background: "transparent",
                 boxShadow: "none",
                 zIndex: 10,
-                px: { xs: 2, md: 6 },
-                py: 2,
             }}
         >
-            <Toolbar sx={{
-               display: "flex",
-                justifyContent: "space-between", 
-                alignItems: "center",
-                px:0,
+           <Box
+          sx={{
+            width: "100%",
+            maxWidth: { xs: "100%", xl: 1440 },       
+            mx: { xs: 0, md: "auto" },
+            px: { xs: 1, sm: 3, md: 4, lg: 2,xl:2},
+            py:{xs: 2, sm: 3, md: 3, lg: 3 } 
+          }}
+        >
+            <Toolbar
+            disableGutters
+             sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            alignItems: "center",
+           
+            minHeight: { xs: 56, sm: 64 },
+                width: "100%",
                  }}>
                 {/* Logo */}
-                <Box sx= {{ 
+            <Box 
+               sx= {{ 
                   display: "flex",
                  alignItems: "center",
                  flexShrink: 0,
-                  ml: 0,
+                
                   '& img': {
-                  height: "auto",
-                  width: { xs: "100px", md: "120px" },
-                  maxWidth: "100%",
-                      }
+                  height: { xs: 40,sm:50, md:55,lg:60 },
+                  width:"auto",
+                  maxWidth:{ xs: 100, sm: 110, md: 115,lg:120 } ,
+                      },
                  }}>
+
+                  <Link to="/" style={{ display: "flex", alignItems: "center", textDecoration: "none",cursor: "pointer", }}>
                     <img
                         src="./logo/logo.png"
                         alt="logo"
+                        style={{ objectFit: "contain" }}
                     />
+                 </Link>
                 </Box>
 
                 {/* Nav Links */}
                 <Box 
                 sx={{
-                     display: { xs: "none", md: "flex" },
-                      gap: 3 ,
-                      ml: 20,
-                       flexGrow:1
+                     display: isDesktop ? "flex" : "none",
+                      gap: {md:2,lg:3} ,
+                      
+                       flexGrow:1,
+                       justifyContent:"center",
                        }}>
                     {navItems.map((item) => (
                         <Button
                             key={item}
-                            endIcon={<ArrowDropDown />}
+                            endIcon={<ArrowDropDown fontSize="small" />}
                             sx={{ 
                                 color: "white",
                                  textTransform: "none", 
                                  alignItems: "center",
-                                  fontSize: "20px",
+                                  fontSize: {md:"18px",lg:"20px"},
                                    backgroundColor: "transparent" , // Add transparent background when clicked
                                        transition: "background-color 0.3s ease", // Smooth transition for background color
                                        "&:hover": {
                                        backgroundColor: "transparent",
                                        },
+                                       minWidth:"auto",
                                  }}
                                   onClick={handleMenuToggle}
                         >
@@ -104,8 +133,14 @@ export default function Header() {
                 </Box>
 
                 {/* Right actions */}
-                <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
-                    <Button sx={{ color: "white", textTransform: "none", fontSize: "18px" }}>Join us</Button>
+                <Box sx={{
+                   display: isTabletUp ? "flex" : "none", 
+                   gap: {sm:1,md:2},
+                   alignItems:"center",
+                   flexShrink:0,
+                   }}
+                   >
+                  
                     <Button
                         variant="outlined"
                         sx={{
@@ -113,60 +148,145 @@ export default function Header() {
                             borderColor: "white",
                             borderRadius: "9999px",
                             textTransform: "none",
-                            fontSize: "16px",
+                            fontSize: { md: "16px" },
+                           px: { md: 2 },
+                           display: { sm: "flex", md: "flex" },
                             "&:hover": {
                                  backgroundColor: "white",
                                   color: "#0A1929", 
                                 },
+                             ml: { sm: 1 },
                         }}
                     >
                         Contact
                     </Button>
+
                     <IconButton
                         sx={{
                             border: "1px solid white",
                             borderRadius: "9999px",
                             color: "white",
-                            px: 2,
+                             px: { sm: 1, md: 2 },
+                             py: { sm: 0.5, md: 1 },
                             boxShadow: "0 0 20px #0B3BFF",
                             "&:hover": { boxShadow: "0 0 30px #0B3BFF" },
+                              display: { sm: "flex", md: "flex" },
+                             minWidth: "auto",
                         }}
+                        size="small"
                     >
                         <DarkMode fontSize="small" />
-                        <Typography sx={{ ml: 1, fontSize: "1rem" }}>Dark</Typography>
+                        <Typography
+                         sx={{ 
+                          ml: {sm:0.5,md:1}, 
+                          fontSize:{ sm: "0.875rem", md: "1rem" },
+                          display: { sm: "none", md: "inline" },
+                           }}>
+                            Dark
+                          </Typography>
                     </IconButton>
                 </Box>
-                 <IconButton
-            sx={{ display: { xs: "flex", md: "none" }, color: "white" }}
+
+                 {/* Mobile Menu Icon - Shown on xs/sm, hidden on md+ */}
+            <IconButton
+              sx={{
+                 display: isDesktop ?"none":"flex", 
+                 color: "white" ,
+                ml:1,
+              }}
             onClick={handleDrawerToggle}
+            size="large"
           >
             <Menu />
           </IconButton>
             </Toolbar>
+            </Box>
+            
         </AppBar>
+
         {/* Mobile Drawer */}
-      <Drawer anchor="right" 
+     {!isDesktop && (
+        <Drawer 
+      anchor="right" 
       open={mobileOpen} 
       onClose={handleDrawerToggle}
       sx={{
+         display: "block",
+   "@media (min-width:960px)": { display: "none" },
         "& .MuiDrawer-paper": {
          backgroundColor: "transparent", // Set transparent background for the drawer
         boxShadow: "none",
         color: "white",
+         width: { xs: "80vw", sm: "60vw" },
+         p: { xs: 1.5, sm: 2 },
+         overflowX: "hidden",
         },
-  }}>
-        <Box sx={{ width: 250, p: 2 }}>
-          <List>
+  }}
+    ModalProps={{
+          keepMounted: true,  
+        }}
+  >
+        <Box sx={{ width: "100%", }}>
+          <List sx={{ py: 0 }}>
             {navItems.map((item) => (
-              <ListItem button key={item} sx={{ backgroundColor: "transparent", color: "white" }}>
-                <ListItemText primary={item} />
-              </ListItem>
+              <ListItemButton 
+              key={item}
+               sx={{ 
+                backgroundColor: "transparent",
+                 color: "white",
+                   py: { xs: 1, sm: 1.5 },
+                  borderRadius: 1,
+                  mx: 0.5,
+                   "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
+                  }}>
+
+                <ListItemText primary={item}
+                  primaryTypographyProps={{ 
+                    fontSize: { xs: "16px", sm: "18px" },
+                  }} 
+                   />
+              </ListItemButton>
             ))}
-            <ListItem button sx={{ backgroundColor: "transparent", color: "white" }}>Join us</ListItem>
-            <ListItem button sx={{ backgroundColor: "transparent", color: "white" }}>Contact</ListItem>
+
+             {/* Join us — on MOBILE & TABLET (<960px) */}
+              <ListItemButton
+                onClick={handleDrawerToggle}
+                sx={{
+                  backgroundColor: "transparent",
+                  color: "white",
+                  py: { xs: 1, sm: 1.5 },
+                  borderRadius: 1,
+                  mx: 0.5,
+                  "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
+                }}
+              >
+                <ListItemText
+                  primary="Join us"
+                  primaryTypographyProps={{ fontSize: { xs: "16px", sm: "18px" } }}
+                />
+              </ListItemButton>
+
+             {isMobile && (
+            <ListItemButton sx={{ backgroundColor: "transparent",
+               color: "white",
+                py: { xs: 1, sm: 1.5 },
+                borderRadius: 1,
+                mx: 0.5,
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
+                }}
+                >
+                   <ListItemText
+                    primary="Contact"
+                    primaryTypographyProps={{ fontSize: { xs: "16px" } }}
+                  />
+
+                </ListItemButton>
+             )}
           </List>
+          
         </Box>
       </Drawer>
+     )}
       </>
     );
 }

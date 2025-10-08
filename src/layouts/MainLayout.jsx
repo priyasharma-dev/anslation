@@ -31,6 +31,8 @@ const styles = {
 
 function MainLayout() {
   return (
+   
+    <>
     <div style={styles.app}>
       {/* Background (behind, untouchable) */}
       <div style={styles.ellipseLayer}>
@@ -38,9 +40,9 @@ function MainLayout() {
       </div>
 
       {/* Header */}
-      <div style={{ ...styles.gutter, ...styles.content }}>
+      {/* <div style={{ ...styles.gutter, ...styles.content }}> */}
         <Header />
-      </div>
+      {/* </div> */}
 
       {/* Main outlet */}
       <div style={{ ...styles.gutter, ...styles.content, ...styles.main }}>
@@ -53,6 +55,8 @@ function MainLayout() {
         <Footer />
       </div>
     </div>
+      
+      </>
   )
 }
 

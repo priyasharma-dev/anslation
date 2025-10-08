@@ -20,7 +20,7 @@ function OurTeam() {
         </div>
 
         {/* Mobile / Small screens: 2 per row, a little smaller */}
-        <div className="grid grid-cols-3 gap-2 mt-10 md:hidden">
+        <div className="grid grid-cols-3 gap-1 mt-10 md:hidden">
           {[img1, img2, img3, img4, img5, img6].map((src, i) => (
             <div key={i} className="w-full">
               <img
@@ -31,7 +31,9 @@ function OurTeam() {
             </div>
           ))}
         </div>
- <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-6 md:mt-20">
+
+{/* Desktop */}
+ <div className="hidden md:flex  md:justify-center md:gap-x-4 lg:gap-x-8 gap-y-12 md:mt-16">
           <div className="w-1/3 sm:w-auto mt-0">
             <img src={img1} alt="team-1" className="h-80 w-full object-contain" />
           </div>
@@ -52,26 +54,6 @@ function OurTeam() {
           </div> 
         </div>
 
-        {/* <div className='flex flex-wrap justify-center gap-6  mt-20' >
-            <div className='w-1/3 sm:w-auto mt-0'>
-                <img src={img1} alt="" srcset="" className='h-40 sm:h-80 w-full   ' />
-            </div>
-            <div className=' w-1/3 sm:w-auto mt-10 md:mt-20' >
-            <img src={img2} alt="" srcset="" className='h-40 sm:h-80 w-full ' />
-            </div >
-            <div className='w-1/3 sm:w-auto mt-0'>
-            <img src={img3} alt="" srcset="" className='h-40 sm:h-80 w-full ' />
-            </div>
-            <div className=' w-1/3 sm:w-auto mt-10 md:mt-20' >
-            <img src={img4} alt="" srcset="" className='h-40 sm:h-80 w-full ' />
-            </div>
-            <div className='w-1/3 sm:w-auto mt-0'>
-            <img src={img5} alt="" srcset="" className='h-40 sm:h-80 w-full ' />
-            </div>
-            <div className=' w-1/3 sm:w-auto mt-10 md:mt-20' >
-            <img src={img6} alt="" srcset="" className='h-40 sm:h-80 w-full ' />
-            </div>
-        </div> */}
     </div>
     </>
   )
