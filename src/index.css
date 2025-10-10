@@ -6,3 +6,8 @@ html, body, #root {
 }
 
 @import "tailwindcss";
+
+/* Hide horizontal/vertical scrollbars but keep scrolling enabled */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
