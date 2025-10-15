@@ -51,6 +51,51 @@ function CareerProfile() {
                     <p className='mt-1 text-base sm:text-2xl md:text-4xl lg:text-6xl font-extrabold leading-tight drop-shadow' >
                         {job.title}
                     </p>
+
+        <div className='relative' >
+                   <div
+          style={{
+            position: "absolute",
+            width: "300.38px",
+            height: "80.86px",
+            right: "-100px",// shifted from left to right for responsiveness
+            top: "-80px",
+            background:
+              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
+            filter: "blur(10.45px)",
+            borderRadius: "20px",
+            transform: "rotate(-33.3deg)",
+            zIndex: 0,
+          }}
+        >
+        </div>
+        <div 
+           style={{
+            position: "absolute",
+            width: "300.38px",
+            height: "65.86px",
+            right: "-75px",// shifted from left to right for responsiveness
+            top: "100.71px",
+            background:
+              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
+            filter: "blur(10.45px)",
+            borderRadius: "20px",
+            transform: "rotate(-33.3deg)",
+            zIndex: 0,
+          }}
+        
+        >
+         
+       
+
+        </div>
+
+        <div className='mx-auto container w-7xl mt-5' >
+            <div className='border-white z-30 border-6 relative w-full h-50 rounded-2xl' >
+                <img src={jobHeader} alt="jobPoster" className='w-7xl h-47   mx-auto' />
+                <div className='absolute  top-15 left-15 ' >
+                    <h1 className='text-xl' >{job.category}</h1>
+                    <p className='text-6xl font-extrabold' >{job.title}</p>
                 </div>
             </div>
 
@@ -289,7 +334,11 @@ function CareerProfile() {
 
             </div>
 
-    );
+        </div>
+        </div>
+        </div>
+        </div>
+    )
 }
 
 export default CareerProfile

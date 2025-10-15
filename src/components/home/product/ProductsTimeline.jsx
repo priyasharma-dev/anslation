@@ -23,8 +23,37 @@ const ProductsTimeline = () => {
   };
 
   return (
-    <div className="products-timeline-container">
+
+    <div 
+    className="relative"
+    style={{
+      background: "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49.04%, rgba(0, 111, 255, 0) 100%)",
+      zIndex: 0,
+    }}
+  >
+    {/* Background SVG Pattern - Lower Layer */}
+    <svg
+      className='absolute inset-0 w-full h-full'
+      style={{ zIndex: 1 }}
+      viewBox='0 0 500 500'
+      preserveAspectRatio='xMidYMid slice'
+    >
+      <defs>
+        <pattern id='gridPattern' x='0' y='0' width='50' height='50' patternUnits='userSpaceOnUse'>
+          <line x1='50' y1='0' x2='50' y2='50' stroke='#fff' strokeWidth='0.5' opacity='0.15' />
+          <line x1='0' y1='50' x2='50' y2='50' stroke='#fff' strokeWidth='0.5' opacity='0.15' />
+        </pattern>
+        <linearGradient id='bgGradient' x1='0%' y1='0%' x2='0%' y2='100%'>
+          <stop offset='100%' stopColor='#000000' stopOpacity='1' />
+        </linearGradient>
+      </defs>
+      <rect width='500' height='500' fill='url(#gridPattern)' />
+    </svg>
+  
+    {/* Content Layer - Upper Layer */}
+    <div className="products-timeline-container relative" style={{ zIndex: 10 }}>
       <h2 className="products-timeline-title">Products</h2>
+      
       <svg
         className="products-timeline-svg"
         width="1307"
@@ -39,13 +68,16 @@ const ProductsTimeline = () => {
           strokeWidth="2"
         />
       </svg>
-      <div className="products-timeline-cards">
+  
+      {/* Product Cards - Highest Layer */}
+      <div className="products-timeline-cards" style={{ position: 'relative', zIndex: 20 }}>
         <div className="products-row products-top-row">
           {products.slice(0, 4).map((p, i) => (
             <div
               key={i}
               className={`products-card ${clickedIndex === i ? "active" : ""}`}
               onClick={() => handleCardClick(i)}
+              style={{ position: 'relative', zIndex: 30 }}
             >
               <div className="icon w-10 h-10">
                 <img
@@ -62,14 +94,14 @@ const ProductsTimeline = () => {
             </div>
           ))}
         </div>
+  
         <div className="products-row products-bottom-row">
           {products.slice(4, 11).map((p, i) => (
             <div
               key={i}
-              className={`products-card ${
-                clickedIndex === i + 4 ? "active" : ""
-              }`}
+              className={`products-card ${clickedIndex === i + 4 ? "active" : ""}`}
               onClick={() => handleCardClick(i + 4)}
+              style={{ position: 'relative', zIndex: 30 }}
             >
               <div className="icon w-10 h-10">
                 <img
@@ -81,18 +113,17 @@ const ProductsTimeline = () => {
               <h4>{p.title}</h4>
               <p>{p.desc}</p>
               {clickedIndex === i + 4 && (
-                <div className="line-connector bottom-row"  ></div>
+                <div className="line-connector bottom-row"></div>
               )}
             </div>
           ))}
         </div>
       </div>
+  
       {showAdsstraTimeline && (
         <div
-          className={`adsstra-timeline-container ${
-            showAdsstraTimeline ? "fade-in" : ""
-          }`}
-          style={{ marginTop: "75px" }}
+          className={`adsstra-timeline-container ${showAdsstraTimeline ? "fade-in" : ""}`}
+          style={{ marginTop: "75px", position: 'relative', zIndex: 20 }}
         >
           <button
             onClick={handleClose}
@@ -109,6 +140,7 @@ const ProductsTimeline = () => {
         </div>
       )}
     </div>
+  </div>
   );
 };
 

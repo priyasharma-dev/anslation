@@ -3,6 +3,41 @@ import React from 'react'
 function ProductHeader() {
   return (
     <>
+
+    <div>
+    <div
+          style={{
+            position: "absolute",
+            width: "800.38px",
+            height: "112.86px",
+            left: "951px",// shifted from left to right for responsiveness
+            top: "1.71px",
+            background:
+              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
+            filter: "blur(10.45px)",
+            borderRadius: "20px",
+            transform: "rotate(-33.3deg)",
+            zIndex: 0,
+          }}
+        >
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            width: "800.38px",
+            height: "112.86px",
+            left: "951px",// shifted from left to right for responsiveness
+            top: "200.71px",
+            background:
+              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
+            filter: "blur(10.45px)",
+            borderRadius: "20px",
+            transform: "rotate(-33.3deg)",
+            zIndex: 0,
+          }}
+        >
+        </div>
+  
   <div className="container mx-auto max-w-3xl mt-12 px-4 ">
   <div>
     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center leading-tight">
@@ -25,6 +60,7 @@ function ProductHeader() {
       Start for free
     </button>
   </div>
+</div>
 </div>
     </>
   )

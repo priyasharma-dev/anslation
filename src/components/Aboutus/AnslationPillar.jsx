@@ -101,31 +101,45 @@ function AnslationPillar() {
 
             {/* box start here */}
             <div>
-                <div className=' absolute bottom-15 left-10 py-1  w-48 border bg-black   rounded' >
+                <div className=' absolute bottom-15 left-10 py-1  w-48 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3] hover:to-[#000C27]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Innovation</h3>
                     <p className='text-center' >Pioneering the Future</p>
                 </div>
-                <div className=' absolute bottom-55 left-30 py-1  w-36 border bg-gradient-to-r from-[#1D73F3] to-[#000C27]   rounded' >
+                <div className=' absolute bottom-55 left-30 py-1  w-36 border bg-black   rounded  cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Integrity</h3>
                     <p className='text-center' >Building Trust</p>
                 </div>
-                <div className=' absolute top-45 left-52 py-1  w-48 border bg-black   rounded' >
+                <div className=' absolute top-45 left-52 py-1  w-48 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Collaboration</h3>
                     <p className='text-center' >Stronger Together</p>
                 </div>
-                <div className=' absolute top-20 left-115 py-2  w-64 border bg-black   rounded' >
+                <div className=' absolute top-20 left-115 py-2  w-64 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Customer Focus</h3>
                     <p className='text-center' >Focused on You</p>
                 </div>
-                <div className=' absolute top-45 right-52 py-1  w-48 border bg-black   rounded' >
+                <div className=' absolute top-45 right-52 py-1  w-48 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Agility</h3>
                     <p className='text-center' >Adapting to Change</p>
                 </div>
-                <div className=' absolute bottom-55 right-30 py-1 w-48 border bg-black  rounded' >
+                <div className=' absolute bottom-55 right-30 py-1 w-48 border bg-black  rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Excellence</h3>
                     <p className='text-center' >Commitment to Quality</p>
                 </div>
-                <div className=' absolute bottom-15 right-10  w-64 py-1 border bg-black   rounded' >
+                <div className=' absolute bottom-15 right-10  w-64 py-1 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            hover:scale-[1.02] hover:translate-y-[-2px]
+                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Sustainability</h3>
                     <p className='text-center' >Creating a Better Tomorrow</p>
                 </div>
