@@ -10,7 +10,7 @@ function Careerbg(
   }
 ) {
   return (
-    <div className={`relative w-full ${heightClass} top-[-130px] overflow-hidden`}>
+    <div className={`relative w-full ${heightClass} top-[-150px] overflow-hidden`}>
       {/* Blurred background */}
       <div
         aria-hidden="true"

@@ -18,7 +18,7 @@ const styles = {
     overflow: 'hidden',
     minHeight: '100dvh',
   },
-  gutter: { paddingInline: GUTTER },
+  
   content: { position: 'relative', zIndex: 1 },
   ellipseLayer: {
     position: 'absolute',
@@ -29,54 +29,30 @@ const styles = {
   main: { flex: 1 },
 }
 
-function MainLayout() {
+export default function MainLayout() {
   return (
-    <div style={{
-        display: "flex",
-        flexDirection: "column",
-        color: "white",
-        fontFamily: "sans-serif",
-        background: "black",
-        position: "relative", 
-        overflow: "hidden",
-      }}>
-        <Header/>
-        <Ellipse81/>
-        <div>
-            <Outlet/>
-        </div>
-        <div>
-        <Always/>
-        <Footer/>
-        </div>
-        
-   
-    <>
     <div style={styles.app}>
       {/* Background (behind, untouchable) */}
-      <div style={styles.ellipseLayer}>
+      <div style={styles.ellipseLayer} aria-hidden="true">
         <Ellipse81 />
       </div>
 
       {/* Header */}
-      {/* <div style={{ ...styles.gutter, ...styles.content }}> */}
+      <div style={{ ...styles.gutter, ...styles.content }}>
         <Header />
-      {/* </div> */}
+      </div>
 
       {/* Main outlet */}
-      <div style={{ ...styles.gutter, ...styles.content, ...styles.main }}>
+      <main style={{ ...styles.gutter, ...styles.content, ...styles.main }}>
         <Outlet />
-      </div>
+      </main>
 
       {/* CTA + Footer */}
+     
       <div style={{ ...styles.gutter, ...styles.content }}>
-        <Always />
-        <Footer />
+      <Always />
+      <Footer />
       </div>
     </div>
-      
-      </>
   )
 }
-
-export default MainLayout
