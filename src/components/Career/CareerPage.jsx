@@ -110,7 +110,7 @@ function CareerPage() {
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-xl font-semibold mb-4 group-hover:text-blue-400 transition-colors">
                         {job.title}
                       </h3>
                       <p className="text-gray-400">{job.description}</p>
