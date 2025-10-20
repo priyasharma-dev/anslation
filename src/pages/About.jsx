@@ -6,8 +6,6 @@ import { Box } from '@mui/material'
 import WeAre from '../components/Aboutus/WeAre'
 import AnslationPillar from '../components/Aboutus/AnslationPillar'
 import OurTeam from '../components/Aboutus/OurTeam'
-import Always from '../components/home/stayupdate/Always'
-import Footer from '../components/home/footer/Footer'
 
 const About = () => {
   return (
