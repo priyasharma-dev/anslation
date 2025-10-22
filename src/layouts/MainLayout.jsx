@@ -19,6 +19,7 @@ const styles = {
     minHeight: '100dvh',
   },
   
+ gutter: { paddingInline: GUTTER },
   content: { position: 'relative', zIndex: 1 },
   ellipseLayer: {
     position: 'absolute',
@@ -38,9 +39,9 @@ export default function MainLayout() {
       </div>
 
       {/* Header */}
-      <div style={{ ...styles.gutter, ...styles.content }}>
+      {/* <div style={{ ...styles.gutter, ...styles.content }}> */}
         <Header />
-      </div>
+      {/* </div> */}
 
       {/* Main outlet */}
       <main style={{ ...styles.gutter, ...styles.content, ...styles.main }}>
