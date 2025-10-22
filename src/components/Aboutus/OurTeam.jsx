@@ -6,54 +6,92 @@ import img4 from '../../assets/our-team1-5.png'
 import img5 from '../../assets/our-team1-6.png'
 import img6 from '../../assets/our-team1.png'
 
+const team = [
+  { img: img1, role: "CEO", name: "sahil Khan" },
+  { img: img2, role: "CTO", name: "Aisha Khan" },
+  { img: img3, role: "Marketing Head", name: "Vikram Singh" },
+  { img: img4, role: "Product Lead", name: "Priya" },
+  { img: img5, role: "Design Lead", name: "Rohit Verma" },
+  { img: img6, role: "Engineering Manager", name: "Neha Gupta" },
+];
+
+
 function OurTeam() {
   return (
     <>
       <div className='relative' >
+         {/* decorative beams – hidden on mobile */}
         <div
+         className="hidden md:block absolute -rotate-[33.3deg] blur-[10.45px] rounded-[20px] z-0"
           style={{
-            position: "absolute",
             width: "800.38px",
             height: "80.86px",
             left: "951px",
             top: "300.71px",
             background:
               "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            filter: "blur(10.45px)",
-            borderRadius: "20px",
-            transform: "rotate(-33.3deg)",
-            zIndex: 0,
+    
           }}
         >
         </div>
         <div
-
+         className="hidden md:block absolute -rotate-[33.3deg] blur-[10.45px] rounded-[20px] z-0"
           style={{
-            position: "absolute",
+          
             width: "300.38px",
             height: "80.86px",
             right: "-50px",// shifted from left to right for responsiveness
             top: "500.71px",
             background:
               "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            filter: "blur(10.45px)",
-            borderRadius: "20px",
-            transform: "rotate(-33.3deg)",
-            zIndex: 0,
+            
           }}
         >
 
         </div>
-        <div className='mt-50  container  max-w-7xl mx-auto ' style={{
-
+        <div className='mt-12 container md:mt-16  max-w-7xl mx-auto px-4' 
+        style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49.04%, rgba(0, 111, 255, 0) 100%)",
         }}  >
-          <div className='' >
+          <div>
             <h2 className='text-center text-4xl font-bold' >Our Team</h2>
-            <p className='mx-auto w-md text-justify my-4 '>Our leadership team brings a wealth of experience, innovation, and passion to Anslation. Together, they lead us in transforming technology to drive business success</p>
+            <p className='mx-auto max-w-md my-4 text-center md:text-justify'>
+              Our leadership team brings a wealth of experience, innovation,
+               and passion to Anslation. Together, they lead us in transforming
+                technology to drive business success
+                </p>
           </div>
-          <div className='flex justify-between mt-20'>
+
+          {/* ============ MOBILE ============ */}
+        <div className="md:hidden mt-10 grid grid-cols-2 gap-x-3 gap-y-8 justify-items-center pb-12">
+          {team.map((m, i) => (
+            <div
+              key={m.name}
+              className={`w-[35vw] max-w-[180px] ${i % 2 === 1 ? "mt-6" : "mt-0"}`}
+            >
+              <div className="relative overflow-hidden rounded-[3rem] aspect-[9/16] shadow-lg ring-1 ring-white/10">
+                <img
+                  src={m.img}
+                  alt={m.name}
+                  className="absolute inset-0 h-full w-full object-cover block"
+                />
+                {/* caption always visible on mobile */}
+                <div className="absolute inset-x-0 bottom-0 px-2 pb-2 pt-3 bg-gradient-to-t from-black/70 via-black/20 to-transparent text-center">
+                  <p className="text-[10px] tracking-wide uppercase text-white/70">
+                    {m.role}
+                  </p>
+                  <p className="text-sm font-semibold text-white leading-tight">
+                    {m.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+          <div className='hidden md:flex justify-between mt-20'>
             {/* 1 */}
             <div className='group relative cursor-pointer'>
               <img src={img1} alt='' className='h-80 object-cover rounded-xl' />

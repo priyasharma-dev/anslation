@@ -165,7 +165,14 @@ function WeAre() {
                   ].map((tag) => (
                     <div
                       key={tag}
-                      className="border rounded px-4 py-2 text-sm md:text-base text-center cursor-pointer transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1] hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]"
+                      className={[
+                        "border rounded px-4 py-2 text-sm md:text-base text-center cursor-pointer",
+                        "transition-all duration-300 ease-out",
+                        "hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]",
+                        "hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]",
+                        
+                         tag === "Scalable software solutions" ? "col-span-2" : "",
+                          ].join(" ")}
                     >
                       {tag}
                     </div>

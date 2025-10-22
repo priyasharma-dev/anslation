@@ -49,7 +49,9 @@ export default function Footer() {
         direction={{ xs: "column", sm: "column", md: "row" }}
          className="px-4 "   >
           {/* LEFT SIDE - Brand */}
-          <Grid item xs={12} sm={12} md={4} lg={3}>
+          <Grid item xs={12} sm={12} md={4} lg={3} 
+          sx={{mt:{ xs: 1, md: 2,lg:4 },
+          }}  >
               <Typography 
               fontSize={{ xs: 26, sm: 30, md: 34 }} 
               component="h2"
@@ -68,7 +70,7 @@ export default function Footer() {
               </Typography>
               {/* Social Icons */}
               <div 
-              className="flex mb-5 gap-2">
+              className="flex mb-4 gap-2">
                 <img src={fac} alt="fac" className="w-5 h-5" />
                 <img src={instagram} alt="instgram" className="w-5 h-5" />
                 <img src={linked} alt="linked" className="w-5 h-5" />
@@ -103,7 +105,7 @@ export default function Footer() {
            md={8} 
            lg={8} 
            sx={{ 
-            px:{ xs: 2, sm: 3, md: 0 },pl: { lg: 8 },
+            px:{ xs: 2, sm: 3, md: 0 },pl: { lg: 10 },
             mt:{ xs: 1, md: 2 },
              }} >
             <Grid
@@ -112,16 +114,16 @@ export default function Footer() {
     columnSpacing={{ xs: 1.5, sm: 3, md: 5 }}
             justifyContent={{ xs: "center", md: "flex-start" }}
              sx={{ textAlign: { xs: "center", sm: "left"},
+            
               "& .MuiStack-root": {
                 alignItems: { xs: "center", sm: "flex-start" },
-                // gap: { xs: 0.75, sm: 1.1 },
                },
                "& a": { lineHeight: { xs: 1.3, sm: 1.5 } },
             
           }}
             >
               {/* Product */}
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item xs={12} sm={6} md={3} sx={{mb:{xs:2}}}>
                 <Typography 
                 fontSize={{ xs: 18, sm: 20, md: 22 }}
                  fontWeight={700} 
@@ -139,7 +141,7 @@ export default function Footer() {
               </Grid>
 
               {/* Service */}
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item xs={12} sm={6} md={3} sx={{mb:{xs:2}}}>
                 <Typography
                  fontSize={{ xs: 18, sm: 20, md: 22 }} 
                  fontWeight={700}
@@ -155,7 +157,7 @@ export default function Footer() {
               </Grid>
 
               {/* Company */}
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item xs={12} sm={6} md={3} sx={{mb:{xs:2}}}>
                 <Typography 
                 fontSize={{ xs: 18, sm: 20, md: 22 }} 
                 fontWeight={700} 
@@ -179,7 +181,7 @@ export default function Footer() {
               </Grid>
 
               {/* Contact */}
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item xs={12} sm={6} md={3} sx={{mb:{xs:2}}}>
                 <Typography fontSize={{ xs: 18, sm: 20, md: 22 }} fontWeight={700} mb={{ xs: 1, sm: 1.5 }}>
                   Contact us
                 </Typography>
