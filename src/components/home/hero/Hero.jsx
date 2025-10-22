@@ -24,7 +24,7 @@ const Hero = () => {
           component="h1"
           sx={{
             fontWeight: 700,
-            fontSize: { xs: "3rem", md: "4rem" },
+            fontSize: { xs: "2.5rem", md: "4rem" },
             fontFamily: "Helvetica Neue",
             mb: 2,
           }}
@@ -40,6 +40,7 @@ const Hero = () => {
             fontWeight: 400,
             color: "rgba(255,255,255,0.8)",
             mb: 4,
+            fontSize: { xs: "0.95rem", md: "1.1rem" },
           }}
         >
           Join the next generation of companies using Anslation to build scalable
