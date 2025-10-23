@@ -40,7 +40,7 @@ function Always() {
     };
 
     return (
-           <div className=" w-full  relative overflow-hidden ">
+           <div className=" w-full  relative overflow-hidden m ">
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <div 

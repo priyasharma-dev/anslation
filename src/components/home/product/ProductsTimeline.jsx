@@ -2,11 +2,16 @@
 import React, { useState } from "react";
 import "./ProductsTimeline.css";
 import AdsAstraTimeline from "../tools/adsastra/AdsAstraTimeline";
+import Gradiant, { GlowWaveBackground } from "../../../gradient/gradiant";
+import { motion } from "framer-motion";
 
 const products = new Array(11).fill({
   title: "Ads-astra",
   desc: "Learn about your users",
 });
+
+
+
 
 const ProductsTimeline = () => {
   const [showAdsstraTimeline, setShowAdsstraTimeline] = useState(false);
@@ -22,15 +27,23 @@ const ProductsTimeline = () => {
     setClickedIndex(null);
   };
 
+
+ 
+
+
+  
+
   return (
 
-    <div 
-    className="relative"
+    <motion.div className="relative z-0 overflow-hidden"
     style={{
-      background: "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49.04%, rgba(0, 111, 255, 0) 100%)",
-      zIndex: 0,
+      background: "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0,81,255,0.48) 49.04%, rgba(0,111,255,0) 100%)",
     }}
-  >
+    >
+      <div>
+        <GlowWaveBackground/>
+      </div>
+
     {/* Background SVG Pattern - Lower Layer */}
     <svg
       className='absolute inset-0 w-full h-full'
@@ -140,7 +153,7 @@ const ProductsTimeline = () => {
         </div>
       )}
     </div>
-  </div>
+  </motion.div>
   );
 };
 

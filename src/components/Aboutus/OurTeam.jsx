@@ -5,49 +5,19 @@ import img3 from "../../assets/our-team1-4.png"
 import img4 from '../../assets/our-team1-5.png'
 import img5 from '../../assets/our-team1-6.png'
 import img6 from '../../assets/our-team1.png'
-
-const team = [
-  { img: img1, role: "CEO", name: "sahil Khan" },
-  { img: img2, role: "CTO", name: "Aisha Khan" },
-  { img: img3, role: "Marketing Head", name: "Vikram Singh" },
-  { img: img4, role: "Product Lead", name: "Priya" },
-  { img: img5, role: "Design Lead", name: "Rohit Verma" },
-  { img: img6, role: "Engineering Manager", name: "Neha Gupta" },
-];
-
+import { OurTeamGradiantBottom, OurTeamGradiantTop } from '../../gradient/gradiant'
+import { motion } from 'framer-motion'
 
 function OurTeam() {
   return (
     <>
       <div className='relative' >
-         {/* decorative beams – hidden on mobile */}
-        <div
-         className="hidden md:block absolute -rotate-[33.3deg] blur-[10.45px] rounded-[20px] z-0"
-          style={{
-            width: "800.38px",
-            height: "80.86px",
-            left: "951px",
-            top: "300.71px",
-            background:
-              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-    
-          }}
-        >
+        <div>
+          <OurTeamGradiantTop/>
         </div>
-        <div
-         className="hidden md:block absolute -rotate-[33.3deg] blur-[10.45px] rounded-[20px] z-0"
-          style={{
-          
-            width: "300.38px",
-            height: "80.86px",
-            right: "-50px",// shifted from left to right for responsiveness
-            top: "500.71px",
-            background:
-              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            
-          }}
-        >
 
+        <div>
+          <OurTeamGradiantBottom/>
         </div>
         <div className='mt-12 container md:mt-16  max-w-7xl mx-auto px-4' 
         style={{
@@ -179,7 +149,7 @@ function OurTeam() {
             </div>
 
             {/* 6 */}
-            <div className='py-20 group relative cursor-pointer'>
+            <div  className='py-10 group relative cursor-pointer'>
               <img src={img6} alt='' className='h-80 object-cover rounded-xl' />
               <div className='pointer-events-none absolute inset-0 rounded-xl
                             bg-gradient-to-t from-black/80 via-black/40 to-transparent

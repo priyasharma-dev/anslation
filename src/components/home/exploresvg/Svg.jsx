@@ -433,7 +433,7 @@ function Home() {
 
 
           {/* Marketing */}
-          <div className="w-50 max-w-7xl h-80 absolute bottom-12 left-160">
+          <div className="w-50 max-w-7xl h-80 absolute bottom-12 left-155">
             <svg
               className="absolute top-0 left-0 w-full h-full"
               viewBox="0 0 1200 400"
@@ -463,7 +463,7 @@ function Home() {
 
 
           {/* Microtools */}
-          <div className="w-50 max-w-7xl h-80 absolute bottom-12 left-177">
+          <div className="w-50 max-w-7xl h-80 absolute bottom-12 left-130">
             <svg
               className="absolute top-0 left-0 w-full h-full"
               viewBox="0 0 1200 400"
