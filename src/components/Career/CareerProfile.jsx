@@ -13,6 +13,8 @@ import exprience from "../../assets/Vector-4.png"
 import vacancy from "../../assets/Vector-5.png"
 import location from "../../assets/Vector.png"
 import working from "../../assets/Group.png"
+import { CareerProfileGradiantBottom, CareerProfileGradiantop } from '../../gradient/gradiant'
+import { motion } from 'framer-motion'
 
 
 
@@ -43,95 +45,102 @@ function CareerProfile() {
     return (
 
         <div className='relative' >
-                   <div
-          style={{
-            position: "absolute",
-            width: "300.38px",
-            height: "80.86px",
-            right: "-100px",// shifted from left to right for responsiveness
-            top: "-80px",
-            background:
-              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            filter: "blur(10.45px)",
-            borderRadius: "20px",
-            transform: "rotate(-33.3deg)",
-            zIndex: 0,
-          }}
-        >
-        </div>
-        <div 
-           style={{
-            position: "absolute",
-            width: "300.38px",
-            height: "65.86px",
-            right: "-75px",// shifted from left to right for responsiveness
-            top: "100.71px",
-            background:
-              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            filter: "blur(10.45px)",
-            borderRadius: "20px",
-            transform: "rotate(-33.3deg)",
-            zIndex: 0,
-          }}
-        
-        >
-         
-       
-
-        </div>
-
-        <div className='mx-auto w-full container max-w-7xl px-3 sm:px-6 lg:px-8 mt-4 sm:mt-8 text-white overflow-x-hidden' >
-            <div className='border-white z-30 border-6 relative w-full h-50 rounded-2xl' >
-                <img 
-                src={jobHeader}
-                 alt="jobPoster"
-                  className='w-full h-36 sm:h-56 md:h-80 lg:h-96 object-cover' />
-                <div className='top-2 sm:top-5 md:top-8 left-2 sm:left-5 md:left-8 ' >
-                    <h1 className='text-[9px] sm:text-sm md:text-base text-white/90' >{job.category}</h1>
-                    <p className='mt-1 text-base sm:text-2xl md:text-4xl lg:text-6xl font-extrabold leading-tight drop-shadow' >{job.title}</p>
-                </div>
+            <div>
+                <CareerProfileGradiantop />
             </div>
-            {/*Main Content */}
-            <div className='mt-4 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-12 items-start' >
-                {/* left div */}
-                <main className="order-2 lg:order-1 lg:col-span-8 min-w-0">
-                    <section className='space-y-5 sm:space-y-8 md:space-y-10 pb-8 sm:pb-12' >
-                        <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold' >
-                                Who Are We Looking For
-                            </h2>
-                            <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                {job.whoWeAreLookingFor?.map((point, idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
-                        </div>
+            <div>
+                <CareerProfileGradiantBottom />
+            </div>
+            <div className='mx-auto container w-7xl mt-5' >
+                <div className='border-white z-30 border-6 relative w-full h-50 rounded-2xl' >
+                    <img src={jobHeader} alt="jobPoster" className='w-7xl h-47   mx-auto' />
+                    <div className='absolute  top-15 left-15 ' >
+                        <h1 className='text-xl' >{job.category}</h1>
+                        <motion.p
+                            className='text-6xl font-extrabold' >
 
-                        <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold' >What You Will Be Doing</h2>
-                            <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                {job.whatYouWillBeDoing?.map((point, idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
-                        </div>
+                            <motion.span
+                                style={{ display: "inline-block", clipPath: "inset(0 100% 0 0)" }}
+                                initial={{ clipPath: "inset(0 100% 0 0)" }}
+                                animate={{ clipPath: "inset(0 0% 0 0)" }}
+                                transition={{ duration: 3, ease: "easeInOut" }}
+                            >
+                                {job.title}
+                            </motion.span>
 
-                        <div >
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >Bonus Points for Familiarity with</h2>
-                            <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm  text-gray-300 ">
-                                {job.bonusPoints?.map((point, idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
-                        </div>
 
-                        <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold' >Educational Requirement</h2>
-                            <div className='w-xl ' >
-                                <p  className="mt-2 pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300 max-w-prose break-words">{job?.educationalRequirement}</p>
+                        </motion.p>
+                    </div>
+                </div>
+                <div className='flex justify-between ' >
+                    {/* left div */}
+                    <div >
+                        <div className='px-10 py-10' >
+                            <div>
+                                <h2 className='text-2xl font-extrabold ' >Who Are We Looking For</h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    {job.whoWeAreLookingFor?.map((point, idx) => (
+                                        <li key={idx}>{point}</li>
+                                    ))}
+                                </ul>
                             </div>
-                        </div>
 
+                            <div className='py-10' >
+                                <h2 className='text-2xl font-extrabold ' >What You Will Be Doing</h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    {job.whatYouWillBeDoing?.map((point, idx) => (
+                                        <li key={idx}>{point}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className='py-10' >
+                                <h2 className='text-2xl font-extrabold ' >Bonus Points for Familiarity with</h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    {job.bonusPoints?.map((point, idx) => (
+                                        <li key={idx}>{point}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h2 className='text-2xl font-extrabold ' >Educational Requirement</h2>
+                                <div className='w-xl ' >
+                                    <p>{job?.educationalRequirement}</p>
+                                </div>
+                            </div>
+
+                            <div className='py-10' >
+                                <h2 className='text-2xl font-extrabold ' >Salary</h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    <li>{job?.salary?.range}</li>
+                                    <li>{job?.salary?.review}</li>
+                                </ul>
+                            </div>
+
+                            <div className='py-10' >
+                                <h2 className='text-2xl font-extrabold ' >Working Hours</h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    <li>{job?.workingHours}</li>
+                                </ul>
+                            </div>
+
+                            <div className='py-10' >
+                                <h2 className='text-2xl font-extrabold ' >Working Days</h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    <li>{job?.workingDays?.weekly}</li>
+                                    <li>{job?.workingDays?.weekend}</li>
+                                </ul>
+                            </div>
+
+                            <div className='py-10' >
+                                <h2 className='text-2xl font-extrabold ' >Perks & Benefits You’ll Get </h2>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    {job.perksAndBenefits?.map((point, idx) => (
+                                        <li key={idx}>{point}</li>
+                                    ))}
+                                </ul>
+                            </div>
                         <div>
                             <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold' >
                                 Salary
@@ -167,7 +176,7 @@ function CareerProfile() {
                         </div>
 
 
-                        <div className=' border w-full '></div>
+                            <div className=' border w-full '></div>
 
                         <div>
                             <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >The Application Process</h2>
@@ -288,10 +297,13 @@ function CareerProfile() {
                                     </a>
                                 </li>
                             </div>
-
                         </div>
                     </div>
 
+                </div>
+
+            </div>
+        </div>
                     <div className=' mt-6' >
                     <p className='text-white text-center text-base sm:text-lg mb-2' >Share this:</p>
                     <div className='flex flex-wrap gap-3 sm:gap-6 items-center justify-around'>

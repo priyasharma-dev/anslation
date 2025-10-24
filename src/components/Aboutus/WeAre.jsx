@@ -3,6 +3,9 @@ import who from "../../assets/Group 39566.png";
 import verticleLine from "../../assets/Group 39562.png";
 import mission from "../../assets/Group 39568.png";
 import goal from "../../assets/Group 39571.png";
+import Gradiant, { LeftBottomGradiant } from "../../gradient/gradiant";
+import { motion } from "framer-motion";
+import { LeftGradiant } from "../../gradient/gradiant";
 
 function WeAre() {
   return (
@@ -14,54 +17,16 @@ function WeAre() {
       }}
     >
       {/* Decorative gradient shapes */}
-      <div
-        className="pointer-events-none"
-        style={{
-          position: "absolute",
-          width: "800.38px",
-          height: "112.86px",
-          left: "951px",
-          top: "1.71px",
-          background:
-            "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-          filter: "blur(10.45px)",
-          borderRadius: "20px",
-          transform: "rotate(-33.3deg)",
-          zIndex: 0,
-        }}
-      />
-      <div
-        className="pointer-events-none"
-        style={{
-          position: "absolute",
-          width: "500.38px",
-          height: "112.86px",
-          left: "-200px",
-          top: "500.71px",
-          background:
-            "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 70%)",
-          filter: "blur(10.45px)",
-          borderRadius: "20px",
-          transform: "rotate(-150.3deg)",
-          zIndex: 0,
-        }}
-      />
-      <div
-        className="pointer-events-none"
-        style={{
-          position: "absolute",
-          width: "700.38px",
-          height: "112.86px",
-          left: "-200px",
-          top: "750.71px",
-          background:
-            "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 70%)",
-          filter: "blur(10.45px)",
-          borderRadius: "20px",
-          transform: "rotate(-150.3deg)",
-          zIndex: 0,
-        }}
-      />
+      <div>
+        <Gradiant/>
+      </div>
+
+       <div>
+          <LeftGradiant/>
+       </div>
+          <div>
+            <LeftBottomGradiant/>
+          </div>
 
       {/* Subtle grid overlay */}
       <svg
@@ -110,10 +75,15 @@ function WeAre() {
         {/* Who We Are */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 my-12 md:my-16">
           <div className="flex justify-center lg:justify-start">
-            <img
+            <motion.img
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 1.2 },
+          }}
+              whileTap={{ scale: 1 }} 
               src={who}
               alt="Team at work"
-              className="w-full max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
+              className="w-full cursor-pointer max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
             />
           </div>
           <div className="text-white/95">
@@ -139,10 +109,15 @@ function WeAre() {
         {/* Our Mission */}
         <div className="flex flex-col md:flex-row justify-between items-center my-20 gap-10">
           <div className="w-full md:w-1/2 flex justify-center">
-            <img
+            <motion.img
+             whileHover={{
+              scale: 1.2,
+              transition: { duration: 1.2},
+          }}
+              whileTap={{ scale: 1 }} 
               src={mission}
               alt="Our mission"
-              className="w-full max-w-sm md:max-w-md px-5 md:px-10"
+              className="w-full cursor-pointer  max-w-sm md:max-w-md px-5 md:px-10"
             />
           </div>
           <div className="w-full md:w-1/2 px-5 md:px-10">
@@ -186,10 +161,15 @@ function WeAre() {
         {/* Our Story */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 my-12 md:my-16">
           <div className="flex justify-center lg:justify-start">
-            <img
+            <motion.img
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 1.2 },
+          }}
+              whileTap={{ scale: 1 }} 
               src={goal}
               alt="Goals and milestones"
-              className="w-full max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
+              className="w-full cursor-pointer max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
             />
           </div>
           <div className="text-white/95">

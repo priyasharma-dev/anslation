@@ -1,20 +1,28 @@
 import React from 'react'
 import anslation from "../../assets/Group 79.png"
+import { motion } from 'framer-motion'
 
 function AnslationPillar() {
     return (
         <div className=" mx-auto  relative ">
             {/* image section */}
-            <div className='absolute  bottom-0 left-90  pointer-events-none    flex justify-center items-center  flex-col  '  
+            <div className='absolute  cursor-pointer z-50 bottom-0 left-90     flex justify-center items-center  flex-col  '
                 style={{
                     background:
                         "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49.04%, rgba(0, 111, 255, 0) 100%)",
-                        opacity:"0.9"
-                        
-                    
+                    opacity: "0.8"
+
+
                 }} >
                 <div>
-                    <img src={anslation} alt="" className='w-md  ' />
+                    <motion.img 
+                     whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 1.2 },
+                      }}
+                      whileTap={{ scale: 0.6 }} 
+                    
+                    src={anslation} alt="" className='w-md ' />
                     <p className='text-center py-3  text-4xl'>Our 7 Pillar & Values</p>
                 </div>
 
@@ -101,48 +109,96 @@ function AnslationPillar() {
 
             {/* box start here */}
             <div>
-                <div className=' absolute bottom-15 left-10 py-1  w-48 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3] hover:to-[#000C27]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                <motion.div whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} className=' absolute bottom-15 left-10 py-1  w-48 border bg-black   rounded cursor-pointer   hover:bg-gradient-to-r hover:from-[#1D73F3] hover:to-[#000C27]' >
                     <h3 className='text-2xl text-center font-extrabold ' >Innovation</h3>
                     <p className='text-center' >Pioneering the Future</p>
-                </div>
-                <div className=' absolute bottom-55 left-30 py-1  w-36 border bg-black   rounded  cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                </motion.div>
+
+                <motion.div 
+                whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} 
+                
+                className=' absolute bottom-55 left-30 py-1  w-36 border bg-black   rounded    hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            ' >
                     <h3 className='text-2xl text-center font-extrabold ' >Integrity</h3>
                     <p className='text-center' >Building Trust</p>
-                </div>
-                <div className=' absolute top-45 left-52 py-1  w-48 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                </motion.div>
+
+                <motion.div  
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} 
+                
+                className=' absolute top-45 left-52 py-1  w-48 border bg-black   rounded cursor-pointer    hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                          ' >
                     <h3 className='text-2xl text-center font-extrabold ' >Collaboration</h3>
                     <p className='text-center' >Stronger Together</p>
-                </div>
-                <div className=' absolute top-20 left-115 py-2  w-64 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                </motion.div>
+
+
+                <motion.div  
+                whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} 
+                className=' absolute top-20 left-115 py-2  w-64 border bg-black   rounded cursor-pointer   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                          ' >
                     <h3 className='text-2xl text-center font-extrabold ' >Customer Focus</h3>
                     <p className='text-center' >Focused on You</p>
-                </div>
-                <div className=' absolute top-45 right-52 py-1  w-48 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                </motion.div>
+
+
+                <motion.div 
+                whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} 
+                
+                className=' absolute top-45 right-52 py-1  w-48 border bg-black   rounded cursor-pointer   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            ' >
                     <h3 className='text-2xl text-center font-extrabold ' >Agility</h3>
                     <p className='text-center' >Adapting to Change</p>
-                </div>
-                <div className=' absolute bottom-55 right-30 py-1 w-48 border bg-black  rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                </motion.div>
+
+
+                <motion.div 
+                whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} 
+                
+                className=' absolute bottom-55 right-30 py-1 w-48 border bg-black  rounded cursor-pointer   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                            ' >
                     <h3 className='text-2xl text-center font-extrabold ' >Excellence</h3>
                     <p className='text-center' >Commitment to Quality</p>
-                </div>
-                <div className=' absolute bottom-15 right-10  w-64 py-1 border bg-black   rounded cursor-pointer  transition-all duration-300 ease-out   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
-                            hover:scale-[1.02] hover:translate-y-[-2px]
-                              hover:shadow-[0_10px_25px_rgba(29,115,243,0.25)]' >
+                </motion.div>
+
+
+
+                <motion.div 
+                whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 1 },
+                }}
+                    whileTap={{ scale: 0.5 }} 
+                
+                className=' absolute bottom-15 right-10  w-64 py-1 border bg-black   rounded cursor-pointer   hover:bg-gradient-to-r hover:from-[#1D73F3A3] hover:to-[#000C27D1]
+                           ' >
                     <h3 className='text-2xl text-center font-extrabold ' >Sustainability</h3>
                     <p className='text-center' >Creating a Better Tomorrow</p>
-                </div>
+                </motion.div>
             </div>
 
         </div>

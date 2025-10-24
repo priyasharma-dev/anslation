@@ -6,6 +6,7 @@ import echo from "../../assets/echo.png"
 import outside from "../../assets/outside.png"
 import pulse from "../../assets/pulse.png"
 import twich from "../../assets/twich.png"
+import { motion } from 'framer-motion'
 
 function Team() {
     const companies = [
@@ -25,9 +26,17 @@ function Team() {
                 Trusted by the world's most innovative teams
             </h3>
             
-            <div className='grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 max-w-7xl mx-auto'  >
+            <motion.div 
+             className='grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 max-w-7xl mx-auto'  >
                 {companies.map((company, index) => (
-                    <div 
+                    <motion.div 
+
+                    whileHover={{
+                        scale: 1.1,
+                        // Will be used when gesture starts
+                        transition: { duration: 0.5 }
+                      }}
+    
                         key={index}
                         className='flex justify-center items-center
                             h-32 w-full
@@ -43,9 +52,9 @@ function Team() {
                             alt={company.alt} 
                             className='w-36 h-auto object-contain px-4' 
                         />
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     )
 }

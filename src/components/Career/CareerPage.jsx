@@ -1,6 +1,8 @@
 import React, { useState, useEffect,useRef } from 'react'
 import { jobData } from "../../libs/data.js"
 import { Link } from 'react-router-dom';
+import { CareerGradiantBottom, CareerGradiantTop } from '../../gradient/gradiant.jsx';
+import { motion } from 'framer-motion';
 
 function CareerPage() {
   const [activeFilter, setActiveFilter] = useState('ALL');
@@ -72,87 +74,58 @@ setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
   const shouldShowLeft = isMobile || showScrollArrows;
   const shouldShowRight = isMobile ||showScrollArrows;
 
+
+
+
   return (
     <>
-       <div>
-       <div
-          style={{
-            position: "absolute",
-            width: "600.38px",
-            height: "80.86px",
-            right: "-100px",// shifted from left to right for responsiveness
-            top: "70.71px",
-            background:
-              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            filter: "blur(10.45px)",
-            borderRadius: "20px",
-            transform: "rotate(-33.3deg)",
-            zIndex: 0,
-          }}
-        >
-        </div>
-        <div 
-           style={{
-            position: "absolute",
-            width: "400.38px",
-            height: "65.86px",
-            right: "-75px",// shifted from left to right for responsiveness
-            top: "200.71px",
-            background:
-              "linear-gradient(90deg, rgba(2, 34, 71, 0) 0%, #043AAD 50%)",
-            filter: "blur(10.45px)",
-            borderRadius: "20px",
-            transform: "rotate(-33.3deg)",
-            zIndex: 0,
-          }}
-        
-        >
+      <div>
+
+        <div>
+          <CareerGradiantTop />
         </div>
 
-      <div className="relative z-10 min-h-screen text-white p-4 sm:p-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="mb-8 sm:mb-12">
-            <p className="text-gray-400 text-sm uppercase tracking-wider mb-3 sm:mb-4">
-              WORK AT ANSLATION
-              </p>
-            <h1 className="font-bold leading-tight mb-4 sm:mb-8 whitespace-nowrap tracking-tight"
-            style={{
-              fontSize:"clamp(1rem,6.5vw,3.75rem)",
-             }}>
-              We're always seeking talent.
-              </h1>
+        <div>
+          <CareerGradiantBottom />
+        </div>
 
-            {/* Filter Tabs */}
-            <div className="relative flex items-center">
-            {shouldShowLeft && (
-              <button
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 bg-black/40 p-2 rounded-full"
-            onClick={() => scrollBy(-150)}
-            >
-            ◀
-           </button> )}
 
-         <div
-          ref={listRef}
-          className="flex overflow-x-auto scrollbar-hide gap-2 py-3 px-6 sm:px-1 mx-8 sm:mx-0 w-full"
-         >
-            {/* <div className="border-t border-gray-700 pt-8">
-              <div className="flex flex-wrap gap-3 scale-z-200 cursor-pointer"> */}
-                {categories.map(category => (
-                  <button
-                    key={category.name}
-                    onClick={() => setActiveFilter(category.name)}
-                    className={`px-4 py-2 whitespace-nowrap cursor-pointer rounded-md text-sm font-medium transition-all shrink-0
-                       ${
-                      activeFilter === category.name
+        <div className="min-h-screen text-white p-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="mb-12">
+              <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">WORK AT ANSLATION</p>
+              <motion.h1
+
+                style={{ fontSize: "3rem", fontWeight: 700, color: "#fff", display: "inline-block" }}
+
+                className="text-5xl md:text-6xl font-bold mb-8">
+                <motion.span
+                  style={{ display: "inline-block", clipPath: "inset(0 100% 0 0)" }}
+                  initial={{ clipPath: "inset(0 100% 0 0)" }}
+                  animate={{ clipPath: "inset(0 0% 0 0)" }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                >
+                  We're always seeking talent.
+                </motion.span>
+              </motion.h1>
+
+              {/* Filter Tabs */}
+              <div className="border-t border-gray-700 pt-8">
+                <div className="flex flex-wrap gap-3 scale-z-200 cursor-pointer">
+                  {categories.map(category => (
+                    <button
+                      key={category.name}
+                      onClick={() => handleFilterClick(category.name)}
+                      className={`px-6 cursor-pointer py-2.5 rounded-md font-medium transition-all relative z-10 ${activeFilter === category.name
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                    }`}
-                  >
-                    {category.name} {category.name !== 'ALL' && `(${category.count})`}
-                  </button>
-                ))}
+                        }`}
+                    >
+                      {category.name} {category.name !== 'ALL' && `(${category.count})`}
+                    </button>
+                  ))}
+                </div>
               </div>
 
                {shouldShowRight && (
@@ -164,7 +137,6 @@ setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
              </button>
                )}
             </div>
-          </div>
 
           {/* Job Listings (paginated) */}
           <div className="space-y-4">
@@ -189,16 +161,9 @@ setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
                         <span className="text-sm">{job.location}</span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* No Results */}
-          {filteredJobs.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-gray-400 text-lg">No positions available in this category at the moment.</p>
+                  </motion.div>
+                </Link>
+              ))}
             </div>
           )}
 
@@ -222,15 +187,15 @@ setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
                     page === 1
                       ? 'cursor-not-allowed border-gray-800 text-gray-600 bg-gray-900/50'
                       : 'border-gray-700 bg-gray-800 hover:bg-gray-700 text-white'
-                  }`}
-                >
-                  Prev
-                </button>
+                      }`}
+                  >
+                    Prev
+                  </button>
 
-                {/* current page / total */}
-                <span className="text-sm text-gray-300 px-2">
-                  Page {page} of {totalPages}
-                </span>
+                  {/* current page / total */}
+                  <span className="text-sm text-gray-300 px-2">
+                    Page {page} of {totalPages}
+                  </span>
 
                 <button
                   onClick={() => setPage(p => Math.min(totalPages, p + 1))}
@@ -239,15 +204,15 @@ setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
                     page === totalPages
                       ? 'cursor-not-allowed border-gray-800 text-gray-600 bg-gray-900/50'
                       : 'border-gray-700 bg-gray-800 hover:bg-gray-700 text-white'
-                  }`}
-                >
-                  Next
-                </button>
+                      }`}
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
       </div>
     </>
   )
