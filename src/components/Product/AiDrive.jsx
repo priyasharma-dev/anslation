@@ -5,7 +5,7 @@ function AiDrive() {
     <>
       <div className='relative ' >
 
-        <div className=" container relative overflow-hidden border-white/15 py-30 my-30 border rounded-xl    shadow-[0_10px_30px_rgba(255,255,255,0.15)]  mx-auto  flex items-center justify-center  text-white">
+        <div className=" container relative overflow-hidden border-white/15 py-30 my-30 border rounded-xl shadow-[0_10px_30px_rgba(255,255,255,0.15)]  mx-auto  flex items-center justify-center  text-white">
 
         <div className=' absolute w-full  bottom-30  h-full  rounded-full opacity-100 bg-[radial-gradient(50%_50%_at_50%_50%,_#4596FF7D_0%,_#1f2937_49.04%,_#000000_100%)] '></div>
           <svg
