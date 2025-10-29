@@ -215,7 +215,7 @@ export default function Footer() {
                    <Link href="#" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Contact us</Link>
                   <Link href="/career" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Careers</Link>
                   <Link href="#" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Culture</Link>
-                  <Link href="#" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Blog</Link>
+                  <Link href="/blog" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Blog</Link>
                 </Stack>
                 </Box>
 

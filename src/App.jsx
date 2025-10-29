@@ -8,7 +8,8 @@ import Career from "./pages/Career";
 import CareerProfile from "./components/Career/CareerProfile";
 import Product from "./pages/Product";
 import Gradiant from "./gradient/gradiant";
-
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 
 
 
@@ -24,6 +25,8 @@ function App() {
           <Route path="/career" element={<Career/>} />
           <Route path="/career/:id" element={<CareerProfile/>} />
           <Route  path="/product" element={<Product/>} />
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/blog/:id" element={<BlogDetail/>}/>
         
           </Route>
           <Route  path="/gradiant"  element={<Gradiant/>} />
