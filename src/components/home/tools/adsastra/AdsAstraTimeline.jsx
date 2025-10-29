@@ -13,13 +13,10 @@ const AdsAstraTimeline = () => {
 
   const handleCardClick = (index) => {
     setClickedIndex(index);
-    setShowDataVerseTimeline(true);
+    setShowDataVerseTimeline(prev => !prev);
   };
 
-  const handleClose = () => {
-    setShowDataVerseTimeline(false);
-    setClickedIndex(null);
-  };
+ 
 
   return (
     <div className="timeline-container">

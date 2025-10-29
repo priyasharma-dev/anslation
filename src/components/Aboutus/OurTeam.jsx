@@ -141,7 +141,7 @@ function OurTeam() {
               </div>
             </div>
 
-            {/* 5 */}
+            {/* 5 */} 
             <div className='group relative cursor-pointer'>
               <img src={img5} alt='' className='h-80 object-cover rounded-xl' />
               <div className='pointer-events-none absolute inset-0 rounded-xl

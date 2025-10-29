@@ -8,6 +8,7 @@ import Career from "./pages/Career";
 import CareerProfile from "./components/Career/CareerProfile";
 import Product from "./pages/Product";
 import Gradiant from "./gradient/gradiant";
+import CenterAnimation from "./gradient/centerAnimation";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         
           </Route>
           <Route  path="/gradiant"  element={<Gradiant/>} />
+          <Route  path="/animation" element={<CenterAnimation/>} />
 
         </Routes>
       </Box>

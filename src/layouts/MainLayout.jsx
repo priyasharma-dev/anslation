@@ -50,7 +50,7 @@ export default function MainLayout() {
 
       {/* CTA + Footer */}
      
-      <div style={{ ...styles.gutter, ...styles.content }}>
+      <div style={{ ...styles.content }}>
       <Always />
       <Footer />
       </div>

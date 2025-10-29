@@ -16,16 +16,14 @@ const products = new Array(11).fill({
 const ProductsTimeline = () => {
   const [showAdsstraTimeline, setShowAdsstraTimeline] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(null);
+  const [togle , setTogle] = useState(false)
 
   const handleCardClick = (index) => {
     setClickedIndex(index);
-    setShowAdsstraTimeline(true);
+    setShowAdsstraTimeline(prev => !prev);
   };
 
-  const handleClose = () => {
-    setShowAdsstraTimeline(false);
-    setClickedIndex(null);
-  };
+ 
 
 
  
@@ -40,9 +38,6 @@ const ProductsTimeline = () => {
       background: "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0,81,255,0.48) 49.04%, rgba(0,111,255,0) 100%)",
     }}
     >
-      <div>
-        <GlowWaveBackground/>
-      </div>
 
     {/* Background SVG Pattern - Lower Layer */}
     <svg
@@ -138,17 +133,6 @@ const ProductsTimeline = () => {
           className={`adsstra-timeline-container ${showAdsstraTimeline ? "fade-in" : ""}`}
           style={{ marginTop: "75px", position: 'relative', zIndex: 20 }}
         >
-          <button
-            onClick={handleClose}
-            style={{
-              position: "absolute",
-              top: "20px",
-              right: "20px",
-              zIndex: "1000",
-            }}
-          >
-            Close
-          </button>
           <AdsAstraTimeline />
         </div>
       )}
