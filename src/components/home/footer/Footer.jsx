@@ -192,7 +192,8 @@ export default function Footer() {
                 >
                   Company
                 </Typography>
-                <Stack spacing={{ xs: 0.6, sm: 1, md: 1.4, lg: 2 }}>
+
+                 <Stack spacing={{ xs: 0.6, sm: 1, md: 1.4, lg: 2 }}>
                   <Link
                     href="/about"
                     color="inherit"
@@ -205,24 +206,7 @@ export default function Footer() {
                   <Link href="/career" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Careers</Link>
                   <Link href="#" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Culture</Link>
                   <Link href="/blog" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Blog</Link>
-                <Stack spacing={1.5}>
-                  {footerLinks.company.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      color="inherit"
-                      underline="hover"
-                      sx={{
-                        fontSize: { xs: 15, sm: 16, md: 17 },
-                        color: "rgba(255,255,255,0.85)",
-                        transition: "color 0.2s",
-                        "&:hover": { color: "white" },
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </Stack>
+                   </Stack> 
               </Grid>
 
               {/* Contact */}
