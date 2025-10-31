@@ -9,6 +9,7 @@ import {
     Chip,
     createTheme,
     ThemeProvider,
+    Link,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -234,6 +235,9 @@ export default function DataVerseSection() {
                         />
 
                         <Stack direction="row" spacing={3} flexWrap="wrap">
+                            <Link  
+                            href="/product"
+                            color="inherit" >
                             <Button
                                 variant="contained"
                                 sx={{
@@ -253,6 +257,7 @@ export default function DataVerseSection() {
                             >
                                 Go to Data verse
                             </Button>
+                            </Link>
                             <Button
                                 variant="outlined"
                                 sx={{

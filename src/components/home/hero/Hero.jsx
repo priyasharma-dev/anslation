@@ -30,7 +30,7 @@ const Hero = () => {
         component="h1"
         sx={{
           fontWeight: 700,
-          fontSize: { xs: "2.5rem", md: "4rem" },
+          fontSize: { xs: "1.5rem", sm:"2rem", md: "4rem" },
           fontFamily: "Helvetica Neue",
           mb: 2,
         
