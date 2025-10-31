@@ -17,9 +17,9 @@ function WeAre() {
       }}
     >
       {/* Decorative gradient shapes */}
-      <div>
+      {/* <div>
         <Gradiant/>
-      </div>
+      </div> */}
 
        <div>
           <LeftGradiant/>
