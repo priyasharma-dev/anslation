@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, MessageCircle, ChevronDown } from "lucide-react";
+import {
+  Send,
+  MessageCircle,
+  ChevronDown,
+  ChartBarIcon,
+  MessageSquare,
+} from "lucide-react";
 
 const ChatSupport = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,7 +115,7 @@ const ChatSupport = () => {
   const solutionOptions = Object.keys(chatData);
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end">
+    <div className="fixed bottom-6 right-2 z-[9999] flex flex-col items-end">
       {/* Floating Chat Button */}
       <AnimatePresence mode="wait">
         {!isOpen && (
@@ -119,21 +125,43 @@ const ChatSupport = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.25 }}
-            className="relative"
+            className="fixed bottom-2  sm:bottom-6 sm:right-6 z-50"
           >
-            <motion.span
-              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0.2, 0.6] }}
-              transition={{ repeat: Infinity, duration: 1.8 }}
-              className="absolute inset-0 bg-blue-500 rounded-full blur-md"
-            ></motion.span>
+            {/* Glowing pulse effect */}
 
+            {/* Chat Button */}
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={toggleChat}
-              className="relative bg-blue-600 hover:bg-blue-700 text-white 
-              p-4 rounded-full shadow-lg focus:outline-none transition-all cursor-pointer"
+              className="
+    fixed z-[3000] 
+    flex items-center justify-center
+    rounded-full focus:outline-none cursor-pointer transition-all duration-300
+    bg-blue-600 hover:bg-blue-700 text-white
+    shadow-md sm:shadow-l transition:2s
+
+    /* 📍 Responsive positioning */
+    bottom-3 right-3                /* Safe space on mobile */
+    sm:bottom-4 sm:right-4
+    md:bottom-6 md:right-6
+    lg:bottom-1 lg:right-2         /* Tight to edge on full screen */
+    
+    /* 🟦 Responsive size */
+    w-12 h-12 p-2
+    sm:w-12 sm:h-12 sm:p-3
+    md:w-14 md:h-14 md:p-4
+    lg:w-16 lg:h-16 lg:p-5
+  "
             >
-              <MessageCircle size={23} />
+              <MessageSquare
+                className="
+      text-white
+      w-5 h-5
+      sm:w-6 sm:h-6
+      md:w-7 md:h-7
+      lg:w-8 lg:h-8
+    "
+              />
             </motion.button>
           </motion.div>
         )}
@@ -151,23 +179,26 @@ const ChatSupport = () => {
             className="
               fixed bottom-5 right-6 w-[370px] sm:w-[420px]
               bg-blue-100 backdrop-blur-md bg-opacity-90
-              rounded-2xl shadow-2xl border border-gray-200
+              rounded-3xl shadow-4xl 
               flex flex-col h-[500px] max-h-[85vh] overflow-hidden
               max-sm:inset-0 max-sm:w-full max-sm:h-screen max-sm:max-h-none 
-              max-sm:rounded-none max-sm:border-0 max-sm:z-[9999]
+              max-sm:rounded-none  max-sm:z-[9999]
             "
           >
             {/* Header */}
-            <div className="bg-blue-900 text-white px-6 py-5 flex items-center justify-between sticky top-0 z-70 shadow">
+            <div className="bg-blue-900 text-white px-6 py-6 flex items-center justify-between sticky top-0 z-[9999] shadow rounded-xl">
               <div className="flex items-center gap-3">
                 <img
                   src="/logo/logo.png"
                   alt="Logo"
-                  className="w-10 h-10 rounded-full border border-white bg-blue-600"
+                  className="w-12 h-12 rounded-full border border-white bg-blue-600"
                 />
-                <h2 className="text-lg sm:text-xl font-semibold tracking-wide">
-                  Chat With Us
-                </h2>
+                <div className="flex flex-col w-full">
+                  <h2 className="text-lg sm:text-xl font-semibold tracking-wide">
+                    Chat With Us
+                  </h2>
+                  <p className="tetx-xl font-semibold">Leave a meesage</p>
+                </div>
               </div>
               <button
                 onClick={toggleChat}

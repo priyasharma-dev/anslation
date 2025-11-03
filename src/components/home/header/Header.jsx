@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -11,17 +11,50 @@ import {
   ListItemText,
   ListItemButton,
   useMediaQuery,
-   Divider,
+  Divider,
 } from "@mui/material";
-import { DarkMode, ArrowDropDown, Menu, Close } from "@mui/icons-material";
+import {
+  DarkMode,
+  ArrowDropDown,
+  Menu,
+  Close,
+  LightMode,
+} from "@mui/icons-material";
 import { Ellipse81 } from "../../../gradient/gradienttop";
 import { Link as RouterLink } from "react-router-dom";
 
-const siteBg="#0A1929";
+const siteBg = "#0A1929";
 
 const navItems = ["Products", "Solutions", "Resources"];
 
 export default function Header() {
+  const [themeMode, setThemeMode] = useState("Light");
+  const [themeIcon, setThemeIcon] = useState(false);
+
+  const changeThemeMode = () => {
+    if (themeMode === "Dark") {
+      setThemeMode("Light");
+      setThemeIcon(false);
+    } else {
+      setThemeMode("Dark");
+      setThemeIcon(true);
+    }
+  };
+
+  useEffect(() => {
+    const root = document.documentElement; // 👈 ye body ke upar wala element hai (html)
+
+    if (themeMode === "Light") {
+      root.style.backgroundColor = "#ffffff";
+      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.color = "#000000";
+    } else {
+      root.style.backgroundColor = "#0A1929";
+      document.body.style.backgroundColor = "#0A1929";
+      document.body.style.color = "#ffffff";
+    }
+  }, [themeMode]);
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const isDesktop = useMediaQuery("(min-width:960px)");
@@ -70,10 +103,21 @@ export default function Header() {
             }}
           >
             {/* Logo */}
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <RouterLink
                 to="/"
-                style={{ display: "flex", alignItems: "center", textDecoration: "none", cursor: "pointer" , }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
               >
                 <Box
                   sx={{
@@ -87,7 +131,11 @@ export default function Header() {
                     },
                   }}
                 >
-                  <img src="./logo/logo.png" alt="logo" style={{ objectFit: "contain" }} />
+                  <img
+                    src="./logo/logo.png"
+                    alt="logo"
+                    style={{ objectFit: "contain" }}
+                  />
                 </Box>
               </RouterLink>
             </Box>
@@ -115,7 +163,6 @@ export default function Header() {
                     "&:hover": { backgroundColor: "transparent" },
                     minWidth: "auto",
                   }}
-               
                 >
                   {item}
                 </Button>
@@ -147,62 +194,73 @@ export default function Header() {
                   },
                   ml: { sm: 1 },
                 }}
-                  component={RouterLink}
+                component={RouterLink}
                 to="/contact"
               >
                 Contact
               </Button>
 
-              <IconButton
-                sx={{
-                  border: "1px solid white",
-                  borderRadius: "9999px",
-                  color: "white",
-                  px: { sm: 1, md: 2 },
-                  py: { sm: 0.5, md: 1 },
-                  boxShadow: "0 0 20px #0B3BFF",
-                  "&:hover": { boxShadow: "0 0 30px #0B3BFF" },
-                  display: { sm: "flex", md: "flex" },
-                  minWidth: "auto",
-                }}
-                size="small"
-                aria-label="toggle dark mode"
-              >
-                <DarkMode fontSize="small" />
-                <Typography
+              <Button onClick={changeThemeMode}>
+                <IconButton
                   sx={{
-                    ml: { sm: 0.5, md: 1 },
-                    fontSize: { sm: "0.875rem", md: "1rem" },
-                    display: { sm: "none", md: "inline" },
+                    border: "1px solid white",
+                    borderRadius: "9999px",
+                    color: "white",
+                    px: { sm: 1, md: 2 },
+                    py: { sm: 0.5, md: 1 },
+                    boxShadow: "0 0 20px #0B3BFF",
+                    "&:hover": {},
+                    display: { sm: "flex", md: "flex" },
+                    minWidth: "auto",
                   }}
+                  size="small"
+                  aria-label="toggle dark mode"
                 >
-                  Dark
-                </Typography>
-              </IconButton>
+                  {themeIcon ? (
+                    <DarkMode fontSize="small" />
+                  ) : (
+                    <LightMode fontSize="small" />
+                  )}
+                  <Typography
+                    sx={{
+                      ml: { sm: 0.5, md: 1 },
+                      fontSize: { sm: "0.875rem", md: "1rem" },
+                      display: { sm: "none", md: "inline" },
+                    }}
+                  >
+                    {themeMode}
+                  </Typography>
+                </IconButton>
+              </Button>
             </Box>
 
             {/* Mobile Menu Icon */}
             <IconButton
-              sx={{ display: isDesktop ? "none" : "flex",
-                 color: "white",
-                  ml: 1,
-                  width: 44,
+              sx={{
+                display: isDesktop ? "none" : "flex",
+                color: "white",
+                ml: 1,
+                width: 44,
                 height: 44,
                 borderRadius: "9999px",
-                transition: "transform .2s ease,background .2s ease,box-shadow .2s ease", // NEW
+                transition:
+                  "transform .2s ease,background .2s ease,box-shadow .2s ease", // NEW
                 transform: mobileOpen ? "rotate(180deg)" : "none",
-                 ...(mobileOpen &&{
-                   backgroundColor: "rgba(0,0,0,0.35)",
-                   border: "1px solid rgba(255,255,255,0.25)",
-                   boxShadow: "0 8px 24px rgba(0,0,0,.35)",
-
-                  }),
-               }}
+                ...(mobileOpen && {
+                  backgroundColor: "rgba(0,0,0,0.35)",
+                  border: "1px solid rgba(255,255,255,0.25)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,.35)",
+                }),
+              }}
               onClick={handleDrawerToggle}
               size="large"
               aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             >
-              {mobileOpen ? <Close htmlColor="#fff"/> : <Menu  htmlColor="#fff" />}
+              {mobileOpen ? (
+                <Close htmlColor="#fff" />
+              ) : (
+                <Menu htmlColor="#fff" />
+              )}
             </IconButton>
           </Toolbar>
         </Box>
@@ -218,39 +276,38 @@ export default function Header() {
             display: "block",
             "@media (min-width:960px)": { display: "none" },
             "& .MuiDrawer-paper": {
-              backgroundColor:siteBg,
+              backgroundColor: siteBg,
               boxShadow: "0 8px 30px rgba(0,0,0,0.25)",
               color: "white",
               width: { xs: "80vw", sm: "60vw" },
-              p:0,
+              p: 0,
               overflowX: "hidden",
-              boxShadow:"0 8px 30px rgba(0,0,0,0.25)",
+              boxShadow: "0 8px 30px rgba(0,0,0,0.25)",
             },
           }}
           ModalProps={{ keepMounted: true }}
         >
+          {/* 1) CLOSE BUTTON — place this as the FIRST child */}
+          <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 2 }}>
+            <IconButton
+              onClick={handleDrawerToggle}
+              aria-label="Close navigation"
+              sx={{
+                color: "#fff",
+                width: 40,
+                height: 40,
+                borderRadius: "9999px",
+                backgroundColor: "rgba(0,0,0,0.35)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                boxShadow: "0 8px 24px rgba(0,0,0,.35)",
+                "&:hover": { backgroundColor: "rgba(0,0,0,0.45)" },
+              }}
+            >
+              <Close />
+            </IconButton>
+          </Box>
 
- {/* 1) CLOSE BUTTON — place this as the FIRST child */}
-    <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 2 }}>
-      <IconButton
-        onClick={handleDrawerToggle}
-        aria-label="Close navigation"
-        sx={{
-          color: "#fff",
-          width: 40,
-          height: 40,
-          borderRadius: "9999px",
-          backgroundColor: "rgba(0,0,0,0.35)",
-          border: "1px solid rgba(255,255,255,0.25)",
-          boxShadow: "0 8px 24px rgba(0,0,0,.35)",
-          "&:hover": { backgroundColor: "rgba(0,0,0,0.45)" },
-        }}
-      >
-        <Close />
-      </IconButton>
-    </Box>
-
-  {/* Ellipse glow inside the drawer (matches homepage feel) */}
+          {/* Ellipse glow inside the drawer (matches homepage feel) */}
           <Box sx={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
             <Box
               sx={{
@@ -267,20 +324,24 @@ export default function Header() {
             />
           </Box>
 
-          <Box sx={{ 
-            width: "100%" ,
-            pt: { xs: 6, sm: 8 },
-             px: { xs: 1.5, sm: 2 }
-             }}>
-            <List
-             sx={{ 
+          <Box
+            sx={{
               width: "100%",
-              py: 0 ,
-              "& .MuiListItemButton-root": {
-                 my: 0.8, 
-                 borderRadius: 1.5, 
-                 px: 1.5 },
-            }}>
+              pt: { xs: 6, sm: 8 },
+              px: { xs: 1.5, sm: 2 },
+            }}
+          >
+            <List
+              sx={{
+                width: "100%",
+                py: 0,
+                "& .MuiListItemButton-root": {
+                  my: 0.8,
+                  borderRadius: 1.5,
+                  px: 1.5,
+                },
+              }}
+            >
               {navItems.map((item) => (
                 <ListItemButton
                   key={item}
@@ -296,11 +357,13 @@ export default function Header() {
                 >
                   <ListItemText
                     primary={item}
-                    primaryTypographyProps={{ fontSize: { xs: "16px", sm: "18px" } }}
+                    primaryTypographyProps={{
+                      fontSize: { xs: "16px", sm: "18px" },
+                    }}
                   />
                 </ListItemButton>
               ))}
-               <Divider sx={{ my: { xs: 1, sm: 1.5 }, opacity: 0.25 }} />
+              <Divider sx={{ my: { xs: 1, sm: 1.5 }, opacity: 0.25 }} />
 
               {/* Join us — on MOBILE & TABLET (<960px) */}
               <ListItemButton
@@ -316,7 +379,9 @@ export default function Header() {
               >
                 <ListItemText
                   primary="Join us"
-                  primaryTypographyProps={{ fontSize: { xs: "16px", sm: "18px" } }}
+                  primaryTypographyProps={{
+                    fontSize: { xs: "16px", sm: "18px" },
+                  }}
                 />
               </ListItemButton>
 
@@ -331,7 +396,10 @@ export default function Header() {
                     "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
                   }}
                 >
-                  <ListItemText primary="Contact" primaryTypographyProps={{ fontSize: { xs: "16px" } }} />
+                  <ListItemText
+                    primary="Contact"
+                    primaryTypographyProps={{ fontSize: { xs: "16px" } }}
+                  />
                 </ListItemButton>
               )}
             </List>

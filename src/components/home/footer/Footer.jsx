@@ -51,7 +51,7 @@ export default function Footer() {
     { src: youtube, alt: "YouTube" },
   ];
 
-  const [openChat, setOpenChat] = useState(false);
+  const [openChat, setOpenChat] = useState(true);
   const [showMessage, setShowMessage] = useState(true);
   const [footerInView, setFooterInView] = useState(false);
 
@@ -68,6 +68,8 @@ export default function Footer() {
   // }, [footerInView, openChat]);
 
   // Detect when footer is visible
+
+
   useEffect(() => {
     const footer = document.querySelector("footer");
     if (!footer) return;
@@ -360,62 +362,49 @@ export default function Footer() {
         </Container>
 
         {/* 💬 Floating Chat Icon + Text */}
-        {footerInView && (
-          <Box
-            sx={{
-              position: "fixed",
-              bottom: 25,
-              right: 25,
-              zIndex: 3000,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-            }}
-          >
-            {showMessage && !openChat && (
-              <Paper
-                elevation={4}
-                sx={{
-                  background: "#1976d2",
-                  color: "white",
-                  p: 1.2,
-                  borderRadius: "10px",
-                  mb: 1.5,
-                  fontSize: "14px",
-                  transition: "opacity 0.6s ease",
-                  animation: "fadeInOut 3s infinite",
-                  "@keyframes fadeInOut": {
-                    "0%, 100%": { opacity: 0 },
-                    "50%": { opacity: 1 },
-                  },
-                }}
-              >
-                💬 Need help? Talk to our bot!
-              </Paper>
-            )}
-
-            <IconButton
-              onClick={() => setOpenChat(!openChat)}
-              sx={{
-                backgroundColor: "#1976d2",
-                color: "white",
-                width: 50,
-                height: 50,
-                boxShadow: "0px 10px 20px rgba(0,0,0,0.8)",
-                "&:hover": {
-                  backgroundColor: "#1258a2",
+       {footerInView && (
+  <Box
+    sx={{
+      position: "fixed",
+      bottom: { xs: 16, sm: 20, md: 25 }, // 🟦 Adjust vertical gap for screens
+      right: { xs: 16, sm: 20, md: 25 },  // 🟦 Adjust horizontal gap
+      zIndex: 3000,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-end",
+    }}
+  >
+    {showMessage && openChat && (
+      <Paper
+        elevation={4}
+        sx={{
+          background: "#1976d2",
+          color: "white",
+          px: { xs: 1.4, sm: 1.6, md: 2 }, // 🟦 Adjust horizontal padding
+          py: { xs: 0.6, sm: 0.8, md: 1 }, // 🟦 Adjust vertical padding
+          borderRadius: "10px",
+          mt:4,
+          ml:3,
+          mr: { xs: 0, sm: 2, md: 4 },
+          fontSize: { xs: "11px", sm: "12px", md: "13px", lg: "14px" }, // 🟦 Font scales nicely
+          whiteSpace: "nowrap",
+          transition: "opacity 0.6s ease",
+          animation: "fadeInOut 3s infinite",
+          "@keyframes fadeInOut": {
+            "0%, 100%": { opacity: 0 },
+            "50%": { opacity: 1 },
+          },
+          boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+        }}
+      >
+        💬 Need help? Talk to our bot!
+      </Paper>
+    )}
+  </Box>
+)}
 
 
-                },
-              }}
-            >
-              <MessageCircle size={23} />
-            </IconButton>
-          </Box>
-        )}
-
-        {/* ✅ Chat Box */}
-        {/* ✅ Chat Box */}
+       
 
         {/* ✅ Chat Box */}
         {openChat && (
