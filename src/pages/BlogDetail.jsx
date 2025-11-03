@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect  } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogData } from "../libs/blogData";
 
@@ -10,10 +10,18 @@ import GradientButton from "../components/ui/GradientButton"; // for 404 button
 
 export default function BlogDetail() {
   const { id } = useParams();
-  const post = useMemo(
-    () => blogData.find(p => String(p.id) === String(id)),
+   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" }); 
+  }, [id]);
+
+    const post = useMemo(
+    () =>
+      blogData.find(
+        (p) => String(p.id) === String(id) || String(p.slug) === String(id) // ← NEW: slug fallback
+      ),
     [id]
   );
+
 
   if (!post) {
     return (

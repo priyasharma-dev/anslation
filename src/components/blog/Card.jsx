@@ -20,7 +20,7 @@ export default function Card({ post = {} }) {
     >
       <div
         className="
-          relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1623]
+          relative flex flex-col h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0f1623]
           transition
           translate-y-0
           group-hover:-translate-y-[2px]
@@ -32,7 +32,7 @@ export default function Card({ post = {} }) {
           will-change-transform
         "
       >
-        {/* image */}
+        {/* Image Section */}
         <div className="relative h-40 sm:h-48 md:h-56 w-full overflow-hidden rounded-t-2xl">
           {image && imgOk ? (
             <img
@@ -53,13 +53,12 @@ export default function Card({ post = {} }) {
               <span className="text-xs text-white/55">Image unavailable</span>
             </div>
           )}
-
-          {/* soft overlay on hover */}
+          {/* Soft overlay on hover */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
-        {/* content */}
-        <div className="p-4 sm:p-5">
+        {/* Content Section */}
+        <div className="flex flex-1 flex-col p-4 sm:p-5">
           <div className="mb-2 flex items-center gap-2 text-[11px] sm:text-xs">
             <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[#8fb3ff]">
               {category || "Blog"}
@@ -80,12 +79,14 @@ export default function Card({ post = {} }) {
             </p>
           ) : null}
 
-          {/* CTA row like RelatedGrid */}
-          <div className="mt-3 inline-flex items-center text-sm text-[#8fb3ff]">
-            <span className="transition-transform group-hover:translate-x-[2px] group-active:translate-x-[1px]">
-              Read
-            </span>
-            <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-[4px] group-active:translate-x-[2px]" />
+          {/* CTA row */}
+          <div className="mt-auto pt-3"> {/* Ensures the CTA stays at the bottom of the card */}
+            <div className="inline-flex items-center text-sm text-[#8fb3ff]">
+              <span className="transition-transform group-hover:translate-x-[2px] group-active:translate-x-[1px]">
+                Read
+              </span>
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-[4px] group-active:translate-x-[2px]" />
+            </div>
           </div>
 
           {meta ? (
@@ -95,12 +96,12 @@ export default function Card({ post = {} }) {
           ) : null}
         </div>
 
-        {/* glow ring */}
+        {/* Glow ring */}
         <span
           aria-hidden="true"
           className="
             pointer-events-none absolute -inset-px rounded-[1.05rem]
-            bg-[radial-gradient(120%_120%_at_50%_-10%,rgba(42,119,255,0.25),transparent_55%)]
+            bg-[radial-gradient(120%_120%_at_50%_-10%,rgba(42,119,255,0.25),transparent_55%)])
             opacity-0 blur-[10px] transition-opacity duration-300
             group-hover:opacity-100
           "

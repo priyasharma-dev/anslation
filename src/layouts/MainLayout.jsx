@@ -17,9 +17,10 @@ const styles = {
     position: 'relative',
     overflow: 'hidden',
     minHeight: '100dvh',
+     ['--gutter']: GUTTER,
   },
   
- gutter: { paddingInline: GUTTER },
+ gutter: { paddingInline:'var(--gutter)'},
   content: { position: 'relative', zIndex: 1 },
   ellipseLayer: {
     position: 'absolute',
