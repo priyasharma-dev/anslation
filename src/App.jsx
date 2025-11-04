@@ -8,10 +8,14 @@ import Career from "./pages/Career";
 import CareerProfile from "./components/Career/CareerProfile";
 import Product from "./pages/Product";
 import Gradiant from "./gradient/gradiant";
-
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import CenterAnimation from "./gradient/centerAnimation";
+import Contact from "./pages/Contact";
+
+
+
+
 
 
 function App() {
@@ -19,14 +23,16 @@ function App() {
     <Router>
       <Box>
         <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/career/:id" element={<CareerProfile />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route element={<MainLayout/>} >
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />        
+          <Route path="/career" element={<Career/>} />
+          <Route path="/career/:id" element={<CareerProfile/>} />
+          <Route  path="/product" element={<Product/>} />
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/blog/:id" element={<BlogDetail/>}/>
+          <Route path="/contact" element={<Contact/>} />
+        
           </Route>
           <Route path="/gradiant" element={<Gradiant />} />
           <Route path="/animation" element={<CenterAnimation />} />
