@@ -239,7 +239,7 @@ export default function Footer() {
                       About
                     </Link>
                     <Link
-                      href="#"
+                      href="contact"
                       color="inherit"
                       sx={{ fontSize: { xs: 16, sm: 17, md: 18 } }}
                       underline="hover"
