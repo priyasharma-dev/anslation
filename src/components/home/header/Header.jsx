@@ -22,6 +22,7 @@ import {
 } from "@mui/icons-material";
 import { Ellipse81 } from "../../../gradient/gradienttop";
 import { Link as RouterLink } from "react-router-dom";
+import logo from "../../../assets/logo/logo.png";
 
 const siteBg = "#0A1929";
 
@@ -132,7 +133,7 @@ export default function Header() {
                   }}
                 >
                   <img
-                    src="./logo/logo.png"
+                    src={logo}
                     alt="logo"
                     style={{ objectFit: "contain" }}
                   />
@@ -282,7 +283,7 @@ export default function Header() {
               width: { xs: "80vw", sm: "60vw" },
               p: 0,
               overflowX: "hidden",
-              boxShadow: "0 8px 30px rgba(0,0,0,0.25)",
+              // boxShadow: "0 8px 30px rgba(0,0,0,0.25)",
             },
           }}
           ModalProps={{ keepMounted: true }}
