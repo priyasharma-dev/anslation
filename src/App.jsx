@@ -7,9 +7,11 @@ import MainLayout from "./layouts/MainLayout";
 import Career from "./pages/Career";
 import CareerProfile from "./components/Career/CareerProfile";
 import Product from "./pages/Product";
-import Gradiant from "./gradient/gradiant";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
+import Culture from "./pages/Culture";
+import Gradiant from "./gradient/gradiant";
+
 import CenterAnimation from "./gradient/centerAnimation";
 
 
@@ -29,6 +31,7 @@ function App() {
           <Route  path="/product" element={<Product/>} />
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/blog/:id" element={<BlogDetail/>}/>
+          <Route path="/culture" element={<Culture/>}/>
         
           </Route>
           <Route  path="/gradiant"  element={<Gradiant/>} />

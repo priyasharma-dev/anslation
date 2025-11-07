@@ -1,0 +1,27 @@
+/* Keyframes (yours) */
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+@keyframes orbit { 0%{transform:rotate(0)} 100%{transform:rotate(1turn)} }
+@keyframes drift { 0%,100%{transform:translate3d(0,0,0)} 50%{transform:translate3d(12px,6px,0)} }
+@keyframes blink { 0%,100%{opacity:.15; transform:scale(.9)} 50%{opacity:.9; transform:scale(1.25)} }
+@keyframes bob { 0%,100%{transform:translateY(0) rotate(12deg)} 50%{transform:translateY(-10px) rotate(16deg)} }
+
+/* Small utilities (prefixed to avoid collisions) */
+.ew-float { animation: float 4s ease-in-out infinite; }
+.ew-spin  { animation: spin 12s linear infinite; transform-origin: center; }
+.ew-orbit { animation: orbit 18s linear infinite; transform-origin: 50% 50%; }
+.ew-drift { animation: drift 6s ease-in-out infinite; }
+.ew-blink { animation: blink 2.4s ease-in-out infinite; }
+.ew-bob   { animation: bob 3.8s ease-in-out infinite; }
+
+/* Optional helpers */
+.ew-slow   { animation-duration: 9s !important; }
+.ew-fast   { animation-duration: 1.5s !important; }
+.ew-delay  { animation-delay: .6s !important; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ew-float, .ew-spin, .ew-orbit, .ew-drift, .ew-blink, .ew-bob {
+    animation: none !important;
+  }
+}
