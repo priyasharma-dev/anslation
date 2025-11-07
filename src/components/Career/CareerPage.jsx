@@ -1,10 +1,12 @@
-import React, { useState, useEffect,useRef } from 'react'
+import React, { useState, useEffect,useRef, useContext } from 'react'
 import { jobData } from "../../libs/data.js"
 import { Link } from 'react-router-dom';
 import { CareerGradiantBottom, CareerGradiantTop } from '../../gradient/gradiant.jsx';
 import { motion } from 'framer-motion';
+import { BlogContext } from '../../Context/BlogContext.jsx';
 
 function CareerPage() {
+  const {jobData} = useContext(BlogContext)
   const [activeFilter, setActiveFilter] = useState('ALL');
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 5;
@@ -13,10 +15,14 @@ function CareerPage() {
     { name: 'ALL', count: jobData.length },
     { name: 'ADMIN', count: jobData.filter(job => job.category === 'ADMIN').length },
     { name: 'ENGINEERING', count: jobData.filter(job => job.category === 'ENGINEERING').length },
-    { name: 'SUPPORT', count: jobData.filter(job => job.category === 'SUPPORT').length },
     { name: 'DESIGN', count: jobData.filter(job => job.category === 'DESIGN').length },
-    { name: 'DIGITAL MARKETING', count: jobData.filter(job => job.category === 'DIGITAL MARKETING').length }
+    { name: 'DIGITAL MARKETING', count: jobData.filter(job => job.category === 'DIGITAL MARKETING').length },
+    {name : "HR" , count : jobData.filter((job)=> job.category === "HR" ).length},
+    { name: 'OPERATIONS', count: jobData.filter(job => job.category === 'OPERATIONS').length },
+    {name : "FINANCE" , count : jobData.filter((job)=> job.category === "FINANCE" ).length}
   ];
+
+  console.log("job data is here for contatc us page" , jobData)
 
   const filteredJobs = activeFilter === 'ALL'
     ? jobData
@@ -256,7 +262,7 @@ const updateArrows = () => {
 
                     <div className="flex flex-col md:flex-row md:items-center gap-2 sm:gap-4 mt-4 md:mt-0">
                       <span className="text-sm text-gray-400 uppercase tracking-wide">
-                        {job.department}
+                        {job.category}
                       </span>
                       <div className="flex items-center gap-3 text-gray-400">
                         <span className="text-sm">{job.location}</span>

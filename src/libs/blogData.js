@@ -7,6 +7,7 @@ const blogData = [
     category: "Announcements",
     readTime: "—",
     image: "https://picsum.photos/id/1015/1200/750",
+    content:["bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"]
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const blogData = [
     category: "Updates",
     readTime: "—",
     image: "https://picsum.photos/id/1033/1200/750",
+    content:["bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"]
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const blogData = [
     category: "News",
     readTime: "—",
     image: "https://picsum.photos/id/1024/1200/750",
+    content:"bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const blogData = [
     category: "Insights",
     readTime: "—",
     image: "https://picsum.photos/id/1040/1200/750",
+    content:"bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const blogData = [
     category: "Culture",
     readTime: "—",
     image: "https://picsum.photos/id/1005/1200/750",
+    content:"bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"
   },
   {
     id: 6,
@@ -61,6 +66,7 @@ const blogData = [
     category: "Technology",
     readTime: "—",
     image: "https://picsum.photos/id/1050/1200/750",
+    content:"bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"
   },
   {
     id: 8,
@@ -70,6 +76,7 @@ const blogData = [
     category: "Business",
     readTime: "—",
     image: "https://picsum.photos/id/1060/1200/750",
+    content:"bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"
   },
   {
     id: 9,
@@ -79,6 +86,7 @@ const blogData = [
     category: "Innovation",
     readTime: "—",
     image: "https://picsum.photos/id/1074/1200/750",
+    content:"bjskhfb dijgjlfdkvojdv jdfjgkv nkfbgn gk"
   },
 ];
 

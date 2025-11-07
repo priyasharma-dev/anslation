@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { jobData } from '../../libs/data'
 import jobHeader from "../../assets/jobposter.jpeg"
@@ -15,12 +15,14 @@ import location from "../../assets/Vector.png"
 import working from "../../assets/Group.png"
 import { CareerProfileGradiantBottom, CareerProfileGradiantop } from '../../gradient/gradiant'
 import { motion } from 'framer-motion'
+import { BlogContext } from '../../Context/BlogContext'
 
 
 
 
 function CareerProfile() {
     const { id } = useParams()
+     const {jobData} = useContext(BlogContext)
 
     const job = jobData.find((job) => job.id == parseInt(id))
 
@@ -279,9 +281,12 @@ function CareerProfile() {
                             
                                 <div className='text-center mt-5' >
                                 <li className="mt-4 items-center gap-3">
-                                    <a href="#" className="text-blue-600  font-semibold">
+                                    <Link href="/career" className="text-blue-600  font-semibold" >
+                                
                                         View all job
-                                    </a>
+                                    
+                                    </Link>
+                                   
                                 </li>
                             </div>
                         </div>

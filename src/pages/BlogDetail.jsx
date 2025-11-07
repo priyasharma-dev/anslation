@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect  } from "react";
+import React, { useMemo, useEffect, useContext  } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogData } from "../libs/blogData";
 
@@ -7,9 +7,14 @@ import ContentRenderer from "../components/blog/ContentRenderer";
 import BackToAllButton from "../components/blog/BackToAllButton";
 import RelatedGrid from "../components/blog/RelatedGrid";
 import GradientButton from "../components/ui/GradientButton"; // for 404 button
+import { BlogContext } from "../Context/BlogContext";
 
 export default function BlogDetail() {
+  // const {blogData} = useContext(BlogContext)
   const { id } = useParams();
+     
+  console.log(id , "samraaat")
+  
    useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" }); 
   }, [id]);
@@ -21,6 +26,8 @@ export default function BlogDetail() {
       ),
     [id]
   );
+
+  console.log(post , "post data is coming")
 
 
   if (!post) {

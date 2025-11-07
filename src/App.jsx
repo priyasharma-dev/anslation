@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import CenterAnimation from "./gradient/centerAnimation";
 import Contact from "./pages/Contact";
+import Form from "./Admin/Form";
 
 
 
@@ -32,10 +33,14 @@ function App() {
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/blog/:id" element={<BlogDetail/>}/>
           <Route path="/contact" element={<Contact/>} />
+          
         
           </Route>
           <Route path="/gradiant" element={<Gradiant />} />
           <Route path="/animation" element={<CenterAnimation />} />
+          <Route path="/admin/form" element={<Form/>} />
+          
+          
 
           {/* {Footer Routes} */}
         </Routes>
