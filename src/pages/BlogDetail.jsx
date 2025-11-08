@@ -6,6 +6,7 @@ import DetailsHero from "../components/blog/DetailsHero";
 import ContentRenderer from "../components/blog/ContentRenderer";
 import BackToAllButton from "../components/blog/BackToAllButton";
 import RelatedGrid from "../components/blog/RelatedGrid";
+import GradientButton from "../components/ui/GradientButton";
 import GradientButton from "../components/ui/GradientButton"; // for 404 button
 import { BlogContext } from "../Context/BlogContext";
 

@@ -246,6 +246,58 @@ export default function Footer() {
                     >
                       Contact us
                     </Link>
+                  ))}
+                </Stack>
+              </Grid>
+
+              {/* Company */}
+              <Grid item xs={12} sm={6} md={3}>
+                <Typography
+                  sx={{
+                    fontSize: { xs: 18, sm: 20, md: 22 },
+                    fontWeight: 700,
+                    mb: { xs: 1.5, md: 2 },
+                  }}
+                >
+                  Company
+                </Typography>
+
+                 <Stack spacing={{ xs: 0.6, sm: 1, md: 1.4, lg: 2 }}>
+                  <Link
+                    href="/about"
+                    color="inherit"
+                    fontSize={{ xs: 16, sm: 17, md: 18 }}
+                    underline="hover"
+                  >
+                    About
+                  </Link>                 
+                   <Link href="#" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Contact us</Link>
+                  <Link href="/career" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Careers</Link>
+                  <Link href="/culture" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Culture</Link>
+                  <Link href="/blog" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Blog</Link>
+                   </Stack> 
+              </Grid>
+
+              {/* Contact */}
+              <Grid item xs={12} sm={6} md={3}>
+                <Typography
+                  sx={{
+                    fontSize: { xs: 18, sm: 20, md: 22 },
+                    fontWeight: 700,
+                    mb: { xs: 1.5, md: 2 },
+                  }}
+                >
+                  Contact us
+                </Typography>
+                <Stack spacing={1.5}>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <Email sx={{ fontSize: 18 }} />
+                    <Typography
+                      sx={{
+                        fontSize: { xs: 15, sm: 16, md: 17 },
+                        color: "rgba(255,255,255,0.85)",
+                        wordBreak: "break-word",
+                      }}
                     <Link
                       href="/career"
                       color="inherit"
