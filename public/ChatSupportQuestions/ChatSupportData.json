@@ -1,0 +1,86 @@
+ 
+
+{
+  "Solutions": {
+    "Product": {
+      "Category": [
+        "LoadTestAstra",
+        "Dataverse",
+        "TrafficAstra",
+        "CampaignAstra"
+      ]
+    },
+    "Marketing Automation": {
+      "Category": [
+        "Email Campaign Management",
+        "Lead Nurturing",
+        "Customer Journey Tracking",
+        "Campaign Analytics",
+        "CRM Integration"
+      ]
+    },
+    "Software": {
+      "Category": [
+        "Web Application Development",
+        "Mobile App Development",
+        "SaaS Solutions",
+        "Custom Software Engineering",
+        "API Development"
+      ]
+    },
+    "Performance Analytics": {
+      "Category": [
+        "Website Performance Monitoring",
+        "SEO & Traffic Analysis",
+        "Conversion Rate Optimization",
+        "Data Visualization Dashboards",
+        "Reporting & Insights"
+      ]
+    },
+    "Marketing": {
+      "Category": [
+        "Digital Marketing Strategy",
+        "Social Media Management",
+        "Paid Campaigns (Google, Meta)",
+        "Branding & Content Creation",
+        "Market Research"
+      ]
+    },
+    "Software Infrastructure": {
+      "Category": [
+        "Cloud Deployment & Hosting",
+        "DevOps Automation",
+        "CI/CD Pipelines",
+        "Security & Compliance",
+        "API Gateway & Management"
+      ]
+    },
+    "Microtools": {
+      "Category": [
+        "Task Automation Tools",
+        "Productivity Utilities",
+        "AI Assistants",
+        "Data Extraction & Scraping Tools",
+        "Browser Extensions"
+      ]
+    },
+    "Inventory": {
+      "Category": [
+        "Asset Tracking",
+        "Inventory Analytics",
+        "Supply Chain Monitoring",
+        "Procurement Automation",
+        "Product Lifecycle Management"
+      ]
+    },
+    "Service": {
+      "Category": [
+        "Consulting & Strategy",
+        "Technical Support",
+        "Implementation Services",
+        "Training & Onboarding",
+        "Maintenance & Updates"
+      ]
+    }
+  }
+}

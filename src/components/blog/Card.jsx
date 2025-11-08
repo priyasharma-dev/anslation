@@ -5,6 +5,9 @@ import { ArrowRight } from "lucide-react";
 export default function Card({ post = {} }) {
   const { id, slug, image, title, desc, date, category, readTime } = post;
 
+
+  console.log("slug is not coming" , slug)
+
   const [imgOk, setImgOk] = React.useState(true);
   const to = `/blog/${encodeURIComponent(slug ?? id ?? "unknown")}`;
   const titleId = `post-title-${id ?? slug ?? "x"}`;

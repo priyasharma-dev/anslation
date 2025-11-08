@@ -18,7 +18,7 @@ function Elevate() {
 
          {/* Columns */}
         <div 
-        className='mt-8 sm:mt-10 lg:mt-12 mx-2 sm:mx-6 lg:mx-20
+        className='mt-8 sm:mt-10 lg:mt-12  sm:mx-6 lg:mx-20
                    grid grid-cols-1 md:grid-cols-3
                    gap-6 md:gap-8 lg:gap-10
                    max-w-5xl mx-auto'>

@@ -12,6 +12,13 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Culture from "./pages/Culture";
 import Gradiant from "./gradient/gradiant";
+import CenterAnimation from "./gradient/centerAnimation";
+import Contact from "./pages/Contact";
+import Form from "./Admin/Form";
+
+
+
+
 
 import CenterAnimation from "./gradient/centerAnimation";
 
@@ -29,11 +36,18 @@ function App() {
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/blog/:id" element={<BlogDetail/>}/>
           <Route path="/culture" element={<Culture/>}/>
+
+          <Route path="/contact" element={<Contact/>} />
+          
         
           </Route>
-          <Route  path="/gradiant"  element={<Gradiant/>} />
-          <Route  path="/animation" element={<CenterAnimation/>} />
+          <Route path="/gradiant" element={<Gradiant />} />
+          <Route path="/animation" element={<CenterAnimation />} />
+          <Route path="/admin/form" element={<Form/>} />
+          
+          
 
+          {/* {Footer Routes} */}
         </Routes>
       </Box>
     </Router>

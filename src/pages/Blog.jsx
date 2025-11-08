@@ -1,9 +1,10 @@
-import React, {useMemo,useState,useEffect}from 'react';
+import React, {useMemo,useState,useEffect, useContext}from 'react';
 import Hero from "../components/blog/Hero"
 import SearchFilter from"../components/blog/SearchFilter"
 import Card from "../components/blog/Card";
 
 import { blogData as POSTS} from "../libs/blogData";
+import { BlogContext } from '../Context/BlogContext';
 
 const CAPABILITIES = ["All", "Capabilities", "Security", "Cloud", "Data & AI"];
 const INDUSTRIES  = ["All", "Digital Business", "Financial Services", "Retail"];
@@ -16,6 +17,8 @@ const scrollToTop = () => {
     });
   };
 export default function Blog(){
+      
+  // const {blogData} = useContext(BlogContext)
    const [q, setQ] = useState("");
   const [capability,setCapability] = useState(CAPABILITIES[0]);
   const [industry,setIndustry]= useState(INDUSTRIES[0]);
@@ -24,6 +27,8 @@ export default function Blog(){
    useEffect(() => {
     scrollToTop();
   }, []);
+
+  // console.log("blog data---priyya shrama" , blogData)
 
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -38,6 +43,9 @@ export default function Blog(){
       return matchQ && matchCap && matchInd && matchGeo;
     });
   }, [q, capability, industry, geo]);
+
+
+  console.log("slug data is coming" , filtered)
 
 
     return(

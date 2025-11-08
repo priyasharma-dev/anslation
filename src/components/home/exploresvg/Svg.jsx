@@ -70,7 +70,7 @@ function Home() {
   function productHandle(key){
      setTogle((prev) => !prev)
      setSelectedNode(prev => (prev === key ? null : key))
-     console.log(key)
+     
      productRef.current?.scrollIntoView({ behavior: 'smooth', block: "start" });
 
   }

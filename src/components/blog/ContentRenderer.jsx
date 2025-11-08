@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function ContentRenderer({ desc, content = [] }) {
+
+  console.log("Samraat blog content" , content)
   return (
     <article className="mx-auto max-w-3xl px-6 sm:px-8 md:px-10 py-12">
       {desc && <p className="text-lg sm:text-base md:text-lg text-white/90">{desc}</p>}
