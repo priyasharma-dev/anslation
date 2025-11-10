@@ -10,7 +10,7 @@ import {
   Paper,
   IconButton,
 } from "@mui/material";
-import { Email, Phone, LocationOn, Close } from "@mui/icons-material";
+import { Email, Phone, LocationOn } from "@mui/icons-material";
 import { MessageCircle } from "lucide-react";
 import instagram from "../../../assets/Instagram 2.png";
 import linked from "../../../assets/LinkedIn 2.png";
@@ -36,10 +36,10 @@ export default function Footer() {
     ],
     company: [
       { label: "About", href: "/about" },
-      { label: "Contact us", href: "#" },
+      { label: "Contact us", href: "/contact" },
       { label: "Careers", href: "/career" },
-      { label: "Culture", href: "#" },
-      { label: "Blog", href: "#" },
+      { label: "Culture", href: "/culture" },
+      { label: "Blog", href: "/blog" },
     ],
   };
 
@@ -51,36 +51,18 @@ export default function Footer() {
     { src: youtube, alt: "YouTube" },
   ];
 
-  const [openChat, setOpenChat] = useState(true);
+  const [openChat, setOpenChat] = useState(false);
   const [showMessage, setShowMessage] = useState(true);
   const [footerInView, setFooterInView] = useState(false);
 
-  // Text animation (every 2 sec toggle)
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (footerInView && !openChat) {
-  //       setShowMessage((prev) => !prev);
-  //     } else {
-  //       setShowMessage(false);
-  //     }
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, [footerInView, openChat]);
-
   // Detect when footer is visible
-
-
   useEffect(() => {
     const footer = document.querySelector("footer");
     if (!footer) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setFooterInView(entry.isIntersecting);
-      },
+      ([entry]) => setFooterInView(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
@@ -88,6 +70,7 @@ export default function Footer() {
   return (
     <div>
       <Divider sx={{ borderColor: "rgba(255,255,255)" }} />
+
       <Box
         component="footer"
         sx={{
@@ -99,7 +82,11 @@ export default function Footer() {
         }}
       >
         <Container maxWidth="2xl" className="w-full">
-          <Grid container spacing={{ xs: 4, md: 6 }} className="lg:flex lg:justify-evenly xl:flex xl:justify-around">
+          <Grid
+            container
+            spacing={{ xs: 4, md: 6 }}
+            className="lg:flex lg:justify-evenly xl:flex xl:justify-around"
+          >
             {/* Brand Section */}
             <Grid item xs={12} md={4} lg={3}>
               <Typography
@@ -107,9 +94,9 @@ export default function Footer() {
                 sx={{
                   fontSize: { xs: 20, sm: 24, lg: 32 },
                   mr: { lg: 6 },
-                  '@media (min-width:1024px) and (max-width:1154px)': {
+                  "@media (min-width:1024px) and (max-width:1154px)": {
                     mr: 0,
-                    textAlign: 'center',
+                    textAlign: "center",
                   },
                 }}
               >
@@ -125,7 +112,7 @@ export default function Footer() {
               >
                 Driven by Questions.
                 <br />
-                Delivered as Solutions
+                Delivered as Solutions.
               </Typography>
 
               {/* Social Icons */}
@@ -230,98 +217,21 @@ export default function Footer() {
                     Company
                   </Typography>
                   <Stack spacing={{ xs: 0.6, sm: 1, md: 1.4, lg: 2 }}>
-                    <Link
-                      href="/about"
-                      color="inherit"
-                      sx={{ fontSize: { xs: 16, sm: 17, md: 18 } }}
-                      underline="hover"
-                    >
-                      About
-                    </Link>
-                    <Link
-                      href="contact"
-                      color="inherit"
-                      sx={{ fontSize: { xs: 16, sm: 17, md: 18 } }}
-                      underline="hover"
-                    >
-                      Contact us
-                    </Link>
-                  ))}
-                </Stack>
-              </Grid>
-
-              {/* Company */}
-              <Grid item xs={12} sm={6} md={3}>
-                <Typography
-                  sx={{
-                    fontSize: { xs: 18, sm: 20, md: 22 },
-                    fontWeight: 700,
-                    mb: { xs: 1.5, md: 2 },
-                  }}
-                >
-                  Company
-                </Typography>
-
-                 <Stack spacing={{ xs: 0.6, sm: 1, md: 1.4, lg: 2 }}>
-                  <Link
-                    href="/about"
-                    color="inherit"
-                    fontSize={{ xs: 16, sm: 17, md: 18 }}
-                    underline="hover"
-                  >
-                    About
-                  </Link>                 
-                   <Link href="#" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Contact us</Link>
-                  <Link href="/career" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Careers</Link>
-                  <Link href="/culture" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Culture</Link>
-                  <Link href="/blog" color="inherit" fontSize={{ xs: 16, sm: 17, md: 18 }} underline="hover">Blog</Link>
-                   </Stack> 
-              </Grid>
-
-              {/* Contact */}
-              <Grid item xs={12} sm={6} md={3}>
-                <Typography
-                  sx={{
-                    fontSize: { xs: 18, sm: 20, md: 22 },
-                    fontWeight: 700,
-                    mb: { xs: 1.5, md: 2 },
-                  }}
-                >
-                  Contact us
-                </Typography>
-                <Stack spacing={1.5}>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Email sx={{ fontSize: 18 }} />
-                    <Typography
-                      sx={{
-                        fontSize: { xs: 15, sm: 16, md: 17 },
-                        color: "rgba(255,255,255,0.85)",
-                        wordBreak: "break-word",
-                      }}
-                    <Link
-                      href="/career"
-                      color="inherit"
-                      sx={{ fontSize: { xs: 16, sm: 17, md: 18 } }}
-                      underline="hover"
-                    >
-                      Careers
-                    </Link>
-                    <Link
-                      href="#"
-                      color="inherit"
-                      sx={{ fontSize: { xs: 16, sm: 17, md: 18 } }}
-                      underline="hover"
-                    >
-                      Culture
-                    </Link>
-                    <Link
-                      href="/blog"
-                      color="inherit"
-                      sx={{ fontSize: { xs: 16, sm: 17, md: 18 } }}
-                      underline="hover"
-                    >
-                      Blog
-                    </Link>
+                    {footerLinks.company.map((link) => (
+                      <Link
+                        key={link.label}
+                        href={link.href}
+                        color="inherit"
+                        underline="hover"
+                        sx={{
+                          fontSize: { xs: 16, sm: 17, md: 18 },
+                          transition: "color 0.2s",
+                          "&:hover": { color: "white" },
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
                   </Stack>
                 </Grid>
 
@@ -334,7 +244,7 @@ export default function Footer() {
                       mb: { xs: 1.5, md: 2 },
                     }}
                   >
-                    Contact us
+                    Contact Us
                   </Typography>
                   <Stack spacing={1.5}>
                     <Stack direction="row" spacing={1} alignItems="center">
@@ -346,7 +256,7 @@ export default function Footer() {
                           wordBreak: "break-word",
                         }}
                       >
-                        Help@anslation.com
+                        help@anslation.com
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1} alignItems="center">
@@ -377,7 +287,12 @@ export default function Footer() {
             </Grid>
           </Grid>
 
-          <Divider sx={{ borderColor: "rgba(255,255,255,0.2)", my: { xs: 4, md: 6 } }} />
+          <Divider
+            sx={{
+              borderColor: "rgba(255,255,255,0.2)",
+              my: { xs: 4, md: 6 },
+            }}
+          />
 
           {/* Bottom Section */}
           <Box
@@ -401,11 +316,15 @@ export default function Footer() {
               sx={{ fontSize: { xs: 14, sm: 16 } }}
             >
               <Typography>All Rights Reserved</Typography>
-              <Box sx={{ display: { xs: "none", sm: "block" }, opacity: 0.6 }}>|</Box>
+              <Box sx={{ display: { xs: "none", sm: "block" }, opacity: 0.6 }}>
+                |
+              </Box>
               <Link href="#" color="inherit" underline="hover">
                 Terms and Conditions
               </Link>
-              <Box sx={{ display: { xs: "none", sm: "block" }, opacity: 0.6 }}>|</Box>
+              <Box sx={{ display: { xs: "none", sm: "block" }, opacity: 0.6 }}>
+                |
+              </Box>
               <Link href="#" color="inherit" underline="hover">
                 Privacy Policy
               </Link>
@@ -414,49 +333,50 @@ export default function Footer() {
         </Container>
 
         {/* 💬 Floating Chat Icon + Text */}
-       {footerInView && (
-  <Box
-    sx={{
-      position: "fixed",
-      bottom: { xs: 16, sm: 20, md: 25 }, // 🟦 Adjust vertical gap for screens
-      right: { xs: 16, sm: 20, md: 25 },  // 🟦 Adjust horizontal gap
-      zIndex: 3000,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-end",
-    }}
-  >
-    {showMessage && openChat && (
-      <Paper
-        elevation={4}
-        sx={{
-          background: "#1976d2",
-          color: "white",
-          px: { xs: 1.4, sm: 1.6, md: 2 }, // 🟦 Adjust horizontal padding
-          py: { xs: 0.6, sm: 0.8, md: 1 }, // 🟦 Adjust vertical padding
-          borderRadius: "10px",
-          mt:4,
-          ml:3,
-          mr: { xs: 0, sm: 2, md: 4 },
-          fontSize: { xs: "11px", sm: "12px", md: "13px", lg: "14px" }, // 🟦 Font scales nicely
-          whiteSpace: "nowrap",
-          transition: "opacity 0.6s ease",
-          animation: "fadeInOut 3s infinite",
-          "@keyframes fadeInOut": {
-            "0%, 100%": { opacity: 0 },
-            "50%": { opacity: 1 },
-          },
-          boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-        }}
-      >
-        💬 Need help? Talk to our bot!
-      </Paper>
-    )}
-  </Box>
-)}
+        {footerInView && (
+          <Box
+            sx={{
+              position: "fixed",
+              bottom: { xs: 16, sm: 20, md: 25 },
+              right: { xs: 16, sm: 20, md: 25 },
+              zIndex: 3000,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+            }}
+          >
+            {showMessage && !openChat && (
+              <Paper
+                elevation={4}
+                sx={{
+                  background: "#1976d2",
+                  color: "white",
+                  px: { xs: 1.4, sm: 1.6, md: 2 },
+                  py: { xs: 0.6, sm: 0.8, md: 1 },
+                  borderRadius: "10px",
+                  mb: 1,
+                  fontSize: { xs: "11px", sm: "12px", md: "13px", lg: "14px" },
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                }}
+              >
+                💬 Need help? Talk to our bot!
+              </Paper>
+            )}
 
-
-       
+            <IconButton
+              onClick={() => setOpenChat((prev) => !prev)}
+              sx={{
+                background: "#1976d2",
+                color: "white",
+                "&:hover": { background: "#1565c0" },
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              }}
+            >
+              <MessageCircle size={24} />
+            </IconButton>
+          </Box>
+        )}
 
         {/* ✅ Chat Box */}
         {openChat && (
@@ -465,15 +385,11 @@ export default function Footer() {
               position: "fixed",
               bottom: 100,
               right: 30,
-              zIndex: 9999, // 🔼 increased to ensure it's visible
+              zIndex: 9999,
               width: { xs: 300, sm: 360 },
               height: { xs: 400, sm: 450 },
-
-
               overflow: "hidden",
-
               display: "flex",
-              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -481,7 +397,6 @@ export default function Footer() {
             <ChatSupport />
           </Box>
         )}
-
       </Box>
     </div>
   );

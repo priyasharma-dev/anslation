@@ -20,7 +20,7 @@ import Form from "./Admin/Form";
 
 
 
-import CenterAnimation from "./gradient/centerAnimation";
+// import CenterAnimation from "./gradient/centerAnimation";
 
 function App() {
   return (

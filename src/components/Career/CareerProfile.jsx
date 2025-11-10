@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { jobData } from '../../libs/data'
 import jobHeader from "../../assets/jobposter.jpeg"
-import LinkedIn from "../../assets/LinkedIn.png"
+import LinkedIn from "../../assets/Linkedin.png"
 import instagram from "../../assets/instagram.png"
 import twitter from "../../assets/Twiter.png"
 import fb from "../../assets/Facebook.png"
@@ -17,15 +17,11 @@ import { CareerProfileGradiantBottom, CareerProfileGradiantop } from '../../grad
 import { motion } from 'framer-motion'
 import { BlogContext } from '../../Context/BlogContext'
 
-
-
-
 function CareerProfile() {
     const { id } = useParams()
      const {jobData} = useContext(BlogContext)
 
     const job = jobData.find((job) => job.id == parseInt(id))
-
 
     if (!job) {
         return (
@@ -39,7 +35,6 @@ function CareerProfile() {
             </div>
         )
     }
-
 
     return (
         <div className="relative">
