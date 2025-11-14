@@ -1,5 +1,5 @@
 import React from 'react'
-import objectpng from "../../../public/OBJECTS.png"
+import objectpng from "../../../src/assets/OBJECTS.png"
 import { motion } from "framer-motion";
 
 function AboutSection() {
