@@ -42,18 +42,16 @@
 }
 
 /* Grid Layout */
-
 .op-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 0px;  */
 }
 
 .op-row {
   display: flex;
   justify-content: center;
- column-gap: 0px; /* horizontal gap between diamonds */
+  column-gap: 0px; /* horizontal gap between diamonds */
 }
 
 /* little offset to mimic Figma staggering if needed */
@@ -61,11 +59,10 @@
   margin-top: 0;
   position: absolute;
   top: 1187px;
-  z-index:999;
+  z-index: 999;
 }
 
-/*  Diamond = top triangle + square + bottom triangle*/
-
+/*  Diamond = top triangle + square + bottom triangle */
 /* Figma component approx: 204 x 250 */
 .op-diamond {
   position: relative;
@@ -87,6 +84,9 @@
   transform: translateX(-50%);
   border-radius: 20px;
   z-index: 0;
+  /* no glow by default */
+  filter: none;
+  transition: filter 0.25s ease;
 }
 
 /* Top triangle (pointing down) */
@@ -95,8 +95,8 @@
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
   background: linear-gradient(
     180deg,
-    rgba(16, 22, 43, 0.40) 0%,
-    rgba(54, 75, 145, 0.40) 100%
+    rgba(16, 22, 43, 0.4) 0%,
+    rgba(54, 75, 145, 0.4) 100%
   );
 }
 
@@ -106,17 +106,14 @@
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   background: linear-gradient(
     0deg,
-   rgba(16, 22, 43, 0.40) 0%,
-    rgba(54, 75, 145, 0.40) 100%
+    rgba(16, 22, 43, 0.4) 0%,
+    rgba(54, 75, 145, 0.4) 100%
   );
 }
 
 /* ============================
-   Center square card (Ads-astra)
-   Figma spec:
-   width: 195px; height: 134px; radius: 8px; border: 1px solid #13294B
+   Center square card
    ============================ */
-
 .op-diamond-content {
   position: absolute;
   top: 58px; /* sits between the two triangles like Figma */
@@ -142,22 +139,28 @@
     box-shadow 0.25s ease,
     background 0.25s ease,
     transform 0.25s ease;
+
+  box-shadow: none; /* no glow by default */
 }
 
-/* Hover – blue border & glow */
+/* No outer diamond shadow */
+.op-diamond:hover {
+  box-shadow: none;
+}
+
+/* Hover – glow only on the boundaries of triangles via drop-shadow */
+.op-diamond:hover::before,
+.op-diamond:hover::after {
+  filter: drop-shadow(0 0 18px rgba(0, 163, 255, 0.7));
+}
+
+/* Hover – square glow */
 .op-diamond:hover .op-diamond-content {
-  border-color: #1b8cff;
-  background: #0d152a;
-  box-shadow:
-    0 0 0 1px rgba(0, 163, 255, 0.5),
-    0 0 40px rgba(0, 163, 255, 0.45);
-  transform: translate(-50%, -4px);
+  border-color: #00c0ff;
+  box-shadow: 0 0 18px rgba(0, 163, 255, 0.8);
 }
 
-/* ============================
-   Icon + text inside card
-   ============================ */
-
+/* Icon + text inside card */
 .op-icon-wrap {
   margin-bottom: 16px;
 }
@@ -205,7 +208,6 @@
 /* ============================
    Responsive tweaks
    ============================ */
-
 @media (max-width: 1024px) {
   .op-row {
     gap: 32px;
