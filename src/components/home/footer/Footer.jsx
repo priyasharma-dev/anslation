@@ -23,11 +23,11 @@ import fac from "../../../assets/Facebook 2.png";
 
 export default function Footer() {
   const socialIcons = [
-    { src: fac, alt: "Facebook" },
-    { src: instagram, alt: "Instagram" },
-    { src: linked, alt: "LinkedIn" },
-    { src: Twitter, alt: "Twitter" },
-    { src: youtube, alt: "YouTube" },
+    { src: fac, alt: "Facebook", link:"https://www.facebook.com/people/Anslation-PvtLtd/pfbid0rZsF7kb8QXNUS5cKSviE72mMSd4vWD5CRoTPqNTkkTryapM3C6iMFo3vpDGwzHTkl/?mibextid=wwXIfr&rdid=FcVSZRwUYySTFyJ1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16StUHySDq%2F%3Fmibextid%3DwwXIfr"},
+    { src: instagram, alt: "Instagram" ,link:"https://www.instagram.com/anslation_official/" },
+    { src: linked, alt: "LinkedIn",link:"https://www.linkedin.com/company/anslation/" },
+    { src: Twitter, alt: "Twitter" ,link:"https://x.com/AnslationPvtLtd?ref_src=twsrc%5Etfw"},
+    { src: youtube, alt: "YouTube" ,link:"https://www.youtube.com/@anslation-r3j" },
   ];
 
   const [openChat, setOpenChat] = useState(false);
@@ -61,11 +61,12 @@ export default function Footer() {
             container
             spacing={{ xs: 6, sm: 8, md: 10, lg: 14 }}
             justifyContent="space-between"
+         
           >
             {/* Brand */}
             <Grid item xs={12} sm={6} md={3}>
               <img src="/logo-white.svg" alt="logo" style={{ width: 85 }} />
-              <Typography sx={{ fontSize: 16, lineHeight: 1.6, mt: 3 }}>
+              <Typography sx={{ fontSize: 18, lineHeight: 1.6, mt: 3, color:"#9DA3AF" }}>
                 Driven by Questions.
                 <br />
                 Delivered as Solutions.
@@ -77,6 +78,14 @@ export default function Footer() {
                 sx={{ mt: 3, flexWrap: "wrap", gap: 1 }}
               >
                 {socialIcons.map((icon, i) => (
+
+               <Link  key={i} 
+                href={icon.link}
+                target="_blank"
+                rel="nooperner noreferrer"
+                sx={{textDecoration :"none"}}>
+
+
                   <Box
                     key={i}
                     sx={{
@@ -108,6 +117,7 @@ export default function Footer() {
                   >
                     <img src={icon.src} alt={icon.alt} width={16} height={16} />
                   </Box>
+                  </Link>
                 ))}
               </Stack>
             </Grid>
@@ -117,29 +127,43 @@ export default function Footer() {
               {
                 heading: "Product",
                 items: [
-                  "Ads-astra",
-                  "Anslatíon tools",
-                  "OS Anslation",
-                  "K-tech tool",
-                  "Trackers",
+                  
+
+                  { label: "Ads-astra", path: "/ads-astra" },
+                  { label: "Anslatíon tools", path: "/anslatíon-tools" },
+                  { label: "OS Anslation", path: "/os-anslation" },
+                  { label: "K-tech tool", path: "/k-tech-tool" },
+                  { label: "Trackers", path: "/trackers" },
+
                 ],
               },
               {
                 heading: "Service",
                 items: [
-                  "Performance Analytics",
-                  "Software Infrastructure",
-                  "Marketing Automation",
-                  "Chat support",
+                  
+                  { label: "Performance Analytics", path: "/performance-analytics" },
+                  { label: "Software Infrastructure", path: "/software-infrastructure" },
+                  { label: "Marketing Automation", path: "/marketing-automation" },
+                  { label: "Chat support", path: "" },
                 ],
               },
               {
-                heading: "Company",
-                items: ["About", "Contact us", "Careers", "Culture", "Blog"],
-              },
+  heading: "Company",
+  items: [
+    { label: "About", path: "/about" },
+    { label: "Contact us", path: "/contact" },
+    { label: "Careers", path: "/careers" },
+    { label: "Culture", path: "/culture" },
+    { label: "Blog", path: "/blog" },
+  ],
+},
               {
                 heading: "Contact Us",
-                items: ["we@anslation.com", "012-345-6789", "Betul | Gurugram"],
+                items: [
+                  { label: "we@anslation.com", path: "mailto:we@anslation.com" },
+                  { label: "012-345-6789", path: "tel:012-345-6789" },
+                  { label: "Betul | Gurugram", path: "" }
+                ],
               },
             ].map((block, idx) => (
               <Grid key={idx} item xs={6} sm={6} md={2.25}>
@@ -150,16 +174,18 @@ export default function Footer() {
                   {block.items.map((x, i) => (
                     <Link
                       key={i}
+                        component="a"
+                        href={ x.path }
                       underline="hover"
                       color="#9DA3AF"
                       sx={{
                         fontSize: 16,
                         cursor: "pointer", 
                         wordBreak: "break-word",
-                        "&:hover": { color: "white" },
+                        "&:hover": { color: "blue" },
                       }}
                     >
-                      {x}
+                       { x.label }
                     </Link>
                   ))}
                 </Stack>
@@ -175,14 +201,14 @@ export default function Footer() {
             spacing={2}
             justifyContent="space-between"
             alignItems="center"
-            sx={{ fontSize: 13, textAlign: "center" }}
+            sx={{ fontSize: 13, textAlign: "center",  }}
           >
-            <Typography>
+            <Typography sx={{fontsize:16 , color:"#9DA3AF"}}>
               © 2025 Anslatíon — All Rights Reserved.
             </Typography>
 
             <Stack direction="row" spacing={2}>
-              <Link underline="hover" color="#9DA3AF">
+              <Link underline="hover" color="#9DA3AF" sx={{fontSize:15}}>
                 Terms & Conditions
               </Link>
               <Divider
@@ -190,7 +216,7 @@ export default function Footer() {
                 flexItem
                 sx={{ borderColor: "rgba(255,255,255,0.4)" }}
               />
-              <Link underline="hover" color="#9DA3AF">
+              <Link underline="hover" color="#9DA3AF" sx={{fontSize:16}}>
                 Privacy Policy
               </Link>
             </Stack>
