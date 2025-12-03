@@ -1,35 +1,63 @@
-import React, { useMemo, useEffect, useContext  } from "react";
+// src/pages/BlogDetail.jsx
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { blogData } from "../libs/blogData";
 
 import DetailsHero from "../components/blog/DetailsHero";
 import ContentRenderer from "../components/blog/ContentRenderer";
 import BackToAllButton from "../components/blog/BackToAllButton";
 import RelatedGrid from "../components/blog/RelatedGrid";
 import GradientButton from "../components/ui/GradientButton";
-// import GradientButton from "../components/ui/GradientButton"; // for 404 button
-import { BlogContext } from "../Context/BlogContext";
+
+// 🔴 NEW: use the dynamic service instead of blogData
+import { listPosts } from "../libs/postsService";
 
 export default function BlogDetail() {
-  // const {blogData} = useContext(BlogContext)
-  const { id } = useParams();
-     
-  console.log(id , "samraaat")
-  
-   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" }); 
+  const { id } = useParams(); // /blog/:id → id from URL
+
+  const [post, setPost] = useState(null);
+  const [allPosts, setAllPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    async function load() {
+      try {
+        setLoading(true);
+
+        // Get all posts from service (local blogData or API later)
+        const { data } = await listPosts({
+          page: 1,
+          limit: 9999, // enough to get all posts for now
+        });
+
+        setAllPosts(data || []);
+
+        // match by id (string compare, same as you did earlier)
+        const match = (data || []).find(
+          (p) => String(p.id) === String(id)
+        );
+
+        setPost(match || null);
+      } catch (err) {
+        console.error("Error loading blog detail:", err);
+        setPost(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    load();
   }, [id]);
 
-    const post = useMemo(
-    () =>
-      blogData.find(
-        (p) => String(p.id) === String(id) || String(p.slug) === String(id) // ← NEW: slug fallback
-      ),
-    [id]
-  );
-
-  console.log(post , "post data is coming")
-
+  // Simple loading state so "Blog not found" doesn’t flash
+  if (loading) {
+    return (
+      <div className="min-h-[60vh] grid place-items-center bg-[#0b1020] text-white px-6">
+        <p className="text-sm text-gray-400">Loading blog...</p>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -69,13 +97,8 @@ export default function BlogDetail() {
         <BackToAllButton />
       </div>
 
-      <RelatedGrid items={blogData} currentId={id} />
+      {/* use allPosts (dynamic) for related */}
+      <RelatedGrid items={allPosts} currentId={String(post.id)} />
     </div>
   );
 }
-
-
-
-
- 
-

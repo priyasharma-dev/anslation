@@ -21,29 +21,23 @@ import {
   LightMode,
 } from "@mui/icons-material";
 import { Ellipse81 } from "../../../gradient/gradienttop";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate} from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
 
 const siteBg = "#0A1929";
-
 const navItems = ["Products", "Solutions", "Resources"];
 
 export default function Header() {
-  const [themeMode, setThemeMode] = useState("Light");
-  const [themeIcon, setThemeIcon] = useState(false);
+  const [themeMode, setThemeMode] = useState("Dark");
+   const [mobileOpen, setMobileOpen] = useState(false);
+   const navigate = useNavigate();
 
-  const changeThemeMode = () => {
-    if (themeMode === "Dark") {
-      setThemeMode("Light");
-      setThemeIcon(false);
-    } else {
-      setThemeMode("Dark");
-      setThemeIcon(true);
-    }
-  };
+ const changeThemeMode = () => {
+  setThemeMode((prev) => (prev === "Dark" ? "Light" : "Dark"));
+};
 
   useEffect(() => {
-    const root = document.documentElement; // 👈 ye body ke upar wala element hai (html)
+    const root = document.documentElement; 
 
     if (themeMode === "Light") {
       root.style.backgroundColor = "#ffffff";
@@ -56,16 +50,17 @@ export default function Header() {
     }
   }, [themeMode]);
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
   const isDesktop = useMediaQuery("(min-width:960px)");
   const isTabletUp = useMediaQuery("(min-width:600px)");
   const isMobile = useMediaQuery("(max-width:599.98px)");
+  const isDark = themeMode === "Dark";
 
   const handleDrawerToggle = () => setMobileOpen((v) => !v);
 
   const showBackground = mobileOpen;
-
+ const handleProductsClick = () => {
+    navigate("/", { state: { openProducts: true } });
+  };
   return (
     <>
       {/* Show background only when the navbar or drawer is toggled */}
@@ -164,6 +159,7 @@ export default function Header() {
                     "&:hover": { backgroundColor: "transparent" },
                     minWidth: "auto",
                   }}
+                  onClick={item === "Products"?handleProductsClick :undefined}
                 >
                   {item}
                 </Button>
@@ -174,64 +170,108 @@ export default function Header() {
             <Box
               sx={{
                 display: isTabletUp ? "flex" : "none",
-                gap: { sm: 1, md: 2 },
+                gap: { sm: 1, md: 1.5 },
                 alignItems: "center",
                 flexShrink: 0,
               }}
             >
+             {/* JOIN US (desktop text link) */}
               <Button
-                variant="outlined"
+                component={RouterLink}
+                to="/join-us" 
                 sx={{
-                  color: "white",
-                  borderColor: "white",
-                  borderRadius: "9999px",
                   textTransform: "none",
-                  fontSize: { md: "16px" },
-                  px: { md: 2 },
-                  display: { sm: "flex", md: "flex" },
+                  color: "#FFFFFF",
+                  fontSize: { sm: "0.8rem", md: "0.95rem" },
+                  fontWeight: 400,
+                  px: { sm: 1, md: 1.5 },
+                  minWidth: "auto",
+                  background: "transparent",
                   "&:hover": {
-                    backgroundColor: "white",
-                    color: "#0A1929",
+                    backgroundColor: "transparent",
+                    textDecoration: "none",
+                    textDecorationThickness: "2px",
+                    textUnderlineOffset: 4,
                   },
-                  ml: { sm: 1 },
+                }}
+              >
+                Join us
+              </Button>
+
+               {/* CONTACT US */}
+              <Button
+                variant="contained"
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "999px",
+                 px: { sm: 2.8, md: 3.4 },
+                 py: { sm: 0.8, md: 1 },
+                 fontSize: { sm: "0.7rem", md: "0.9rem" },
+                 fontWeight: 500,
+                 background:
+                   "linear-gradient(126deg, #2A65CC 0%, #42B4D1 100%)",
+                 color: "#FFFFFF",
+                 border: "1px solid rgba(255,255,255,0.85)",
+                 boxShadow: "0 0 26px rgba(0, 122, 255, 0.85)",
+                 whiteSpace: "nowrap",
+                 "&:hover": {
+                   background:
+                     "linear-gradient(126deg, #3B74D5 0%, #54C6E3 100%)",
+                   boxShadow: "0 0 32px rgba(0, 155, 255, 0.95)",
+                 },
                 }}
                 component={RouterLink}
                 to="/contact"
               >
-                Contact
+                Contact Us
               </Button>
 
-              <Button onClick={changeThemeMode}>
-                <IconButton
-                  sx={{
-                    border: "1px solid white",
-                    borderRadius: "9999px",
-                    color: "white",
-                    px: { sm: 1, md: 2 },
-                    py: { sm: 0.5, md: 1 },
-                    boxShadow: "0 0 20px #0B3BFF",
-                    "&:hover": {},
-                    display: { sm: "flex", md: "flex" },
-                    minWidth: "auto",
-                  }}
-                  size="small"
-                  aria-label="toggle dark mode"
-                >
-                  {themeIcon ? (
-                    <DarkMode fontSize="small" />
-                  ) : (
-                    <LightMode fontSize="small" />
-                  )}
+              {/* THEME TOGGLE */}
+              <Button 
+              onClick={changeThemeMode}
+              sx={{
+                 ml: { sm: 0.5, md: 1 },
+                 display: "flex",
+                 alignItems: "center",
+                 justifyContent: "center",
+                 gap: 0.75, 
+                 borderRadius: "999px",
+                 px: { sm: 2.6, md: 3 },
+                 py: { sm: 0.85, md: 0.95 },
+                 minWidth: "auto",
+                 textTransform: "none",
+                 background: isDark
+                ? "linear-gradient(126deg, #2A65CC 0%, #42B4D1 100%)"
+               : "linear-gradient(126deg, #1D3F80 0%, #2F7690 100%)",
+                border: "1px solid rgba(255,255,255,0.9)",
+                boxShadow:
+                 "0 0 20px rgba(0, 122, 255, 0.65), 0 0 45px rgba(0, 122, 255, 0.45)",
+                color: "#FFFFFF",
+                "&:hover": {
+                  background: isDark
+                    ? "linear-gradient(126deg, #3B74D5 0%, #54C6E3 100%)"
+                    : "linear-gradient(126deg, #275097 0%, #3998AA 100%)",
+                  boxShadow:
+                    "0 0 26px rgba(0, 155, 255, 0.85), 0 0 55px rgba(0, 155, 255, 0.55)",
+                },
+              }}
+              >
+                {isDark ? (
+                  <DarkMode sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                ) : (
+                  <LightMode sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                )}
+                 
                   <Typography
                     sx={{
                       ml: { sm: 0.5, md: 1 },
-                      fontSize: { sm: "0.875rem", md: "1rem" },
+                      fontSize: { sm: "0.8rem", md: "0.95rem" },
                       display: { sm: "none", md: "inline" },
                     }}
                   >
                     {themeMode}
                   </Typography>
-                </IconButton>
+             
               </Button>
             </Box>
 
@@ -245,7 +285,7 @@ export default function Header() {
                 height: 44,
                 borderRadius: "9999px",
                 transition:
-                  "transform .2s ease,background .2s ease,box-shadow .2s ease", // NEW
+                  "transform .2s ease,background .2s ease,box-shadow .2s ease", 
                 transform: mobileOpen ? "rotate(180deg)" : "none",
                 ...(mobileOpen && {
                   backgroundColor: "rgba(0,0,0,0.35)",
@@ -308,7 +348,7 @@ export default function Header() {
             </IconButton>
           </Box>
 
-          {/* Ellipse glow inside the drawer (matches homepage feel) */}
+          {/* glow */}
           <Box sx={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
             <Box
               sx={{
@@ -346,7 +386,14 @@ export default function Header() {
               {navItems.map((item) => (
                 <ListItemButton
                   key={item}
-                  onClick={handleDrawerToggle}
+                  onClick={() => {
+                    handleDrawerToggle();
+                    if (item === "Products") {
+                      setTimeout(() => {
+                        handleProductsClick();
+                      }, 200);
+                    }
+                  }}
                   sx={{
                     backgroundColor: "transparent",
                     color: "white",

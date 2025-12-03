@@ -3,13 +3,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export default function Card({ post = {} }) {
-  const { id, slug, image, title, desc, date, category, readTime } = post;
-
-
-  console.log("slug is not coming" , slug)
-
+  const { id, image, title, desc, date, category, readTime } = post;
+console.log("card id:", id);
   const [imgOk, setImgOk] = React.useState(true);
-  const to = `/blog/${encodeURIComponent(slug ?? id ?? "unknown")}`;
+  const to = `/blog/${encodeURIComponent(id)}`;
   const titleId = `post-title-${id ?? slug ?? "x"}`;
 
   const metaBits = [date, category, readTime].filter(Boolean);

@@ -1,37 +1,82 @@
 import React from "react";
 
-export default function ContentRenderer({ desc, content = [] }) {
+export default function ContentRenderer({ desc, content }) {
+  // content can be:
+  // - Array of blocks (existing blogData)
+  // - Array of strings (your current public-blogdata.js)
+  // - String (full blog content from form)
 
-  console.log("Samraat blog content" , content)
+  const isArray = Array.isArray(content);
+  const isString = typeof content === "string";
+  const isStringArray = isArray && content.every((item) => typeof item === "string");
+
+  const isBlocks = isArray && !isStringArray;
+  const hasBlocks = isBlocks && content.length > 0;
+
+  // For single string content
+  const contentText =
+    !isArray && typeof content === "string" ? content.trim() : "";
+
+  console.log("Samraat blog content:", content);
+
+  // Paragraphs from:
+  // - single string (split on blank line)
+  // - OR array of strings
+  const paragraphs = isStringArray
+    ? content.map((p) => String(p).trim()).filter(Boolean)
+    : contentText
+        ? contentText
+            .split(/\n{2,}/)
+            .map((p) => p.trim())
+            .filter(Boolean)
+        : [];
+
   return (
     <article className="mx-auto max-w-3xl px-6 sm:px-8 md:px-10 py-12">
-      {desc && <p className="text-lg sm:text-base md:text-lg text-white/90">{desc}</p>}
+      {desc && (
+        <p className="text-lg sm:text-base md:text-lg text-white/90">
+          {desc}
+        </p>
+      )}
 
       <div className="mt-8 space-y-6 leading-relaxed text-white/85">
-        {content.length ? (
+        {/* 1) Structured blocks (from blogData or API) */}
+        {hasBlocks ? (
           content.map((block, i) => {
             switch (block.type) {
               case "h2":
                 return (
-                  <h2 key={i} className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">
+                  <h2
+                    key={i}
+                    className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]"
+                  >
                     {block.text}
                   </h2>
                 );
               case "h3":
                 return (
-                  <h3 key={i} className="text-xl sm:text-2xl md:text-3xl font-semibold text-white/95">
+                  <h3
+                    key={i}
+                    className="text-xl sm:text-2xl md:text-3xl font-semibold text-white/95"
+                  >
                     {block.text}
                   </h3>
                 );
               case "quote":
                 return (
-                  <blockquote key={i} className="border-l-4 border-[#2a77ff] pl-4 italic text-white/90">
+                  <blockquote
+                    key={i}
+                    className="border-l-4 border-[#2a77ff] pl-4 italic text-white/90"
+                  >
                     {block.text}
                   </blockquote>
                 );
               case "img":
                 return (
-                  <figure key={i} className="my-6 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+                  <figure
+                    key={i}
+                    className="my-6 overflow-hidden rounded-xl border border-white/10 bg-white/5"
+                  >
                     <img
                       src={block.src}
                       alt={block.alt || ""}
@@ -39,30 +84,59 @@ export default function ContentRenderer({ desc, content = [] }) {
                       loading="lazy"
                     />
                     {block.caption && (
-                      <figcaption className="px-3 py-2 text-xs sm:text-sm text-white/60">{block.caption}</figcaption>
+                      <figcaption className="px-3 py-2 text-xs sm:text-sm text-white/60">
+                        {block.caption}
+                      </figcaption>
                     )}
                   </figure>
                 );
               case "ul":
                 return (
                   <ul key={i} className="list-disc list-inside space-y-2">
-                    {(block.items || []).map((li, idx) => <li key={idx}>{li}</li>)}
+                    {(block.items || []).map((li, idx) => (
+                      <li key={idx}>{li}</li>
+                    ))}
                   </ul>
                 );
               default:
-                return <p key={i} className="text-sm sm:text-base md:text-lg">{block.text}</p>;
+                return (
+                  <p
+                    key={i}
+                    className="text-sm sm:text-base md:text-lg text-white/85"
+                  >
+                    {block.text}
+                  </p>
+                );
             }
           })
+        ) : paragraphs.length ? (
+          // 2) Plain text content (string or array of strings)
+          paragraphs.map((p, i) => (
+            <p
+              key={i}
+              className="text-sm sm:text-base md:text-lg text-white/85"
+            >
+              {p}
+            </p>
+          ))
         ) : (
+          // 3) Fallback placeholder (no content provided)
           <>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">Introduction</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">
+              Introduction
+            </h2>
             <p className="text-sm sm:text-base md:text-lg">
-              This is a placeholder article body. Add a <code>content</code> array to your <code>blogData</code> to render full sections.
+              This is a placeholder article body. Add a{" "}
+              <code>content</code> field (either an array of blocks, an array
+              of strings, or a long text string) to your blog post to render
+              full content here.
             </p>
             <blockquote className="border-l-4 border-[#2a77ff] pl-4 italic">
               “Language is power — our mission is to make it universal.”
             </blockquote>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">Key Takeaways</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">
+              Key Takeaways
+            </h2>
             <ul className="list-disc list-inside space-y-2">
               <li>Fast, accurate translations</li>
               <li>Developer-friendly APIs</li>
