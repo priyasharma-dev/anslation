@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
 import { Box } from "@mui/material";
-// import Header from "../components/home/header/Header";
+
 import Hero from "../components/home/hero/Hero";
 import { useLocation, useNavigate } from "react-router-dom";
 // import Svg from "../components/home/exploresvg/Svg";
@@ -8,12 +8,18 @@ import { useLocation, useNavigate } from "react-router-dom";
 import  HeroCardsSection from "../components/home/newSvg/HeroCardsSection";
 // import Always from "../components/home/stayupdate/Always";
 import { Ellipse81, Ellipse82, Rectangle82, Rectangle83 } from "../gradient/gradienttop";
-// import Footer from "../components/home/footer/Footer";
 import OurProducts from "../components/home/ourproducts/OurProducts"; 
+import AdsAstraFeatures from "../components/home/AdsAstraFeatures/AdsAstraFeatures";
+import StartDataDriven from "../components/home/StartDataDriven/StartDataDriven";
+
+
 
 
 function Home() {
   const [showProducts, setShowProducts] = useState(false);
+  const [showAdsAstra, setShowAdsAstra] = useState(false);
+   const [showStartCTA, setShowStartCTA] = useState(false);
+
   const location=useLocation();
   const navigate=useNavigate();
   
@@ -35,6 +41,24 @@ function Home() {
     }
   }, [location, navigate]);
   
+ const handleProductsClick = () => {
+    setShowProducts(true);
+
+      setTimeout(() => {
+      const el = document.getElementById("our-products");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
+
+  const handleAdsClick = () => {
+    setShowAdsAstra(true);
+    setShowStartCTA(true);
+
+    setTimeout(() => {
+      const el = document.getElementById("ads-astra-section");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
 
   return (
     <Box
@@ -48,16 +72,23 @@ function Home() {
     >
     
 
-      <Hero />
+      <Hero onProductsClick={handleProductsClick} />
       {/* <AiPowered/> */}
       {/* <HeroCardsSection/> */}
       {/* <Svg /> */}
        {/* Our Products section on home page */}
        {showProducts && (
         <div id="our-products">
-          <OurProducts />
+          <OurProducts onAdsClick={handleAdsClick}/>
         </div>
       )}
+        {showAdsAstra && (
+      <div id="ads-astra-section">
+        <AdsAstraFeatures />
+      </div>
+    )}
+    {showStartCTA && <StartDataDriven />}
+    
     </Box>
   );
 }
