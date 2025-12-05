@@ -1,0 +1,328 @@
+/* ===========================
+   SECTION BACKGROUND + LAYOUT
+   =========================== */
+
+.aa-features-section {
+  padding-block: 120px 120px;
+  padding-inline: clamp(16px, 6vw, 72px);
+  background:transparent;
+  color: #e2e8f0;
+  display: flex;
+  justify-content: center;
+}
+
+.aa-features-inner {
+  width: 100%;
+  max-width: 1120px;
+}
+
+
+.aa-product-header {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+.aa-product-icon-box {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  padding: 0;
+  border-radius: 22px;
+
+  /* flat dark square like Figma */
+  background: #0b1224;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* this wrapper is now only for centering – no glow, no circle */
+.aa-product-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* the SVG itself is the blue target icon */
+.aa-product-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: none;
+}
+
+.aa-product-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* heading/subtitle same feel as figma */
+.aa-product-title {
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 40px;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+.aa-product-subtitle {
+  margin-top: 4px;
+  color: #a8b3cf;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/*HEADING */
+
+.aa-features-heading-wrap {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.aa-features-heading {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+/*TIMELINE */
+
+.aa-features-timeline {
+  position: relative;
+  overflow: hidden;          
+}
+
+/* center vertical line */
+.aa-features-timeline::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #293246;
+  opacity: 0.9;
+}
+
+.aa-features-timeline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;              /* size of glow area */
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 169, 255, 0) 0%,
+    rgba(51, 179, 244, 0.9) 50%,
+    rgba(0, 169, 255, 0) 100%
+  );
+  box-shadow: 0 0 18px rgba(0, 169, 255, 0.8);
+  pointer-events: none;
+  z-index: 1;              
+  animation: aa-line-glow 10s linear infinite;
+}
+
+
+/* one row = one feature pair */
+.aa-features-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 120px;
+  margin-block: 40px;
+}
+
+/* small glowing dot on the line */
+.aa-features-row::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #00a9ff;
+  box-shadow:
+    0 0 10px rgba(0, 169, 255, 0.7),
+    0 0 18px rgba(0, 169, 255, 0.6);
+  z-index: 2;
+}
+
+.aa-features-spacer {
+  min-height: 1px;
+}
+
+/* animated glow positions: dot1 -> dot2 -> ... -> dot6 -> back */
+@keyframes aa-line-glow {
+  /* just above first dot */
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  /* first visible segment (around dot 1) */
+  5% {
+    top: 4%;
+    opacity: 1;
+  }
+
+  /* smoothly travel down the line */
+  95% {
+    top: 96%;  /* around last dot – tweak if needed */
+    opacity: 1;
+  }
+
+  /* exit + restart */
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* FEATURE CARDS */
+
+.aa-feature-card {
+  padding: 24px 32px;
+  border-radius: 24px;
+  background: #0b172b;
+  border: none;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.9);
+  max-width: 460px;
+   cursor: pointer;
+
+  /* smooth hover */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+* lift + glow on hover */
+.aa-feature-card:hover {
+  transform: translateY(-4px);
+  background: #0f2238;
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.95),
+    0 0 28px rgba(0, 169, 255, 0.3);
+}
+
+/* keyboard focus state */
+.aa-feature-card:focus-visible {
+  outline: 2px solid #00a9ff;
+  outline-offset: 4px;
+  transform: translateY(-4px);
+}
+
+/* icon + title reaction */
+.aa-feature-card:hover .aa-feature-icon {
+  box-shadow: 0 0 20px rgba(0, 169, 255, 0.6);
+  background: #071a33;
+}
+
+.aa-feature-card:hover .aa-feature-title {
+  color: #e5f3ff;
+}
+
+.aa-card-right {
+  margin-left: auto;
+}
+
+.aa-card-left {
+  margin-right: auto;
+}
+
+/* header row inside card: icon + title */
+.aa-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* small square icon */
+.aa-feature-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: #071328;
+  box-shadow: 0 0 16px rgba(0, 169, 255, 0.2);
+}
+
+.aa-feature-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0; /* same line with icon */
+}
+
+/* description text */
+.aa-feature-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cbd5f5;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 900px) {
+  .aa-features-inner {
+    max-width: 100%;
+  }
+
+  .aa-product-header {
+    justify-content: flex-start;
+  }
+
+  .aa-features-timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .aa-features-row {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+    padding-left: 48px;
+    margin-block: 32px;
+  }
+
+  .aa-features-row::before {
+    left: 20px;
+    transform: translate(-50%, -50%);
+  }
+
+  .aa-feature-card,
+  .aa-card-left,
+  .aa-card-right {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .aa-product-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .aa-features-heading {
+    font-size: 30px;
+  }
+}

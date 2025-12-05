@@ -5,7 +5,8 @@ import { Outlet } from 'react-router-dom'
 import { Ellipse81 } from '../gradient/gradienttop'
 import Always from '../components/home/stayupdate/Always'
 
-const GUTTER = 'clamp(16px, 6vw, 48px)'
+const GUTTER = 'clamp(16px, 6vw, 48px)';
+const GRID_SIZE = "132px"; 
 
 const styles = {
   app: {
@@ -17,7 +18,8 @@ const styles = {
     position: 'relative',
     overflow: 'hidden',
     minHeight: '100dvh',
-     ['--gutter']: GUTTER,
+    ['--gutter']: GUTTER,
+    ["--grid-size"]: GRID_SIZE,
   },
   
  gutter: { paddingInline:'var(--gutter)'},
@@ -43,12 +45,21 @@ const styles = {
       linear-gradient(to right, rgba(148,163,184,0.25) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(148,163,184,0.25) 1px, transparent 1px)
     `,
-    backgroundSize: '96px 96px',
-    mixBlendMode: 'soft-light',
-    opacity: 0.45,
+     backgroundSize: "var(--grid-size) var(--grid-size)",
+      backgroundPosition: "center top",
+    mixBlendMode: 'normal',
+    opacity: 0.7,
   },
 
-  main: { flex: 1 },
+  main: { flex: 1,
+     position: "relative",
+    zIndex: 2,
+   },
+   sectionStack: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "clamp(96px, 12vh, 160px)", // <- even vertical gap between sections
+  },
 }
 
 export default function MainLayout() {
@@ -67,7 +78,9 @@ export default function MainLayout() {
 
       {/* Main outlet */}
       <main style={{ ...styles.content, ...styles.main, paddingInline: 0 }}>
+         <div style={styles.sectionStack}>
         <Outlet />
+        </div>
       </main>
 
       {/* CTA + Footer */}

@@ -1,5 +1,5 @@
 .op-section {
-  padding: 96px 0 120px;
+  padding: 15px 0 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,37 +8,118 @@
 .op-heading-wrap {
   width: 100%;
   max-width: 1152px;
-  margin: 0 auto 64px;
-  text-align: center;
+  margin: 0 auto 40px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  textAlign: center;
+}
+
+/* Small "Products" pill above heading */
+.op-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 4px 12px;
+   margin-bottom: 16px; 
+
+  background: transparent;
+  border-radius: 9999px;
+  outline: 0.5px solid #1f40b0;
+  outline-offset: -0.25px;
+
+  /* center inside heading wrap */
+  /* position: relative; */
+}
+
+.op-pill-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #61a6fb;
+  display: block;
+}
+
+.op-pill-label {
+  color: #61a6fb;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+
+/* --- show/hide helpers for Products section --- */
+
+/* hidden by default */
+.op-section--hidden {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(40px);
+  overflow: hidden;
+  pointer-events: none;
+
+  /* override base layout so it doesn't leave gap */
+  padding: 0;
+  margin: 0;
+}
+
+/* when made visible from the Products card click */
+.op-section--visible {
+  max-height: 4000px;            /* big enough to fit the content */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    max-height 0.4s ease;
+
+  /* restore original padding when visible */
+  padding: 96px 0 120px;
 }
 
 /* Our Products */
 .op-heading {
+ width: 100%;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   margin: 0 0 12px;
-  width: 100%;
-  max-width: 1152px;
-  height: 48px;
+
+  color: #ffffff;
   font-family: "Helvetica Neue", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  font-weight: 600;
-  font-size: 40px;
+  font-weight: 500;
+  font-size: 48px;
   line-height: 48px;
-  text-align: center;
-  color: #ffffff;
+  word-wrap: break-word;
 }
 
 /* Subtitle */
 .op-subtitle {
-  margin: 0 auto;
   width: 100%;
-  max-width: 1152px;
-  height: 28px;
+  max-width: 640px;          /* optional: keeps the line length pleasant */
+  margin: 0 auto;            /* centers it under the heading */
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: #a8b3cf;
   font-family: "Helvetica Neue", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 28px;
-  color: #a8b3cf;
+  word-wrap: break-word;
 }
 
 /* Grid Layout */

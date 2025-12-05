@@ -1,0 +1,131 @@
+/* full-width blue band, vertical gradient like Figma */
+.sd-section {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 103.59, 255, 0.8) 0%,
+    rgba(0, 162.58, 255, 0.8) 100%
+  );
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 56px; /* approx: top 48, bottom 56 from figma */
+}
+
+/* inner 600×116 block from figma, centered */
+.sd-inner {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Roboto", system-ui, -apple-system, sans-serif;
+}
+
+/* title: 17.56px, 700 */
+.sd-title {
+  margin: 0 0 8px;
+  font-size: 17.6px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+/* subtitle: 12.75px, 400, light blue */
+.sd-subtitle {
+  margin: 0 0 28px;
+  font-size: 12.8px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #d9e6ff;
+}
+
+/* buttons container: 552×40 at bottom of figma frame */
+.sd-actions {
+  width: 552px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 24px; /* 138 → 284 offset ≈ 24px visual gap */
+}
+
+/* generic button: 130×40, radius 6 */
+.sd-btn {
+  width: 130px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 12.7px;
+  line-height: 18px;
+  font-weight: 600;
+  font-family: "Roboto", system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  position: relative;
+
+  /* add this for consistent vertical centering */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.12s ease;
+}
+
+/* Schedule Demo – white filled */
+.sd-btn-primary {
+  background: #ffffff;
+  color: #348ee4;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.sd-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Get Started – outlined with arrow */
+.sd-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+  gap: 8px;
+}
+
+.sd-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* tiny ">" arrow built from borders (4.67×9.33-ish) */
+.sd-arrow {
+  display: inline-block;
+  width: 4.7px;
+  height: 9.3px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  /* transform: rotate(-45deg); */
+  margin-top:0px;
+}
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .sd-section {
+    padding: 40px 16px 44px;
+  }
+
+  .sd-inner {
+    max-width: 100%;
+  }
+
+  .sd-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .sd-btn {
+    width: 100%;
+  }
+}

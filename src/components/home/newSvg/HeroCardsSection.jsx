@@ -49,7 +49,7 @@ const CARD_OFFSETS = [
   220, // Services
 ];
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 // total block (card + label) sizes from Figma
 const getCardSize = (label) => {
@@ -110,12 +110,28 @@ const HeroCardsSection = () => {
 
 const FloatingCard = ({ icon, label, href, offset, index }) => {
   const { width, height } = getCardSize(label);
+   const isProducts = label === "Products";
+ const handleClick = (e) => {
+    if (!isProducts) return; // let other cards behave as normal links
+
+    // special behavior for Products: show section + scroll
+    e.preventDefault();
+
+    const section = document.getElementById("our-products");
+    if (section) {
+      section.classList.remove("op-section--hidden");
+      section.classList.add("op-section--visible");
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+   
 
   return (
     <MotionBox
       component="a"
       href={href}
       aria-label={label}
+       onClick={handleClick} 
       initial={{ opacity: 0, y: offset + 40, scale: 0.9 }}
       animate={{ opacity: 1, y: offset, scale: 1 }}
       transition={{
