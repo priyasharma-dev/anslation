@@ -25,18 +25,18 @@ function App() {
         <Routes>
           <Route element={<MainLayout/>} >
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />        
+           <Route path="/about" element={<About />} />   
           <Route path="/career" element={<Career/>} />
           <Route path="/career/:id" element={<CareerProfile/>} />
           <Route  path="/product" element={<Product/>} />
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/blog/:id" element={<BlogDetail/>}/>
           <Route path="/culture" element={<Culture/>}/>
-
           <Route path="/contact" element={<Contact/>} />
           
         
           </Route>
+          
           <Route path="/gradiant" element={<Gradiant />} />
           <Route path="/animation" element={<CenterAnimation />} />
           <Route path="/admin/form" element={<Form/>} />

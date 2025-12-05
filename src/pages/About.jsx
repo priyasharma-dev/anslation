@@ -6,6 +6,7 @@ import { Box } from '@mui/material'
 import WeAre from '../components/Aboutus/WeAre'
 import AnslationPillar from '../components/Aboutus/AnslationPillar'
 import OurTeam from '../components/Aboutus/OurTeam'
+import OurLeader from '../components/Aboutus/ourleader'
 
 const About = () => {
   return (
@@ -22,6 +23,7 @@ const About = () => {
       <WeAre/>
       <AnslationPillar/>
       <OurTeam/>
+      <OurLeader/>
   </Box>
   </>
   )

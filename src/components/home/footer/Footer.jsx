@@ -47,7 +47,7 @@ export default function Footer() {
 
   return (
     <Box sx={{ background: "#000", color: "#fff" }}>
-      <Divider sx={{ borderColor: "rgba(255,255,255,0.4)" }} />
+      {/* <Divider sx={{ borderColor: "rgba(255,255,255,0.4)" }} /> */}
 
       <Box
         component="footer"
@@ -65,7 +65,12 @@ export default function Footer() {
           >
             {/* Brand */}
             <Grid item xs={12} sm={6} md={3}>
-              <img src="/logo-white.svg" alt="logo" style={{ width: 85 }} />
+              <img src="/svg/anslation-logo.svg" alt="logo" style={{
+    width: 120,           
+    display: "block",     
+    margin: "3 auto",     
+    marginBottom: "5px", 
+  }} />
               <Typography sx={{ fontSize: 18, lineHeight: 1.6, mt: 3, color:"#9DA3AF" }}>
                 Driven by Questions.
                 <br />
