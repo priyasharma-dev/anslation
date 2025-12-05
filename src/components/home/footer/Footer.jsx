@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import {
   Box,
@@ -10,52 +11,29 @@ import {
   Paper,
   IconButton,
 } from "@mui/material";
-import { Email, Phone, LocationOn } from "@mui/icons-material";
 import { MessageCircle } from "lucide-react";
+import ChatSupport from "../footer/Footer_Services/Chat_Support/ChatSupport";
+
+// Social Icons
 import instagram from "../../../assets/Instagram 2.png";
 import linked from "../../../assets/LinkedIn 2.png";
 import Twitter from "../../../assets/Twitter.png";
 import youtube from "../../../assets/Youtube.png";
 import fac from "../../../assets/Facebook 2.png";
-import ChatSupport from "../footer/Footer_Services/Chat_Support/ChatSupport";
 
 export default function Footer() {
-  const footerLinks = {
-    product: [
-      { label: "Ads-astra", href: "#" },
-      { label: "Anslatíon tools", href: "#" },
-      { label: "OS.Anslation", href: "#" },
-      { label: "K-tech tool", href: "#" },
-      { label: "Trackers", href: "#" },
-    ],
-    service: [
-      { label: "Performance Analytics", href: "#" },
-      { label: "Software Infrastructure", href: "#" },
-      { label: "Marketing Automation", href: "#" },
-      { label: "Chat support", href: "#" },
-    ],
-    company: [
-      { label: "About", href: "/about" },
-      { label: "Contact us", href: "/contact" },
-      { label: "Careers", href: "/career" },
-      { label: "Culture", href: "/culture" },
-      { label: "Blog", href: "/blog" },
-    ],
-  };
-
   const socialIcons = [
-    { src: fac, alt: "Facebook" },
-    { src: instagram, alt: "Instagram" },
-    { src: linked, alt: "LinkedIn" },
-    { src: Twitter, alt: "Twitter" },
-    { src: youtube, alt: "YouTube" },
+    { src: fac, alt: "Facebook", link:"https://www.facebook.com/people/Anslation-PvtLtd/pfbid0rZsF7kb8QXNUS5cKSviE72mMSd4vWD5CRoTPqNTkkTryapM3C6iMFo3vpDGwzHTkl/?mibextid=wwXIfr&rdid=FcVSZRwUYySTFyJ1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16StUHySDq%2F%3Fmibextid%3DwwXIfr"},
+    { src: instagram, alt: "Instagram" ,link:"https://www.instagram.com/anslation_official/" },
+    { src: linked, alt: "LinkedIn",link:"https://www.linkedin.com/company/anslation/" },
+    { src: Twitter, alt: "Twitter" ,link:"https://x.com/AnslationPvtLtd?ref_src=twsrc%5Etfw"},
+    { src: youtube, alt: "YouTube" ,link:"https://www.youtube.com/@anslation-r3j" },
   ];
 
   const [openChat, setOpenChat] = useState(false);
   const [showMessage, setShowMessage] = useState(true);
   const [footerInView, setFooterInView] = useState(false);
 
-  // Detect when footer is visible
   useEffect(() => {
     const footer = document.querySelector("footer");
     if (!footer) return;
@@ -68,281 +46,194 @@ export default function Footer() {
   }, []);
 
   return (
-    <div>
-      <Divider sx={{ borderColor: "rgba(255,255,255)" }} />
+    <Box sx={{ background: "#000", color: "#fff" }}>
+      <Divider sx={{ borderColor: "rgba(255,255,255,0.4)" }} />
 
       <Box
         component="footer"
         sx={{
-          width: "100%",
-          background: "linear-gradient(to bottom, #0a0a0f, #00103a)",
-          color: "white",
-          py: { xs: 4, sm: 6, md: 8 },
-          px: { xs: 2, sm: 3, md: 4, lg: 0 },
+          py: { xs: 6, sm: 7, md: 8 },
+          px: { xs: 2, sm: 4, md: 6, lg: 10 },
         }}
       >
-        <Container maxWidth="2xl" className="w-full">
+        <Container maxWidth="xl">
           <Grid
             container
-            spacing={{ xs: 4, md: 6 }}
-            className="lg:flex lg:justify-evenly xl:flex xl:justify-around"
+            spacing={{ xs: 6, sm: 8, md: 10, lg: 14 }}
+            justifyContent="space-between"
+         
           >
-            {/* Brand Section */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Typography
-                component="h2"
-                sx={{
-                  fontSize: { xs: 20, sm: 24, lg: 32 },
-                  mr: { lg: 6 },
-                  "@media (min-width:1024px) and (max-width:1154px)": {
-                    mr: 0,
-                    textAlign: "center",
-                  },
-                }}
-              >
-                Anslatíon
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: { xs: 15, sm: 16, lg: 20 },
-                  mb: 2,
-                  lineHeight: 1.6,
-                  color: "rgba(255,255,255,0.9)",
-                }}
-              >
+            {/* Brand */}
+            <Grid item xs={12} sm={6} md={3}>
+              <img src="/logo-white.svg" alt="logo" style={{ width: 85 }} />
+              <Typography sx={{ fontSize: 18, lineHeight: 1.6, mt: 3, color:"#9DA3AF" }}>
                 Driven by Questions.
                 <br />
                 Delivered as Solutions.
               </Typography>
 
-              {/* Social Icons */}
-              <Stack direction="row" spacing={1.5} sx={{ mt: 3 }}>
-                {socialIcons.map((icon) => (
-                  <Link
-                    key={icon.alt}
-                    href="#"
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{ mt: 3, flexWrap: "wrap", gap: 1 }}
+              >
+                {socialIcons.map((icon, i) => (
+
+               <Link  key={i} 
+                href={icon.link}
+                target="_blank"
+                rel="nooperner noreferrer"
+                sx={{textDecoration :"none"}}>
+
+
+                  <Box
+                    key={i}
                     sx={{
+                      width: 34,
+                      height: 34,
                       display: "flex",
+                      justifyContent: "center",
                       alignItems: "center",
-                      transition: "opacity 0.2s",
-                      "&:hover": { opacity: 0.7 },
+                      borderRadius: "15%",
+                      backgroundColor: "#1F2937",
+                      cursor: "pointer",
+                      transition: "all .3s",
+                      "&:hover": {
+                        transform: "scale(1.15)",
+                        background:
+                          icon.alt === "Facebook"
+                            ? "#1877F2"
+                            : icon.alt === "Instagram"
+                            ? "linear-gradient(45deg,#515BD4,#8134AF,#DD2A7B,#FEDA77,#F58529)"
+                            : icon.alt === "LinkedIn"
+                            ? "#0A66C2"
+                            : icon.alt === "Twitter"
+                            ? "#1DA1F2"
+                            : icon.alt === "YouTube"
+                            ? "#FF0000"
+                            : "#1F2937",
+                      },
                     }}
-                    aria-label={icon.alt}
                   >
-                    <Box
-                      component="img"
-                      src={icon.src}
-                      alt={icon.alt}
-                      sx={{ width: 20, height: 20 }}
-                    />
+                    <img src={icon.src} alt={icon.alt} width={16} height={16} />
+                  </Box>
                   </Link>
                 ))}
               </Stack>
             </Grid>
 
-            {/* Links Section */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Grid container spacing={{ xs: 3, sm: 4, md: 3 }}>
-                {/* Product */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 18, sm: 20, md: 22 },
-                      fontWeight: 700,
-                      mb: { xs: 1.5, md: 2 },
-                    }}
-                  >
-                    Product
-                  </Typography>
-                  <Stack spacing={1.5}>
-                    {footerLinks.product.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        color="inherit"
-                        underline="hover"
-                        sx={{
-                          fontSize: { xs: 15, sm: 16, md: 17 },
-                          color: "rgba(255,255,255,0.85)",
-                          transition: "color 0.2s",
-                          "&:hover": { color: "white" },
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </Stack>
-                </Grid>
+            {/* Column Generator */}
+            {[
+              {
+                heading: "Product",
+                items: [
+                  
 
-                {/* Service */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 18, sm: 20, md: 22 },
-                      fontWeight: 700,
-                      mb: { xs: 1.5, md: 2 },
-                    }}
-                  >
-                    Service
-                  </Typography>
-                  <Stack spacing={1.5}>
-                    {footerLinks.service.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        color="inherit"
-                        underline="hover"
-                        sx={{
-                          fontSize: { xs: 15, sm: 16, md: 17 },
-                          color: "rgba(255,255,255,0.85)",
-                          transition: "color 0.2s",
-                          "&:hover": { color: "white" },
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </Stack>
-                </Grid>
+                  { label: "Ads-astra", path: "/ads-astra" },
+                  { label: "Anslatíon tools", path: "/anslatíon-tools" },
+                  { label: "OS Anslation", path: "/os-anslation" },
+                  { label: "K-tech tool", path: "/k-tech-tool" },
+                  { label: "Trackers", path: "/trackers" },
 
-                {/* Company */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 18, sm: 20, md: 22 },
-                      fontWeight: 700,
-                      mb: { xs: 1.5, md: 2 },
-                    }}
-                  >
-                    Company
-                  </Typography>
-                  <Stack spacing={{ xs: 0.6, sm: 1, md: 1.4, lg: 2 }}>
-                    {footerLinks.company.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        color="inherit"
-                        underline="hover"
-                        sx={{
-                          fontSize: { xs: 16, sm: 17, md: 18 },
-                          transition: "color 0.2s",
-                          "&:hover": { color: "white" },
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </Stack>
-                </Grid>
-
-                {/* Contact */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 18, sm: 20, md: 22 },
-                      fontWeight: 700,
-                      mb: { xs: 1.5, md: 2 },
-                    }}
-                  >
-                    Contact Us
-                  </Typography>
-                  <Stack spacing={1.5}>
-                    <Stack direction="row" spacing={1} alignItems="center">
-                      <Email sx={{ fontSize: 18 }} />
-                      <Typography
-                        sx={{
-                          fontSize: { xs: 15, sm: 16, md: 17 },
-                          color: "rgba(255,255,255,0.85)",
-                          wordBreak: "break-word",
-                        }}
-                      >
-                        help@anslation.com
-                      </Typography>
-                    </Stack>
-                    <Stack direction="row" spacing={1} alignItems="center">
-                      <Phone sx={{ fontSize: 18 }} />
-                      <Typography
-                        sx={{
-                          fontSize: { xs: 15, sm: 16, md: 17 },
-                          color: "rgba(255,255,255,0.85)",
-                        }}
-                      >
-                        (414) 687 - 5892
-                      </Typography>
-                    </Stack>
-                    <Stack direction="row" spacing={1} alignItems="center">
-                      <LocationOn sx={{ fontSize: 18 }} />
-                      <Typography
-                        sx={{
-                          fontSize: { xs: 15, sm: 16, md: 17 },
-                          color: "rgba(255,255,255,0.85)",
-                        }}
-                      >
-                        Betul | Gurugram
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
+                ],
+              },
+              {
+                heading: "Service",
+                items: [
+                  
+                  { label: "Performance Analytics", path: "/performance-analytics" },
+                  { label: "Software Infrastructure", path: "/software-infrastructure" },
+                  { label: "Marketing Automation", path: "/marketing-automation" },
+                  { label: "Chat support", path: "" },
+                ],
+              },
+              {
+  heading: "Company",
+  items: [
+    { label: "About", path: "/about" },
+    { label: "Contact us", path: "/contact" },
+    { label: "Careers", path: "/careers" },
+    { label: "Culture", path: "/culture" },
+    { label: "Blog", path: "/blog" },
+  ],
+},
+              {
+                heading: "Contact Us",
+                items: [
+                  { label: "we@anslation.com", path: "mailto:we@anslation.com" },
+                  { label: "012-345-6789", path: "tel:012-345-6789" },
+                  { label: "Betul | Gurugram", path: "" }
+                ],
+              },
+            ].map((block, idx) => (
+              <Grid key={idx} item xs={6} sm={6} md={2.25}>
+                <Typography sx={{ fontWeight: 600, mb: 2, fontSize: 18 }}>
+                  {block.heading}
+                </Typography>
+                <Stack spacing={1}>
+                  {block.items.map((x, i) => (
+                    <Link
+                      key={i}
+                        component="a"
+                        href={ x.path }
+                      underline="hover"
+                      color="#9DA3AF"
+                      sx={{
+                        fontSize: 16,
+                        cursor: "pointer", 
+                        wordBreak: "break-word",
+                        "&:hover": { color: "blue" },
+                      }}
+                    >
+                       { x.label }
+                    </Link>
+                  ))}
+                </Stack>
               </Grid>
-            </Grid>
+            ))}
           </Grid>
 
-          <Divider
-            sx={{
-              borderColor: "rgba(255,255,255,0.2)",
-              my: { xs: 4, md: 6 },
-            }}
-          />
+          {/* Bottom */}
+          <Divider sx={{ borderColor: "rgba(255,255,255,0.18)", my: 5 }} />
 
-          {/* Bottom Section */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: 2,
-              color: "rgba(255,255,255,0.85)",
-            }}
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ fontSize: 13, textAlign: "center",  }}
           >
-            <Typography sx={{ fontSize: { xs: 14, sm: 16 } }}>
-              Copyright © 2025
+            <Typography sx={{fontsize:16 , color:"#9DA3AF"}}>
+              © 2025 Anslatíon — All Rights Reserved.
             </Typography>
 
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={{ xs: 1, sm: 2 }}
-              alignItems="center"
-              sx={{ fontSize: { xs: 14, sm: 16 } }}
-            >
-              <Typography>All Rights Reserved</Typography>
-              <Box sx={{ display: { xs: "none", sm: "block" }, opacity: 0.6 }}>
-                |
-              </Box>
-              <Link href="#" color="inherit" underline="hover">
-                Terms and Conditions
+            <Stack direction="row" spacing={2}>
+              <Link underline="hover" color="#9DA3AF" sx={{fontSize:15}}>
+                Terms & Conditions
               </Link>
-              <Box sx={{ display: { xs: "none", sm: "block" }, opacity: 0.6 }}>
-                |
-              </Box>
-              <Link href="#" color="inherit" underline="hover">
+              <Divider
+                orientation="vertical"
+                flexItem
+                sx={{ borderColor: "rgba(255,255,255,0.4)" }}
+              />
+              <Link underline="hover" color="#9DA3AF" sx={{fontSize:16}}>
                 Privacy Policy
               </Link>
             </Stack>
-          </Box>
+          </Stack>
         </Container>
 
-        {/* 💬 Floating Chat Icon + Text */}
+        {/* Floating Chat */}
         {footerInView && (
           <Box
             sx={{
               position: "fixed",
-              bottom: { xs: 16, sm: 20, md: 25 },
-              right: { xs: 16, sm: 20, md: 25 },
-              zIndex: 3000,
+              bottom: { xs: 18, md: 30 },
+              right: { xs: 18, md: 30 },
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-end",
+              zIndex: 3000,
             }}
           >
             {showMessage && !openChat && (
@@ -351,13 +242,11 @@ export default function Footer() {
                 sx={{
                   background: "#1976d2",
                   color: "white",
-                  px: { xs: 1.4, sm: 1.6, md: 2 },
-                  py: { xs: 0.6, sm: 0.8, md: 1 },
-                  borderRadius: "10px",
+                  px: 2,
+                  py: 1,
                   mb: 1,
-                  fontSize: { xs: "11px", sm: "12px", md: "13px", lg: "14px" },
-                  whiteSpace: "nowrap",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                  borderRadius: 2,
+                  fontSize: { xs: 11, sm: 13 },
                 }}
               >
                 💬 Need help? Talk to our bot!
@@ -365,12 +254,11 @@ export default function Footer() {
             )}
 
             <IconButton
-              onClick={() => setOpenChat((prev) => !prev)}
+              onClick={() => setOpenChat(!openChat)}
               sx={{
                 background: "#1976d2",
-                color: "white",
+                color: "#fff",
                 "&:hover": { background: "#1565c0" },
-                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
               }}
             >
               <MessageCircle size={24} />
@@ -378,26 +266,21 @@ export default function Footer() {
           </Box>
         )}
 
-        {/* ✅ Chat Box */}
         {openChat && (
           <Box
             sx={{
               position: "fixed",
-              bottom: 100,
-              right: 30,
-              zIndex: 9999,
+              bottom: { xs: 95, md: 110 },
+              right: { xs: 18, md: 30 },
               width: { xs: 300, sm: 360 },
-              height: { xs: 400, sm: 450 },
-              overflow: "hidden",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              height: { xs: 380, sm: 430 },
+              zIndex: 4000,
             }}
           >
             <ChatSupport />
           </Box>
         )}
       </Box>
-    </div>
+    </Box>
   );
 }
