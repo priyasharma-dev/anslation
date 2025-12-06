@@ -1,7 +1,3 @@
-/* ===========================
-   SECTION BACKGROUND + LAYOUT
-   =========================== */
-
 .aa-features-section {
   padding-block: 120px 120px;
   padding-inline: clamp(16px, 6vw, 72px);
@@ -124,7 +120,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 2px;              /* size of glow area */
-  height: 120px;
+  height: 130px;
   background: linear-gradient(
     to bottom,
     rgba(0, 169, 255, 0) 0%,

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect, useState }  from "react";
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
@@ -52,25 +52,23 @@ const CARD_OFFSETS = [
 const MotionBox = motion.create(Box);
 
 // total block (card + label) sizes from Figma
-const getCardSize = (label) => {
-  // 94 × 126 – Software, Products, Micro Tools, Marketing, Inventory, Services
-  const smallCards = [
-    "Software",
-    "Products",
-    "Micro Tools",
-    "Marketing",
-    "Inventory",
-    "Services",
-  ];
-
-  // fallback
-  return {
-    width: { xs: 94, md: 94, lg: 94 },
-    height: { xs: 126, md: 126, lg: 126 },
-  };
-};
+const getCardSize = () => ({
+  width: { xs: 94, md: 94, lg: 94 },
+  height: { xs: 126, md: 126, lg: 126 },
+});
 
 const HeroCardsSection = () => {
+  const totalCards = cards.length;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+   useEffect(() => {
+    const interval = setInterval(
+      () => setActiveIndex((prev) => (prev + 1) % totalCards),
+      999 // ms per card (wave speed)
+    );
+    return () => clearInterval(interval);
+  }, [totalCards]);
+
   return (
     <Box
       sx={{
@@ -97,6 +95,7 @@ const HeroCardsSection = () => {
           <FloatingCard
             key={card.label}
             index={index}
+             isActive={index === activeIndex}
             icon={card.icon}
             label={card.label}
             href={card.href}
@@ -108,13 +107,11 @@ const HeroCardsSection = () => {
   );
 };
 
-const FloatingCard = ({ icon, label, href, offset, index }) => {
-  const { width, height } = getCardSize(label);
-   const isProducts = label === "Products";
+const FloatingCard = ({ icon, label, href, offset, index, isActive }) => {
+const { width, height } = getCardSize();
+ const isProducts = label === "Products";
  const handleClick = (e) => {
-    if (!isProducts) return; // let other cards behave as normal links
-
-    // special behavior for Products: show section + scroll
+    if (!isProducts) return; 
     e.preventDefault();
 
     const section = document.getElementById("our-products");
@@ -125,44 +122,42 @@ const FloatingCard = ({ icon, label, href, offset, index }) => {
     }
   };
    
-
   return (
     <MotionBox
       component="a"
       href={href}
       aria-label={label}
        onClick={handleClick} 
-      initial={{ opacity: 0, y: offset + 40, scale: 0.9 }}
-      animate={{ opacity: 1, y: offset, scale: 1 }}
+      initial={{ opacity: 0, y: offset + 40, scale: 0.9}}
+      animate={{
+        opacity: 1,
+        y: offset,
+        scale: isActive ? 1.2 : 1, 
+        //  boxShadow: isActive
+        //   ? "0 0 34px rgba(0, 180, 255, 0.9)"
+        //   : "0 0 0 rgba(0, 0, 0, 0)",
+      }}
       transition={{
-        duration: 0.45,
-        delay: index * 0.08,
-        ease: "easeOut",
+        opacity: { duration: 0.45, delay: index * 0.08, ease: "easeOut" },
+        y: { duration: 0.45, delay: index * 0.08, ease: "easeOut" },
+        scale: { type: "spring", stiffness: 260, damping: 18 },
+        boxShadow: { duration: 0.25, ease: "easeInOut" },
       }}
-      whileHover={{
-        y: offset - 6,
-        scale: 1.03,
-        boxShadow: "0 0 26px rgba(0, 180, 255, 0.9)",
-        transition: { duration: 0.18 },
-      }}
-      whileTap={{
-        y: offset - 2,
-        scale: 0.99,
-        transition: { duration: 0.12 },
-      }}
+
       sx={{
         display: "flex",
-        flexDirection: "column", // logo card + label stacked
+        flexDirection: "column", 
         alignItems: "center",
         justifyContent: "flex-start",
         width,
-        height, // total block = Figma Hug height
+        height, 
         textDecoration: "none",
         cursor: "pointer",
         pointerEvents: "auto",
+        position: "relative",
       }}
     >
-      {/* gradient card – only icon */}
+  
       <Box
         sx={{
           width: 79,
@@ -173,6 +168,8 @@ const FloatingCard = ({ icon, label, href, offset, index }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+           position: "relative",
+          zIndex: 1,
         }}
       >
         <Box
