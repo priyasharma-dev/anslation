@@ -13,7 +13,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     color: 'white',
-    fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif',
+    // fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif',
     backgroundColor: '#020617',
     position: 'relative',
     overflow: 'hidden',

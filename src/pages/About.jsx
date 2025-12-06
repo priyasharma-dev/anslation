@@ -10,7 +10,7 @@ import OurLeader from '../components/Aboutus/ourleader'
 
 const About = () => {
   return (
-  <>
+     <>
   <Box 
       sx={{
         display: "flex",
