@@ -181,13 +181,13 @@ export default function Footer() {
                       key={i}
                         component="a"
                         href={ x.path }
-                      underline="hover"
+                        underline="none"
                       color="#9DA3AF"
                       sx={{
                         fontSize: 16,
                         cursor: "pointer", 
                         wordBreak: "break-word",
-                        "&:hover": { color: "blue" },
+                        "&:hover": { color: "#61A6FB" },
                       }}
                     >
                        { x.label }

@@ -1,271 +1,274 @@
+
 import React from "react";
 import {
-  Box,
-  InputBase,
-  Typography,
-  IconButton,
+    Box,
+    CssBaseline,
+    InputBase,
+    Typography,
+    createTheme,
+    ThemeProvider,
+    IconButton,
 } from "@mui/material";
+import { MailOutline } from "@mui/icons-material";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import MailOutline from "@mui/icons-material/MailOutline";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { CheckIcon } from "lucide-react";
 
 
-//  repeatable tag component
-const Tag = ({ text }) => (
-  <Box
-    sx={{
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      px: 3,
-      py: 0.9,
-      mb: 3,
-      borderRadius: "100px",
-      background: "rgba(17, 30, 61, 0.65)",
-      border: "1px solid #1F40B0",
-      boxShadow: "0 0 12px rgba(31,64,176,0.45) inset",
-      backdropFilter: "blur(10px)",
-    }}
-  >
-    <Typography
-      sx={{
-        fontSize: { xs: 12.5, sm: 13.2, md: 14 },
-        fontWeight: 400,
-        fontFamily: "Roboto",
-        color: "#61A6FB",
-      }}
-    >
-      {text}
-    </Typography>
-  </Box>
-);
-
-
-//  email & location item component
-const ContactItem = ({ icon, title, subtitle }) => (
-  <Box sx={{ display: "flex", alignItems: "center", gap: "32px" }}>
-    <Box
-      sx={{
-        width: 42,
-        height: 40,
-        backgroundColor: "#1E293B",
-        borderRadius: "6px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {icon}
-    </Box>
-
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Typography sx={{ color: "#9CA3AF", fontSize: 16 }}>
-        {title}
-      </Typography>
-      <Typography sx={{ color: "white" }}>{subtitle}</Typography>
-    </Box>
-  </Box>
-);
-
+const theme = createTheme({
+    typography: {
+        fontFamily: "'Helvetica Neue', sans-serif",
+        h1: {
+            fontWeight: 900,
+            fontSize: "3.75rem",
+            lineHeight: 1.1,
+            color: "#fff",
+            "@media (max-width:600px)": {
+                fontSize: "2.5rem",
+            },
+        },
+        subtitle1: { fontWeight: 400, fontSize: "1rem", color: "#fff" },
+        body1: { fontWeight: 400, fontSize: "1rem", color: "#fff" },
+        caption: {
+            fontWeight: 400,
+            fontSize: "0.875rem",
+            color: "#fff",
+            letterSpacing: "0.05em",
+        },
+    },
+});
 
 function Always() {
-  const onSubmit = (e) => e.preventDefault();
+    const onSubmit = (e) => {
+        e.preventDefault();
+        // handle submit here
+    };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        background: "linear-gradient(180deg, #0E1629 0%, #050A1C 100%)",
-        overflow: "hidden",
-        display: "block",
-    position: "relative",
-    minHeight: "auto",
-      }}
-    >
+  <div className="w-full relative overflow-hidden m">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      {/* Background Radial Effect */}
+      <div
+        style={{
+          position: "absolute",
+          width: "2038px",
+          height: "1509px",
+          left: "calc(50% - 2038px/2 + 44px)",
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49.04%, rgba(0, 111, 255, 0) 100%)",
+          opacity: 0.4,
+          zIndex: 0,
+        }}
+      ></div>
+
       <Box
         sx={{
-          maxWidth: "1440px",
-          mx: "auto",
-          py: { xs: 2, sm: 5, md: 7 },
-          px: { xs: 1.5, sm: 3, md: 9 },
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
-          justifyContent: "space-between",
           alignItems: "center",
+          justifyContent: "space-between",
+          px: { xs: 3, sm: 6, md: 15 },
+          py: { xs: 5, md: 15 },
           gap: { xs: 6, md: 0 },
         }}
       >
-
-        {/* ---------------- LEFT SIDE ---------------- */}
+        {/* Left Column */}
         <Box
           sx={{
-            width: { xs: "100%", md: "48%" },
-            textAlign: { xs: "center", md: "left" },
+            width: { xs: "100%", md: "55%" },
+            maxWidth: { xs: "100%", md: 600 },
             color: "white",
-            position: "relative",
+            textAlign: { xs: "center", md: "left" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-start" },
           }}
         >
-          <Tag text="Stay Updated" />
-
-          <Typography
+          {/* Stay Updated */}
+          <Box
             sx={{
-              width: { xs: "100%", md: 340 },
-              fontFamily: "Helvetica Neue",
-              fontWeight: 700,
-              fontSize: { xs: "32px", sm: "42px", md: "60px" },
-              lineHeight: "100%",
-              letterSpacing: 0,
+              bgcolor: "#004DFF40",
+              px: 2,
+              py: "6px",
+              borderRadius: "9999px",
+              fontSize: "0.85rem",
+              color: "#61A6FB",
+              mb: 2,
+             
+              border: "0.5px solid #1F40B0",
+              boxShadow: "0 0 6px rgba(31,64,176,0.45) inset",
+              backdropFilter: "blur(5px)",
             }}
           >
+            Stay Updated
+          </Box>
+
+          {/* BE ALWAYS IN TOUCH */}
+          <Typography variant="h1" sx={{ mb: 2 }}>
             Be Always <br /> In Touch
           </Typography>
 
+          {/* Description */}
           <Typography
             sx={{
-              width: { xs: "100%", md: 455 },
-              fontFamily: "Helvetica Neue",
-              fontWeight: 500,
-              fontSize: { xs: "15px", sm: "16px", md: "18px" },
-              lineHeight: { xs: "24px", md: "28px" },
-              opacity: 0.85,
-              mt: 2,
+              fontSize: "1.05rem",
+              maxWidth: 520,
+              color: "#A5AAB6",
+              mb: 4,
             }}
           >
             You may be interested in what we can offer you. Stay connected and
             never miss an update about our latest solutions and innovations.
           </Typography>
 
-          {/* Email Field */}
+          {/* Email Input Box */}
           <Box
             component="form"
             onSubmit={onSubmit}
             sx={{
-              width: { xs: "100%", sm: 540, md: 591 },
-              height: 70,
-              backgroundColor: "#1E293B",
-              borderRadius: "12px",
-              border: "1px solid #475569",
-              padding: "20px",
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
-              gap: 2.2,
-              mx: "auto",
-              mt: 4,
+              width: "100%",
+              maxWidth: 700,
+              bgcolor: "#1A2333",
+              borderRadius: "12px",
+              px: 2,
+              py: 1,
+              mb: 4,
+              border: "1px solid #2C3E55",
             }}
           >
             <InputBase
               placeholder="Enter your email address"
-              required
-              sx={{
-                flex: 1,
-                color: "rgba(255,255,255,0.90)",
-                fontSize: { xs: 14.5, sm: 15.5, md: 16 },
-                "&::placeholder": { color: "rgba(255,255,255,0.55)" },
-              }}
+              sx={{ flexGrow: 1, color: "#fff" }}
             />
-
             <IconButton
               type="submit"
               sx={{
-                width: 50,
-                height: 50,
-                borderRadius: "8px",
-                backgroundColor: "#2563EB",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "0.25s",
-                "&:hover": {
-                  backgroundColor: "#1E54D7",
-                  transform: "scale(1.05)",
-                },
+                bgcolor: "#2563FF",
+                borderRadius: "10px",
+                p: 1.5,
+                "&:hover": { bgcolor: "#1D4FD8" },
               }}
             >
-              <SendRoundedIcon sx={{ fontSize: 22, color: "#fff" }} />
+              <SendRoundedIcon sx={{ color: "#fff", transform: "rotate(-30deg)" , pb: 0.5,width: 38,
+    height: 38, }} />
             </IconButton>
           </Box>
 
-          {/* Contact Section */}
+          {/* Bottom Row Email + Location */}
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
-              gap: "40px",
-              mt: 4,
+              gap: 4,
               flexWrap: "wrap",
+              justifyContent: { xs: "center", md: "flex-start" },
             }}
           >
-            <ContactItem
-              icon={<MailOutline sx={{ fontSize: 22, color: "#2563EB" }} />}
-              title="Email Us"
-              subtitle="we@anslation.com"
-            />
+            <Box sx={{ display: "flex", gap: 1.5 }}>
+           <div className="bg-[#1E293B] w-9 h-9 rounded-sm p-1 flex items-center justify-center">
+                <MailOutline sx={{ color: "#61A6FB" }} />
+            </div>
 
-            <ContactItem
-              icon={
-                <LocationOnOutlinedIcon
-                  sx={{ fontSize: 22, color: "#3B82F6" }}
-                />
-              }
-              title="Location"
-              subtitle="Betul | Gurugram"
-            />
+              <Box sx={{ color: "#fff" }}>
+                <Typography sx={{ fontSize: "1rem" ,fontWeight:400, opacity: 0.6 }}>
+                  Email us
+                </Typography>
+                <Typography sx={{ fontSize: "1rem" ,fontWeight:400 }}>
+                  we@anslation.com
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box sx={{ display: "flex", gap: 1.5 }}>
+<div className="bg-[#1E293B] w-9 h-9 rounded-sm p-1 flex items-center justify-center">
+     <LocationOnOutlinedIcon sx={{ color: "#61A6FB" }} />
+</div>
+
+         
+              <Box sx={{ color: "#fff" }}>
+                <Typography sx={{ fontSize: "1rem" ,fontWeight:400, opacity: 0.6 }}>
+                  Location
+                </Typography>
+                <Typography sx={{ fontSize: "1rem" ,fontWeight:400, }}>
+                  Betul | Gurugram
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         </Box>
 
-        {/* ---------------- RIGHT SIDE ---------------- */}
+        {/* Right Card */}
         <Box
           sx={{
-            width: { xs: "100%", md: 489 },
-            height: { xs: "auto", md: 392 },
-            background: `linear-gradient(135deg, #0E172A 0%, rgba(30, 50, 90, 0.14) 100%)`,
-            borderRadius: "12px",
-            border: "0.2px solid #334156",
-            backdropFilter: "blur(4.2px)",
-            px: { xs: 4, sm: 5, md: 6 },
-            py: { xs: 5, sm: 6.5, md: 7 },
+            width: { xs: "100%", md: "45%" },
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "center",
             alignItems: "center",
-            textAlign: "center",
           }}
         >
           <Box
-            component="img"
-            src="/mail-badge.png"
-            alt="Mail verified"
-            sx={{ width: { xs: 70, sm: 85, md: 100 }, mb: 3 }}
-          />
-
-          <Typography
             sx={{
-              fontFamily: "Helvetica Neue",
-              fontSize: { xs: "20px", sm: "24px", md: "28px" },
-              color: "white",
-              mb: 1.5,
+              bgcolor: "rgba(255,255,255,0.05)",
+              borderRadius: "20px",
+              border: "1px solid #2C3953",
+              px: 6,
+              py: 6,
+              textAlign: "center",
+              maxWidth: 420,
             }}
           >
-            Connect With Us
-          </Typography>
+           <Box
+  sx={{
+    fontSize: "5rem",
+    mb: 4,
+    bgcolor: "#2563EB",
+    width: 80,
+    height: 80,
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: "0 auto",
+    position: "relative",  
+  }}
+>
+  {/* Badge Check Icon */}
+  <Box
+    sx={{
+      width: 22,
+      height: 22,
+      borderRadius: "50%",
+      bgcolor: "#22C55E", // green success
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      position: "absolute",
+      top: -4,          // icon ko thoda bahar laane ke liye
+      right: -4,
+    }}
+  >
+    <CheckIcon sx={{ fontSize: 16, color: "#fff" }} /> {/* MUI icon */}
+  </Box>
 
-          <Typography
-            sx={{
-              fontFamily: "Inter",
-              fontSize: "16px",
-              lineHeight: "24px",
-              color: "rgba(255,255,255,0.85)",
-              maxWidth: 430,
-            }}
-          >
-            Join thousands of companies already transforming their digital
-            presence with Anslatíon.
-          </Typography>
+              <MailOutline sx={{ color: "#fff" }} />
+            </Box>
+            <Typography sx={{ fontWeight: 700, fontSize: "1.8rem", mb: 2,mt:4 }}>
+              Connect With Us
+            </Typography>
+            <Typography sx={{ color: "#A2A9B5", fontSize: "1rem" }}>
+              Join thousands of companies already transforming their digital
+              presence with Anslation.
+            </Typography>
+          </Box>
         </Box>
-
       </Box>
-    </div>
-  );
+    </ThemeProvider>
+  </div>
+);
+
 }
 
 export default Always;
