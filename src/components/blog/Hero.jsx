@@ -1,6 +1,6 @@
 import React,{useRef} from 'react';
 import { motion, useReducedMotion,useScroll,useTransform} from "framer-motion";
-import heroBg from "../../assets/blogHero.jpg";
+ import heroBg from "../../assets/bloghero.jpg";
 
 export default function Hero({
   title = "Exploring the Features of Our Translation API",
