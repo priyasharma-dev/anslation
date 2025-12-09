@@ -18,7 +18,7 @@ import ChatSupport from "../footer/Footer_Services/Chat_Support/ChatSupport";
 import instagram from "../../../assets/Instagram 2.png";
 import linked from "../../../assets/LinkedIn 2.png";
 import Twitter from "../../../assets/Twitter.png";
-import youtube from "../../../assets/Youtube.png";
+import youtube from "../../../assets/YouTube.png";
 import fac from "../../../assets/Facebook 2.png";
 
 export default function Footer() {
