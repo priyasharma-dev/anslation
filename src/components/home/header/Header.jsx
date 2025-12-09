@@ -23,6 +23,7 @@ import {
 import { Ellipse81 } from "../../../gradient/gradienttop";
 import { Link as RouterLink, useNavigate} from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
+import DarkModeIcon from "../../../assets/icons/DarkMode.svg";
 
 const siteBg = "#0A1929";
 const navItems = ["Products", "Solutions", "Resources"];
@@ -221,7 +222,7 @@ export default function Header() {
                    "linear-gradient(126deg, #2A65CC 0%, #42B4D1 100%)",
                  color: "#FFFFFF",
                  border: "1px solid rgba(255,255,255,0.85)",
-                 boxShadow: "0 0 26px rgba(0, 122, 255, 0.85)",
+                //  boxShadow: "0 0 26px rgba(0, 122, 255, 0.85)",
                  whiteSpace: "nowrap",
                  "&:hover": {
                    background:
@@ -267,7 +268,8 @@ export default function Header() {
               }}
               >
                 {isDark ? (
-                  <DarkMode sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                  <img src={DarkModeIcon} alt="Dark Mode" style={{ width: 27, height: 27 }}
+                  />
                 ) : (
                   <LightMode sx={{ fontSize: 18, color: "#FFFFFF" }} />
                 )}

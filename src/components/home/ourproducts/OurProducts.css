@@ -1,5 +1,5 @@
 .op-section {
-  padding: 15px 0 120px;
+  padding: 0px 0 185px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -139,7 +139,7 @@
 .op-row-bottom {
   margin-top: 0;
   position: absolute;
-  top: 1187px;
+  top: 1120px;
   z-index: 999;
 }
 
