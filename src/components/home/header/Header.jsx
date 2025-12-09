@@ -23,6 +23,7 @@ import {
 import { Ellipse81 } from "../../../gradient/gradienttop";
 import { Link as RouterLink, useNavigate} from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
+import DarkModeIcon from "../../../assets/icons/DarkMode.svg";
 
 const siteBg = "#0A1929";
 const navItems = ["Products", "Solutions", "Resources"];
@@ -104,6 +105,8 @@ export default function Header() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                pl:16,
+                height: "100%",
               }}
             >
               <RouterLink
@@ -143,6 +146,8 @@ export default function Header() {
                 gap: { md: 2, lg: 3 },
                 flexGrow: 1,
                 justifyContent: "center",
+             fontFamily:`"Helvetica Neue",sans-serif`,
+                pl:12,
               }}
             >
               {navItems.map((item) => (
@@ -153,11 +158,12 @@ export default function Header() {
                     color: "white",
                     textTransform: "none",
                     alignItems: "center",
-                    fontSize: { md: "18px", lg: "20px" },
+                    fontSize: { md: "20px", lg: "22px" },
                     backgroundColor: "transparent",
                     transition: "background-color 0.3s ease",
                     "&:hover": { backgroundColor: "transparent" },
                     minWidth: "auto",
+                    
                   }}
                   onClick={item === "Products"?handleProductsClick :undefined}
                 >
@@ -170,9 +176,10 @@ export default function Header() {
             <Box
               sx={{
                 display: isTabletUp ? "flex" : "none",
-                gap: { sm: 1, md: 1.5 },
+                gap: { sm: 0.5, md: 1 },
                 alignItems: "center",
                 flexShrink: 0,
+                pr:12,
               }}
             >
              {/* JOIN US (desktop text link) */}
@@ -180,12 +187,14 @@ export default function Header() {
                 component={RouterLink}
                 to="/join-us" 
                 sx={{
+                  fontFamily:`"Helvetica Neue",sans-serif`,
                   textTransform: "none",
                   color: "#FFFFFF",
-                  fontSize: { sm: "0.8rem", md: "0.95rem" },
-                  fontWeight: 400,
+                  fontSize: { sm: "0.8rem", md: "1.13rem" },
+                  fontWeight: 500,
                   px: { sm: 1, md: 1.5 },
                   minWidth: "auto",
+                  letterSpacing:"0.2px",
                   background: "transparent",
                   "&:hover": {
                     backgroundColor: "transparent",
@@ -206,13 +215,14 @@ export default function Header() {
                   borderRadius: "999px",
                  px: { sm: 2.8, md: 3.4 },
                  py: { sm: 0.8, md: 1 },
-                 fontSize: { sm: "0.7rem", md: "0.9rem" },
+                 fontSize: { sm: "0.9rem", md: "1.13rem" },
                  fontWeight: 500,
+                 fontFamily:`"Helvetica Neue",sans-serif`,
                  background:
                    "linear-gradient(126deg, #2A65CC 0%, #42B4D1 100%)",
                  color: "#FFFFFF",
                  border: "1px solid rgba(255,255,255,0.85)",
-                 boxShadow: "0 0 26px rgba(0, 122, 255, 0.85)",
+                //  boxShadow: "0 0 26px rgba(0, 122, 255, 0.85)",
                  whiteSpace: "nowrap",
                  "&:hover": {
                    background:
@@ -236,6 +246,7 @@ export default function Header() {
                  justifyContent: "center",
                  gap: 0.75, 
                  borderRadius: "999px",
+                 fontFamily:`"Helvetica Neue",sans-serif`,
                  px: { sm: 2.6, md: 3 },
                  py: { sm: 0.85, md: 0.95 },
                  minWidth: "auto",
@@ -257,7 +268,8 @@ export default function Header() {
               }}
               >
                 {isDark ? (
-                  <DarkMode sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                  <img src={DarkModeIcon} alt="Dark Mode" style={{ width: 27, height: 27 }}
+                  />
                 ) : (
                   <LightMode sx={{ fontSize: 18, color: "#FFFFFF" }} />
                 )}

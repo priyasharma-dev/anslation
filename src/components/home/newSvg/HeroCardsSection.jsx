@@ -1,4 +1,5 @@
 import React,{ useEffect, useState }  from "react";
+
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
@@ -52,22 +53,24 @@ const CARD_OFFSETS = [
 const MotionBox = motion.create(Box);
 
 // total block (card + label) sizes from Figma
-const getCardSize = () => ({
-  width: { xs: 94, md: 94, lg: 94 },
+const getCardSize = (label) => ({
+   width: { xs: 94, md: 94, lg: 94 },
   height: { xs: 126, md: 126, lg: 126 },
 });
 
-const HeroCardsSection = () => {
-  const totalCards = cards.length;
-  const [activeIndex, setActiveIndex] = useState(0);
+const POP_DURATION = 0.8; // time each card takes to pop
+const OVERLAP = 0.2;
 
-   useEffect(() => {
-    const interval = setInterval(
-      () => setActiveIndex((prev) => (prev + 1) % totalCards),
-      999 // ms per card (wave speed)
-    );
+const HeroCardsSection = () => {
+   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % cards.length);
+    }, POP_DURATION * 1000 - OVERLAP * 1000); // slightly faster to create wave effect
     return () => clearInterval(interval);
-  }, [totalCards]);
+  }, []);
+
 
   return (
     <Box
@@ -100,6 +103,7 @@ const HeroCardsSection = () => {
             label={card.label}
             href={card.href}
             offset={CARD_OFFSETS[index] ?? 0}
+           
           />
         ))}
       </Box>
@@ -108,45 +112,41 @@ const HeroCardsSection = () => {
 };
 
 const FloatingCard = ({ icon, label, href, offset, index, isActive }) => {
-const { width, height } = getCardSize();
- const isProducts = label === "Products";
- const handleClick = (e) => {
-    if (!isProducts) return; 
-    e.preventDefault();
+  const { width, height } = getCardSize(label);
+  // const isProducts = label === "Products";
+   const handleClick = (e) => {
+     if (!isProducts) return;
 
-    const section = document.getElementById("our-products");
-    if (section) {
-      section.classList.remove("op-section--hidden");
-      section.classList.add("op-section--visible");
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-   
+     e.preventDefault();
+     const section = document.getElementById("our-products");
+     if (section) {
+       section.classList.remove("op-section--hidden");
+       section.classList.add("op-section--visible");
+       section.scrollIntoView({ behavior: "smooth", block: "start" });
+     }
+   };
+
   return (
     <MotionBox
       component="a"
       href={href}
       aria-label={label}
        onClick={handleClick} 
-      initial={{ opacity: 0, y: offset + 40, scale: 0.9}}
-      animate={{
-        opacity: 1,
-        y: offset,
-        scale: isActive ? 1.2 : 1, 
-        //  boxShadow: isActive
-        //   ? "0 0 34px rgba(0, 180, 255, 0.9)"
-        //   : "0 0 0 rgba(0, 0, 0, 0)",
-      }}
-      transition={{
-        opacity: { duration: 0.45, delay: index * 0.08, ease: "easeOut" },
-        y: { duration: 0.45, delay: index * 0.08, ease: "easeOut" },
-        scale: { type: "spring", stiffness: 260, damping: 18 },
-        boxShadow: { duration: 0.25, ease: "easeInOut" },
-      }}
 
+      initial={{ y: offset, scale: 1 }}
+      animate={
+        isActive
+          ? {scale: [1, 1.19, 1]  }
+          : {  scale: 1 }
+      }
+      transition={{
+        duration: POP_DURATION,
+        ease: [0.5, 0, 0.2, 1], 
+      }}
+      
       sx={{
         display: "flex",
-        flexDirection: "column", 
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
         width,
@@ -184,13 +184,12 @@ const { width, height } = getCardSize();
       <Typography
         variant="caption"
         sx={{
-          mt: 1, // 8px gap
+          mt: 1,
           color: "#FFFFFF",
           fontFamily:
             '"Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
           fontWeight: 500,
           fontSize: "12px",
-          // lineHeight: "24px",
           letterSpacing: 0,
           textAlign: "center",
           whiteSpace: "normal",

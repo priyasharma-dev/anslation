@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { jobData } from '../../libs/data'
 import jobHeader from "../../assets/jobposter.jpeg"
 import LinkedIn from "../../assets/Linkedin.png"
-import instagram from "../../assets/instagram.png"
+import instagram from "../../assets/Instagram 2.png"
 import twitter from "../../assets/Twiter.png"
 import fb from "../../assets/Facebook.png"
 import time from "../../assets/Group 2.png"
@@ -277,9 +277,7 @@ function CareerProfile() {
                                 <div className='text-center mt-5' >
                                 <li className="mt-4 items-center gap-3">
                                     <Link href="/career" className="text-blue-600  font-semibold" >
-                                
                                         View all job
-                                    
                                     </Link>
                                    
                                 </li>

@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 
 function AnslationPillar() {
   return (
-    <div className="flex items-center justify-center ml-44 mt-0 relative w-[1200px] h-[210px] rounded-xl overflow-hidden">
+    <div className="flex items-center justify-center ml-44 mt-25 relative w-[1200px] h-[210px] rounded-xl overflow-hidden">
 
       {/* Border animation */}
       <motion.div
@@ -23,7 +23,7 @@ function AnslationPillar() {
       {/* Title */}
       <Typography
         sx={{
-          fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+          fontFamily: "Helvetica Neue, sans-serif",
           fontWeight: 500,
           fontSize: "36px",
           lineHeight: "40px",
@@ -38,7 +38,7 @@ function AnslationPillar() {
       {/* Description */}
       <Typography
         sx={{
-          fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+          fontFamily: "Helvetica Neue, sans-serif",
           fontWeight: 500,
           fontSize: "18px",
           lineHeight: "28px",
@@ -48,8 +48,8 @@ function AnslationPillar() {
         className="absolute bottom-16  w-full"
       >
         To empower businesses by delivering intelligent, scalable software solutions
-        <br />
-        that fuel growth, enhance efficiency, and foster innovation.
+      
+        that fuel growth, enhance  <br /> efficiency, and foster innovation.
       </Typography>
 
     </div>

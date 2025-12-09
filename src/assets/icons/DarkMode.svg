@@ -1,0 +1,20 @@
+<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1681_1316)">
+<rect x="6.24805" y="5.48535" width="28.1905" height="28.1905" rx="14.0952" fill="black" fill-opacity="0.01" shape-rendering="crispEdges"/>
+<rect x="6.629" y="5.8663" width="27.4286" height="27.4286" rx="13.7143" stroke="white" stroke-opacity="0.25" stroke-width="0.761905" shape-rendering="crispEdges"/>
+<path d="M27.1906 19.9507C27.1192 21.2735 26.6662 22.5473 25.8863 23.6181C25.1064 24.6889 24.0331 25.5109 22.796 25.9846C21.5589 26.4584 20.2111 26.5638 18.9154 26.2879C17.6198 26.012 16.4318 25.3667 15.495 24.4301C14.5582 23.4934 13.9128 22.3055 13.6368 21.0098C13.3608 19.7142 13.466 18.3664 13.9397 17.1292C14.4133 15.8921 15.2352 14.8187 16.3059 14.0387C17.3766 13.2587 18.6504 12.8055 19.9731 12.734C20.2817 12.7172 20.4432 13.0844 20.2794 13.3458C19.7315 14.2224 19.4969 15.2588 19.6139 16.2859C19.7309 17.313 20.1925 18.2702 20.9235 19.0011C21.6544 19.7321 22.6116 20.1937 23.6387 20.3107C24.6658 20.4277 25.7022 20.1931 26.5788 19.6452C26.8409 19.4814 27.2074 19.6421 27.1906 19.9507Z" stroke="white" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_d_1681_1316" x="0.000427723" y="-0.000362813" width="40.6866" height="40.6857" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="0.761905"/>
+<feGaussianBlur stdDeviation="3.12381"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0646973 0 0 0 0 0.0646973 0 0 0 0 0.0646973 0 0 0 0.57 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1681_1316"/>
+<feBlend mode="normal" in="BackgroundImageFix" in2="effect1_dropShadow_1681_1316" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+</filter>
+</defs>
+</svg>

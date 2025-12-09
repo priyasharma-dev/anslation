@@ -41,7 +41,7 @@ const LeaderCard = ({ leader, index }) => {
       }}
       viewport={{ once: true, amount: 0.3 }}
       className="
-        bg-[#111] rounded-xl overflow-hidden shadow-md border border-gray-800
+         bg-[#111] rounded-xl overflow-hidden shadow-md border border-gray-800
         cursor-pointer transition-all duration-500 ease-out
         hover:shadow-[0_0_35px_rgba(30,140,255,0.55)]
         hover:scale-[1.04]
@@ -81,7 +81,7 @@ const LeaderCard = ({ leader, index }) => {
 
 const OurLeader = () => {
   return (
-    <div className="w-full bg-[#0A0A0A] px-6 py-16">
+    <div className="w-full bg-transparent px-6 py-16">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-white text-3xl font-semibold">Meet Our Leaders</h2>
@@ -101,3 +101,8 @@ const OurLeader = () => {
 };
 
 export default OurLeader;
+
+
+
+
+

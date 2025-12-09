@@ -1,0 +1,24 @@
+[33m5cb8ca7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mpriya[m[33m, [m[1;31morigin/priya[m[33m)[m HEAD@{0}: pull origin main: Merge made by the 'ort' strategy.
+[33mcddbeb5[m HEAD@{1}: checkout: moving from main to priya
+[33m5ad3cff[m[33m ([m[1;32mmain[m[33m)[m HEAD@{2}: commit: Updated AdsAstraFeatures, HeroCardsSection, and OurProducts styles
+[33mdeb03a0[m HEAD@{3}: pull origin main: Merge made by the 'ort' strategy.
+[33m705bc79[m[33m ([m[1;32mbackup-main-with-ads[m[33m)[m HEAD@{4}: checkout: moving from priya to main
+[33mcddbeb5[m HEAD@{5}: cherry-pick: Update home hero, products, gradients and add AdsAstra sections
+[33m47df9fe[m HEAD@{6}: checkout: moving from main to priya
+[33m705bc79[m[33m ([m[1;32mbackup-main-with-ads[m[33m)[m HEAD@{7}: checkout: moving from main to main
+[33m705bc79[m[33m ([m[1;32mbackup-main-with-ads[m[33m)[m HEAD@{8}: checkout: moving from main to main
+[33m705bc79[m[33m ([m[1;32mbackup-main-with-ads[m[33m)[m HEAD@{9}: commit: Update home hero, products, gradients and add AdsAstra sections
+[33m47df9fe[m HEAD@{10}: checkout: moving from main to main
+[33m47df9fe[m HEAD@{11}: merge priya: Fast-forward
+[33m3894ce2[m HEAD@{12}: checkout: moving from priya to main
+[33m47df9fe[m HEAD@{13}: commit: Update OurProducts section and MainLayout, add Ads Astra logo icon
+[33mb3cb79f[m HEAD@{14}: checkout: moving from main to priya
+[33m3894ce2[m HEAD@{15}: checkout: moving from priya to main
+[33mb3cb79f[m HEAD@{16}: checkout: moving from main to priya
+[33m3894ce2[m HEAD@{17}: checkout: moving from priya to main
+[33mb3cb79f[m HEAD@{18}: commit: initial
+[33mc3ad5d7[m HEAD@{19}: commit: Dynamic Blog
+[33mae8e1f5[m HEAD@{20}: commit: Resolved conflicts
+[33m3894ce2[m HEAD@{21}: checkout: moving from main to priya
+[33m3894ce2[m HEAD@{22}: checkout: moving from main to main
+[33m3894ce2[m HEAD@{23}: clone: from https://github.com/Anslation/Anslation_Website.git

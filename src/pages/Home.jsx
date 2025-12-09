@@ -13,8 +13,6 @@ import AdsAstraFeatures from "../components/home/AdsAstraFeatures/AdsAstraFeatur
 import StartDataDriven from "../components/home/StartDataDriven/StartDataDriven";
 
 
-
-
 function Home() {
   const [showProducts, setShowProducts] = useState(false);
   const [showAdsAstra, setShowAdsAstra] = useState(false);

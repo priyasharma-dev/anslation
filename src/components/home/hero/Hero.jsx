@@ -19,7 +19,7 @@ const Hero = () => {
         textAlign: "center",
         px: { xs: 2, md: 12 },
         pt: { xs: 10, md: 14 },
-        pb: { xs: 18, md: 22 },
+        pb: { xs: 18, md: 16 },
         overflow: "hidden",
         background: "transparent",
       }}
