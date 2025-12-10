@@ -3,24 +3,11 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "/",
 
   plugins: [
     react(),
     tailwindcss(),
   ],
 
-  optimizeDeps: {
-    esbuildOptions: {
-      supported: {
-        directive: true, 
-      },
-    },
-  },
-
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-  },
+  base: './', 
 });
