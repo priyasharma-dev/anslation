@@ -84,9 +84,13 @@ export default function Header() {
         <Box
           sx={{
             width: "100%",
-            maxWidth: { xs: "100%", xl: 1440 },
+            // maxWidth: { xs: "100%", xl: 1440 },
+            maxWidth: { xs: "100%", md: 1200, lg: 1400, xl: 1600 },
+
             mx: { xs: 0, md: "auto" },
-            px: { xs: 1, sm: 3, md: 4, lg: 2, xl: 2 },
+            // px: { xs: 1, sm: 3, md: 4, lg: 2, xl: 2 },
+            px: { xs: 1, sm: 2, md: 4, lg: 6, xl: 8 },
+
           }}
         >
           <Toolbar
@@ -105,7 +109,8 @@ export default function Header() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                pl:16,
+                pl: { xs: 2, sm: 4, md: 8, lg: 12, xl: 16 },
+
                 height: "100%",
               }}
             >
@@ -124,9 +129,12 @@ export default function Header() {
                     alignItems: "center",
                     flexShrink: 0,
                     "& img": {
-                      height: { xs: 40, sm: 50, md: 55, lg: 60 },
+                      // height: { xs: 40, sm: 50, md: 55, lg: 60 },
+                      // width: "auto",
+                      // maxWidth: { xs: 100, sm: 110, md: 115, lg: 120 },
+                      height: { xs: 40, sm: 48, md: 54, lg: 62, xl: 70 },
+maxWidth: { xs: 100, sm: 110, md: 125, lg: 140, xl: 150 },
                       width: "auto",
-                      maxWidth: { xs: 100, sm: 110, md: 115, lg: 120 },
                     },
                   }}
                 >
@@ -147,7 +155,8 @@ export default function Header() {
                 flexGrow: 1,
                 justifyContent: "center",
              fontFamily:`"Helvetica Neue",sans-serif`,
-                pl:12,
+                pl: { md: 2, lg: 6, xl: 12 },
+
               }}
             >
               {navItems.map((item) => (
@@ -179,7 +188,8 @@ export default function Header() {
                 gap: { sm: 0.5, md: 1 },
                 alignItems: "center",
                 flexShrink: 0,
-                pr:12,
+                pr: { sm: 1, md: 4, lg: 8, xl: 12 },
+
               }}
             >
              {/* JOIN US (desktop text link) */}
@@ -292,7 +302,9 @@ export default function Header() {
               sx={{
                 display: isDesktop ? "none" : "flex",
                 color: "white",
-                ml: 1,
+                // ml: 1,
+                ml: { xs: 1, sm: 2, md: 3 },
+
                 width: 44,
                 height: 44,
                 borderRadius: "9999px",
