@@ -1,75 +1,25 @@
-// import React from "react";
-// import { Typography } from "@mui/material";
-
-// // Reusable paragraph component
-// const Paragraph = ({ children }) => (
-//   <Typography className="font-['Helvetica_Neue'] text-[16px] leading-[24px] text-[#94A3B8] mt-2">
-//     {children}
-//   </Typography>
-// );
-
-// export default function WeAre() {
-//   return (
-//     <div className="flex flex-row w-[1248px] h-auto pb-10 gap-16 ml-[96px]">
-
-//       {/* LEFT SIDE – Story */}
-//       <div className="flex flex-col w-[592px] gap-4">
-//         <h2 className="font-['Helvetica_Neue'] font-medium text-[36px] leading-[40px] text-white">
-//           Our Story
-//         </h2>
-
-//         <Paragraph>
-//           At Anslation, we are redefining the way businesses interact with technology.
-//           As a leading provider of innovative software solutions, we deliver
-//           cutting-edge products that help organizations scale and thrive in the digital age.
-//         </Paragraph>
-
-//         <Paragraph>
-//           Founded with a vision to merge the worlds of marketing technology and
-//           business automation, our team of passionate technologists and innovators
-//           have built a suite of tools designed to optimize business operations
-//           and elevate performance.
-//         </Paragraph>
-
-//         <Paragraph>
-//           Anslation started as a marketing software company but quickly realized the
-//           potential to transform the tech landscape. Our journey from providing
-//           marketing automation tools to becoming a tech-first company with enterprise-
-//           level solutions has been driven by our commitment to innovation and
-//           customer satisfaction.
-//         </Paragraph>
-//       </div>
-
-//       {/* RIGHT SIDE – Image */}
-//       <div className="w-[280px] h-[250px] rounded-3xl overflow-hidden mt-[80px] ml-[250px]">
-//         <img
-//           src="/svg/story.png"
-//           className="w-full h-full object-cover"
-//           alt="story"
-//         />
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
-
-
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
 const Paragraph = ({ children }) => (
   <Typography
-    sx={{
-      fontFamily: `"Helvetica Neue", sans-serif`,
-      fontSize: "16px",
-      lineHeight: "24px",
-      color: "#94A3B8",
-      mt: "8px",
-      fontWeight: 400,
-    }}
-  >
+  sx={{
+    fontFamily: `"Helvetica Neue", sans-serif`,
+    fontSize: { xs: "15px", sm: "16px", md: "17px" },
+    lineHeight: { xs: "20px", sm: "22px", md: "24px" },
+    color: "#94A3B8",
+    mt: "8px",
+
+    // Responsive font weight
+    fontWeight: {
+      xs: 300,   // small screen → thinner
+      sm: 400,   // medium screen → normal
+      md: 500,   // large screen → slightly bold
+    },
+
+    wordBreak: "break-word",
+  }}
+>
     {children}
   </Typography>
 );
@@ -79,13 +29,17 @@ export default function WeAre() {
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
-        width: "1248px",
-        height: "auto",
-        pt: "50px",
-        pb: "40px",
-        gap: "64px",
-        ml: "96px",
+        flexDirection: { xs: "column", md: "row" },
+        justifyContent: { xs: "flex-start", md: "space-between" },
+        alignItems: "flex-start",
+        width: "100%",
+        maxWidth: "1248px",
+        pt: { xs: "30px", sm: "40px", md: "50px" },
+        pb: { xs: "20px", sm: "30px", md: "40px" },
+        px: { xs: "20px", sm: "40px", md: "40px" }, // <-- horizontal spacing fixed
+        mx: "auto",
+        gap: { xs: "32px", sm: "48px", md: "64px" },
+        flexWrap: { xs: "wrap", md: "nowrap" },
       }}
     >
       {/* LEFT SIDE – Story */}
@@ -93,16 +47,15 @@ export default function WeAre() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: "592px",
-          gap: "16px",
-          ml:"20px",
+          flex: { xs: "1 1 100%", md: "0 0 592px" },
+          gap: { xs: "12px", sm: "14px", md: "16px" },
         }}
       >
         <Typography
           sx={{
             fontFamily: `"Helvetica Neue", sans-serif`,
-            fontSize: "36px",
-            lineHeight: "40px",
+            fontSize: { xs: "28px", sm: "32px", md: "36px" },
+            lineHeight: { xs: "32px", sm: "36px", md: "40px" },
             fontWeight: 500,
             color: "#FFFFFF",
           }}
@@ -112,22 +65,22 @@ export default function WeAre() {
 
         <Paragraph>
           At Anslation, we are redefining the way businesses interact with technology.
-          <br/> As a leading provider of innovative software solutions, we deliver
-          cutting- <br/>edge products that help organizations scale and thrive in the digital age.
+          <br /> As a leading provider of innovative software solutions, we deliver
+          cutting- <br />edge products that help organizations scale and thrive in the digital age.
         </Paragraph>
 
         <Paragraph>
-          Founded with a vision to merge the worlds of marketing technology and <br/>
-          business automation, our team of passionate technologists and innovators <br/>
+          Founded with a vision to merge the worlds of marketing technology and <br />
+          business automation, our team of passionate technologists and innovators <br />
           have built a suite of tools designed to optimize business operations
-          and <br/>elevate performance.
+          and <br />elevate performance.
         </Paragraph>
 
         <Paragraph>
-          Anslation started as a marketing software company but quickly realized the<br/>
-          potential to transform the tech landscape. Our journey from providing <br/>
-          marketing automation tools to becoming a tech-first company with enterprise-<br/>
-          level solutions has been driven by our commitment to innovation and <br/>
+          Anslation started as a marketing software company but quickly realized the<br />
+          potential to transform the tech landscape. Our journey from providing <br />
+          marketing automation tools to becoming a tech-first company with enterprise-<br />
+          level solutions has been driven by our commitment to innovation and <br />
           customer satisfaction.
         </Paragraph>
       </Box>
@@ -135,12 +88,11 @@ export default function WeAre() {
       {/* RIGHT SIDE – Image */}
       <Box
         sx={{
-          width: "280px",
-          height: "250px",
+          flex: { xs: "1 1 100%", md: "0 0 280px" },
+          height: { xs: "200px", sm: "230px", md: "250px" },
           borderRadius: "24px",
           overflow: "hidden",
-          mt: "80px",
-          ml: "250px",
+          alignSelf: { xs: "center", md: "flex-start" }, 
         }}
       >
         <img
