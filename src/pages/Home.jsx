@@ -20,33 +20,42 @@ function Home() {
 
   const location=useLocation();
   const navigate=useNavigate();
-  
- useEffect(() => {
-    // if Header sent us here with openProducts: true
-    if (location.state?.openProducts) {
-      setShowProducts(true);
 
-      // scroll AFTER OurProducts is rendered
-      setTimeout(() => {
-        const el = document.getElementById("our-products");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 50);
-
-      // optional: clear the state so refresh/back doesn't re-trigger
-      navigate(location.pathname, { replace: true, state: {} });
-    }
-  }, [location, navigate]);
-  
- const handleProductsClick = () => {
+  const handleProductsClick = () => {
+  // Render the section if not already shown
+  if (!showProducts) {
     setShowProducts(true);
+  }
 
-      setTimeout(() => {
-      const el = document.getElementById("our-products");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 50);
-  };
+  // Always scroll, even if already open
+  setTimeout(() => {
+    const el = document.getElementById("our-products");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, 50);
+};
+
+
+  
+//  useEffect(() => {
+//     // if Header sent us here with openProducts: true
+//     if (location.state?.openProducts) {
+//       setShowProducts(true);
+
+//       // scroll AFTER OurProducts is rendered
+//       setTimeout(() => {
+//         const el = document.getElementById("our-products");
+//         if (el) {
+//           el.scrollIntoView({ behavior: "smooth", block: "start" });
+//         }
+//       }, 50);
+
+//       // optional: clear the state so refresh/back doesn't re-trigger
+//       navigate(location.pathname, { replace: true, state: {} });
+//     }
+//   }, [location, navigate]);
+
 
   const handleAdsClick = () => {
     setShowAdsAstra(true);
@@ -71,9 +80,6 @@ function Home() {
     
 
       <Hero onProductsClick={handleProductsClick} />
-      {/* <AiPowered/> */}
-      {/* <HeroCardsSection/> */}
-      {/* <Svg /> */}
        {/* Our Products section on home page */}
        {showProducts && (
         <div id="our-products">

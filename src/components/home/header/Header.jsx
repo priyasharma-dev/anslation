@@ -31,7 +31,7 @@ const navItems = ["Products", "Solutions", "Resources"];
 export default function Header() {
   const [themeMode, setThemeMode] = useState("Dark");
    const [mobileOpen, setMobileOpen] = useState(false);
-   const navigate = useNavigate();
+  //  const navigate = useNavigate();
 
  const changeThemeMode = () => {
   setThemeMode((prev) => (prev === "Dark" ? "Light" : "Dark"));
@@ -59,9 +59,9 @@ export default function Header() {
   const handleDrawerToggle = () => setMobileOpen((v) => !v);
 
   const showBackground = mobileOpen;
- const handleProductsClick = () => {
-    navigate("/", { state: { openProducts: true } });
-  };
+//  const handleProductsClick = () => {
+//     navigate("/", { state: { openProducts: true } });
+//   };
   return (
     <>
       {/* Show background only when the navbar or drawer is toggled */}
@@ -165,7 +165,7 @@ export default function Header() {
                     minWidth: "auto",
                     
                   }}
-                  onClick={item === "Products"?handleProductsClick :undefined}
+                  // onClick={item === "Products"?handleProductsClick :undefined}
                 >
                   {item}
                 </Button>

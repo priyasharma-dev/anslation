@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import AiPowered from "../Ai/AiPowered";
 import HeroCardsSection from "../newSvg/HeroCardsSection";
 
-const Hero = () => {
+const Hero = ({ onProductsClick }) => {
+
+  const [showProducts, setShowProducts] = useState(false);
+  const handleProductsClick = () => {
+  setShowProducts(true);
+
+  // scroll AFTER OurProducts is rendered
+  setTimeout(() => {
+    const el = document.getElementById("our-products");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 50);
+};
+
   return (
     <Box
       component="section"
@@ -39,7 +51,8 @@ const Hero = () => {
       </Box>
 
       {/* Floating icon cards (arc) */}
-      <HeroCardsSection />
+      <HeroCardsSection onProductsClick={onProductsClick} />
+
 
       {/* Main text + button */}
       <Container

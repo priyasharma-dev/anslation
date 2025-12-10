@@ -20,7 +20,7 @@ const cards = [
     href: "/marketing-automation",
   },
   { icon: SoftwareIcon, label: "Software", href: "/software" },
-  { icon: ProductsIcon, label: "Products", href: "/products" },
+  { icon: ProductsIcon, label: "Products", href: "/products"},
   { icon: MicroToolsIcon, label: "Micro Tools", href: "/micro-tools" },
   { icon: MarketingIcon, label: "Marketing", href: "/marketing" },
   { icon: InventoryIcon, label: "Inventory", href: "/inventory" },
@@ -61,7 +61,7 @@ const getCardSize = (label) => ({
 const POP_DURATION = 0.8; // time each card takes to pop
 const OVERLAP = 0.2;
 
-const HeroCardsSection = () => {
+const HeroCardsSection = ({ onProductsClick }) => {
    const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -71,6 +71,11 @@ const HeroCardsSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleCardClick = (label) => {
+    if (label === "Products" && typeof onProductsClick === "function") {
+      onProductsClick();
+    }
+  };
 
   return (
     <Box
@@ -81,7 +86,7 @@ const HeroCardsSection = () => {
         top: { xs: "24%", md: "22%", lg: "22%" },
         display: "flex",
         justifyContent: "center",
-        pointerEvents: "none",
+        // pointerEvents: "none",
         zIndex: 3,
         px: 50,
       }}
@@ -103,6 +108,7 @@ const HeroCardsSection = () => {
             label={card.label}
             href={card.href}
             offset={CARD_OFFSETS[index] ?? 0}
+            onClick={() => handleCardClick(card.label)}
            
           />
         ))}
@@ -111,27 +117,31 @@ const HeroCardsSection = () => {
   );
 };
 
-const FloatingCard = ({ icon, label, href, offset, index, isActive }) => {
+const FloatingCard = ({ icon, label, href, offset, index, onClick, isActive }) => {
   const { width, height } = getCardSize(label);
-  // const isProducts = label === "Products";
+   const isProducts = label === "Products";
    const handleClick = (e) => {
      if (!isProducts) return;
-
      e.preventDefault();
-     const section = document.getElementById("our-products");
-     if (section) {
-       section.classList.remove("op-section--hidden");
-       section.classList.add("op-section--visible");
-       section.scrollIntoView({ behavior: "smooth", block: "start" });
-     }
-   };
+const section = document.getElementById("our-products");
+
+  if (section) {
+    setTimeout(() => {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 50); // ensures scroll works after animation frame
+  }
+};
+   
 
   return (
     <MotionBox
-      component="a"
-      href={href}
-      aria-label={label}
-       onClick={handleClick} 
+      component="div"
+     role="button"
+  onClick={onClick}
+aria-label={label}
 
       initial={{ y: offset, scale: 1 }}
       animate={
