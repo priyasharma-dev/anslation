@@ -12,12 +12,14 @@ import { MailOutline } from "@mui/icons-material";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { CheckIcon } from "lucide-react";
+import { LuMail, LuSend } from "react-icons/lu";
+import { GrLocation } from "react-icons/gr";
 
 const theme = createTheme({
     typography: {
         fontFamily: "'Helvetica Neue', sans-serif",
         h1: {
-            fontWeight: 900,
+            fontWeight: 700,
             fontSize: "3.5rem",
             lineHeight: 1.1,
             color: "#fff",
@@ -63,7 +65,7 @@ function Always() {
                         px: { xs: 3, sm: 6, md: 10, lg: 14, xl: 20 },
                         py: { xs: 6, sm: 8, md: 12, lg: 14, xl: 18 },
                        gap: { xs: 4, sm: 4, md: 6, lg: 6, xl: 8 },
-                        position: "relative",
+                        
                         zIndex: 10,
                     }}
                 >
@@ -82,9 +84,9 @@ function Always() {
                         {/* Stay Updated Badge */}
                         <Box
                             sx={{
-                                bgcolor: "#004DFF40",
-                                px: { xs: 2, sm: 2.5 },
-                                py: "6px",
+                                bgcolor: "#0E1629",
+                                px: { xs: 1.2, sm: 1.7 },
+                                py: "3px",
                                 borderRadius: "9999px",
                                 fontSize: { xs: "0.8rem", md: "0.9rem" },
                                 color: "#61A6FB",
@@ -105,6 +107,7 @@ function Always() {
                         {/* Description */}
                         <Typography
                             sx={{
+                                fontWeight: 500,
                                 fontSize: {
                                     xs: "0.95rem",
                                     sm: "1rem",
@@ -118,7 +121,7 @@ function Always() {
                             }}
                         >
                             You may be interested in what we can offer you. Stay connected
-                            and never miss an update about our latest solutions.
+                            and never miss an update about our latest<br/> solutions and innovations.
                         </Typography>
 
                         {/* Input Box */}
@@ -151,24 +154,26 @@ function Always() {
                                 sx={{
                                     bgcolor: "#2563FF",
                                     borderRadius: "10px",
-                                    p: { xs: 1, sm: 1.4 },
+                                    p: { xs: 1, sm: 2 },
                                     "&:hover": { bgcolor: "#1D4FD8" },
                                 }}
                             >
-                                <SendRoundedIcon
-                                    sx={{
-                                        color: "#fff",
-                                        transform: "rotate(-30deg)",
-                                        width: { xs: 26, sm: 30, md: 36 },
-                                        height: { xs: 26, sm: 30, md: 36 },
-                                    }}
-                                />
+                               <LuSend
+  style={{
+    color: "#fff",
+  
+    width: "28px",
+    height: "28px",
+  }}
+/>
                             </IconButton>
                         </Box>
 
                         {/* Email + Location */}
                         <Box
                             sx={{
+                                p:0,
+                                mt: 0,
                                 display: "flex",
                                 gap: { xs: 3, sm: 4 },
                                 flexWrap: "wrap",
@@ -177,12 +182,13 @@ function Always() {
                         >
                             {/* email */}
                             <Box sx={{ display: "flex", gap: 1.5 }}>
-                                <div className="bg-[#1E293B] w-9 h-9 rounded-sm p-1 flex items-center justify-center">
-                                    <MailOutline sx={{ color: "#61A6FB" }} />
+                                <div className="bg-[#1E293B] w-11 h-11 rounded-sm p-1 flex items-center justify-center">
+                                    {/* <MailOutline sx={{ color: "#61A6FB" }} /> */}
+                                    <LuMail  size={28} color="#61A6FB" /> 
                                 </div>
 
                                 <Box sx={{ color: "#fff" }}>
-                                    <Typography sx={{ opacity: 0.6, fontSize: "0.95rem" }}>
+                                    <Typography sx={{ opacity: 0.6, fontSize: "0.95rem" ,fontWeight:400}}>
                                         Email us
                                     </Typography>
                                     <Typography sx={{ fontSize: "1rem" }}>
@@ -193,12 +199,13 @@ function Always() {
 
                             {/* location */}
                             <Box sx={{ display: "flex", gap: 1.5 }}>
-                                <div className="bg-[#1E293B] w-9 h-9 rounded-sm p-1 flex items-center justify-center">
-                                    <LocationOnOutlinedIcon sx={{ color: "#61A6FB" }} />
+                                <div className="bg-[#1E293B] w-11 h-11 rounded-sm p-1 flex items-center justify-center">
+                                    {/* <LocationOnOutlinedIcon sx={{ color: "#61A6FB" }} /> */}
+                                    <GrLocation size={28} color="#61A6FB" />
                                 </div>
 
                                 <Box sx={{ color: "#fff" }}>
-                                    <Typography sx={{ opacity: 0.6, fontSize: "0.95rem" }}>
+                                    <Typography sx={{ opacity: 0.6, fontSize: "0.95rem",fontWeight:400 }}>
                                         Location
                                     </Typography>
                                     <Typography sx={{ fontSize: "1rem" }}>
@@ -218,15 +225,26 @@ function Always() {
                             justifyContent: "center",
                         }}
                     >
+
+
+
+
+
+
+
+
+
+
                         <Box
                             sx={{
                                 bgcolor: "rgba(255,255,255,0.05)",
-                                borderRadius: "20px",
+                                borderRadius: "15px",
                                 border: "1px solid #2C3953",
                                 px: { xs: 4, sm: 5, md: 6 },
                                 py: { xs: 5, sm: 6, md: 7 },
                                 textAlign: "center",
-                                maxWidth: 420,
+                                maxWidth: 550,
+                                minHeight: { xs: 350, md: 420 },
                             }}
                         >
                             {/* Icon */}
@@ -235,42 +253,44 @@ function Always() {
                                     fontSize: "5rem",
                                     mb: 4,
                                     bgcolor: "#2563EB",
-                                    width: { xs: 70, sm: 80 },
-                                    height: { xs: 70, sm: 80 },
+                                   width: { xs: 120, sm: 130 },
+                                    height: { xs: 120, sm: 130 },
                                     borderRadius: "50%",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
                                     margin: "0 auto",
                                     position: "relative",
+                                            overflow: "visible",
                                 }}
                             >
                                 <Box
                                     sx={{
-                                        width: 22,
-                                        height: 22,
+                                       width: 32,
+height: 32,
                                         borderRadius: "50%",
                                         bgcolor: "#22C55E",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
                                         position: "absolute",
-                                        top: -4,
-                                        right: -4,
+                                        top: -1,
+right: -1,
+ 
                                     }}
                                 >
-                                    <CheckIcon sx={{ fontSize: 16, color: "#fff" }} />
+                                    <CheckIcon sx={{ fontSize: 18, color: "#fff" }} />
                                 </Box>
 
-                                <MailOutline sx={{ color: "#fff", fontSize: "2rem" }} />
+                                <MailOutline sx={{ color: "#fff", fontSize: "3.8rem" }} />
                             </Box>
 
                             <Typography
                                 sx={{
-                                    fontWeight: 700,
+                                    fontWeight: 500,
                                     fontSize: { xs: "1.4rem", sm: "1.7rem", md: "1.9rem" },
                                     mb: 2,
-                                    mt: 2,
+                                    mt: 4,
                                 }}
                             >
                                 Connect With Us
@@ -279,13 +299,18 @@ function Always() {
                             <Typography
                                 sx={{
                                     color: "#A2A9B5",
+                                    fontWeight: 400,
                                     fontSize: { xs: "0.9rem", sm: "1rem" },
                                 }}
                             >
-                                Join thousands of companies transforming their digital presence.
+                                Join thousands of companies transforming their digital presence with Anslation.
                             </Typography>
                         </Box>
-                    </Box>
+                    </Box> 
+
+
+
+                    
                 </Box>
             </ThemeProvider>
         </div>

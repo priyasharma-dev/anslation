@@ -12,22 +12,28 @@ import {
 } from "@mui/material";
 import { MessageCircle } from "lucide-react";
 import ChatSupport from "../footer/Footer_Services/Chat_Support/ChatSupport";
+import { FaFacebookF, FaInstagram, FaLinkedinIn,  FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
-// Social Icons
-import instagram from "../../../assets/Instagram 2.png";
-import linked from "../../../assets/LinkedIn 2.png";
-import Twitter from "../../../assets/Twitter.png";
-import youtube from "../../../assets/YouTube.png";
-import fac from "../../../assets/Facebook 2.png";
+// // Social Icons
+// import instagram from "../../../assets/Instagram 2.png";
+// import linked from "../../../assets/LinkedIn 2.png";
+// import Twitter from "../../../assets/Twitter.png";
+// import youtube from "../../../assets/YouTube.png";
+// import fac from "../../../assets/Facebook 2.png";
 
 export default function Footer() {
   const socialIcons = [
-    { src: fac, alt: "Facebook", link: "https://facebook.com" },
-    { src: instagram, alt: "Instagram", link: "https://instagram.com" },
-    { src: linked, alt: "LinkedIn", link: "https://linkedin.com" },
-    { src: Twitter, alt: "Twitter", link: "https://x.com" },
-    { src: youtube, alt: "YouTube", link: "https://youtube.com" },
-  ];
+  {title: "Facebook", icon: <FaFacebookF size={18} />, link: "https://www.facebook.com/people/Anslation-PvtLtd/pfbid0rZsF7kb8QXNUS5cKSviE72mMSd4vWD5CRoTPqNTkkTryapM3C6iMFo3vpDGwzHTkl/?mibextid=wwXIfr&rdid=FcVSZRwUYySTFyJ1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16StUHySDq%2F%3Fmibextid%3DwwXIfr" },
+
+  {title: "Instagram", icon: <FaInstagram size={18} />, link: "https://www.instagram.com/anslation_official/" },
+
+  {title: "LinkedIn", icon: <FaLinkedinIn size={18} />, link: "https://www.linkedin.com/company/anslation/" },
+  {title: "Twitter", icon: <FaXTwitter size={18} />, link: "https://x.com/AnslationPvtLtd?ref_src=twsrc%5Etfw" },
+
+  {title: "YouTube", icon: <FaYoutube size={18} />, link: "https://www.youtube.com/@anslation-r3j" },
+];
+
 
   const [openChat, setOpenChat] = useState(false);
   const [showMessage, setShowMessage] = useState(true);
@@ -113,15 +119,28 @@ export default function Footer() {
                         borderRadius: "12%",
                         backgroundColor: "#1F2937",
                         transition: ".3s",
-                        "&:hover": { transform: "scale(1.15)" },
+                        "&:hover": { transform: "scale(1.15)",
+background:
+              icon.title === "Facebook"
+                ? "#1877F2"
+                : icon.title === "Instagram"
+                ? "linear-gradient(45deg,#515BD4,#8134AF,#DD2A7B,#FEDA77,#F58529)"
+                : icon.title === "LinkedIn"
+                ? "#0A66C2"
+                : icon.title === "Twitter"
+                ? "#1DA1F2"
+                : icon.title === "YouTube"
+                ? "#FF0000"
+                : "#1F2937",
+
+                        },
                       }}
                     >
-                      <img
-                        src={icon.src}
-                        alt={icon.alt}
-                        width={16}
-                        height={16}
-                      />
+                      
+                   {React.cloneElement(icon.icon, { color: "white"})}
+                        
+                       
+                    
                     </Box>
                   </Link>
                 ))}
