@@ -157,7 +157,7 @@ export default function Footer() {
   items: [
     { label: "About", path: "/about" },
     { label: "Contact us", path: "/contact" },
-    { label: "Careers", path: "/careers" },
+    { label: "Careers", path: "/career" },
     { label: "Culture", path: "/culture" },
     { label: "Blog", path: "/blog" },
   ],
