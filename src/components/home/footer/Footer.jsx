@@ -178,15 +178,16 @@ background:
                 ],
               },
               {
-                heading: "Company",
-                items: [
-                  { label: "About", path: "/about" },
-                  { label: "Contact us", path: "/contact" },
-                  { label: "Careers", path: "/careers" },
-                  { label: "Culture", path: "/culture" },
-                  { label: "Blog", path: "/blog" },
-                ],
-              },
+  heading: "Company",
+  items: [
+    { label: "About", path: "/about" },
+    { label: "Contact us", path: "/contact" },
+    { label: "Careers", path: "/career" },
+    { label: "Culture", path: "/culture" },
+    { label: "Blog", path: "/blog" },
+  ],
+},
+               
               {
                 heading: "Contact Us",
                 items: [
