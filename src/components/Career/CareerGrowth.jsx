@@ -12,12 +12,11 @@ import JoinUs from "../../assets/JoinUs.png";
 function CareerGrowth() {
 
   return (
-    <div className="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+    <div className="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
 
-      {/* ===================== SECTION 1 — WHAT DRIVES US ===================== */}
+      {/*SECTION 1 — WHAT DRIVES US*/}
 <div className="mx-auto w-full max-w-7xl px-4 py-20 flex flex-col items-center">
 
-  {/* BADGE */}
   <div
     className="inline-flex items-center gap-2 px-4 py-1 rounded-full border text-sm"
     style={{
@@ -31,7 +30,6 @@ function CareerGrowth() {
     What Drives Us
   </div>
 
-  {/* HEADING */}
   <h1
     className="text-center mt-6"
     style={{
@@ -43,10 +41,20 @@ function CareerGrowth() {
       maxWidth: "941px",
     }}
   >
-    Play, Courage, <span className="text-[#61A6FB]">Care & Excellence</span>
+    Play, Courage,{" "} 
+    <span 
+     style={{
+    background:
+      "linear-gradient(90deg, #31C8F0 48.56%, #5DA7FA 80.77%, #2DD4C8 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }}
+    >
+      Care & Excellence
+      </span>
   </h1>
 
-  {/* SUBTEXT */}
+
   <p
     className="text-center mt-6"
     style={{
@@ -65,8 +73,6 @@ function CareerGrowth() {
 
   {/* 4 CARDS ROW */}
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-14 w-full max-w-7xl place-items-center">
-
-    {/* CARD TEMPLATE */}
     {[
       { title: "Play", icon: PlayIcon },
       { title: "Care", icon: CareIcon },
@@ -77,8 +83,8 @@ function CareerGrowth() {
         key={idx}
         initial={{ y: 0, boxShadow: "0px 0px 0px rgba(0,0,0,0)" }}
               whileHover={{
-                y: -10,
-                boxShadow: "0px 18px 28px rgba(0,0,0,0.35)",
+                y: -3,
+                 border: "1.5px solid #5DA7FA",
                 transition: {
                   type: "spring",
                   mass: 1,
@@ -88,8 +94,9 @@ function CareerGrowth() {
               }}
         className="p-6 rounded-2xl border cursor-pointer w-[260px] h-[220px]"
         style={{
-          borderColor: "#1F40B0",
-          background: "linear-gradient(145deg, #111E3D, #0A122D)",
+          borderColor: "#293444",
+   background: "linear-gradient(98.28deg, #0F1929 -3.49%, #1B2635 106.83%)",
+
         }}
       >
         <img src={item.icon} alt={item.title} className="h-8 w-8 mb-4" />
@@ -123,30 +130,24 @@ function CareerGrowth() {
     ))}
 
   </div>
-   {/* ===================== SECTION 2 — JOIN US ON THE EDGE OF THE WORLD ===================== */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto px-4 pt-14">
-
-        {/* LEFT TEXT BLOCK */}
-        <div className="flex flex-col">
-
-          {/* BLUE BADGE */}
+   {/* SECTION 2*/}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center max-w-7xl mx-auto px-4 mt-32">
+        <div className="flex flex-col justify-center">
           <div
             className="inline-flex items-center px-4 h-6 rounded-full text-[10px] font-medium"
             style={{
-        width: "154px",
-    height: "24px",
-    borderRadius: "9999px",
-    border: "0.5px solid #1F40B0",
-    background: "#111E3D",
-    color: "#61A6FB",
-    fontFamily: "Helvetica Neue",
-    opacity: 1,
+            width: "154px",
+            height: "24px",
+           borderRadius: "9999px",
+           border: "0.5px solid #1F40B0",
+            background: "#111E3D",
+            color: "#61A6FB",
+             fontFamily: "Helvetica Neue",
+            opacity: 1,
             }}
           >
             TASMANIA, AUSTRALIA
           </div>
-
-          {/* HEADING */}
           <h2
             className="mt-6"
             style={{
@@ -158,11 +159,15 @@ function CareerGrowth() {
               maxWidth: "550px",
             }}
           >
-            Join us on the edge of the{" "}
-            <span className="text-[#61A6FB]">World.</span>
+            Join us on the edge of {" "}
+            <span style={{
+    background:
+      "linear-gradient(90deg, #31C8F0 48.56%, #5DA7FA 80.77%, #2DD4C8 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }} >
+   the World.</span>
           </h2>
-
-          {/* PARAGRAPH */}
           <p
             className="mt-6"
             style={{
@@ -181,7 +186,7 @@ function CareerGrowth() {
           </p>
         </div>
 
-        {/* RIGHT IMAGE */}
+  
         <div className="flex justify-center lg:justify-end">
           <img
             src={JoinUs}
