@@ -1,37 +1,51 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
-import { jobData } from "../../libs/data.js"
-import { Link } from 'react-router-dom';
-import { CareerGradiantBottom, CareerGradiantTop } from '../../gradient/gradiant.jsx';
-import { motion } from 'framer-motion';
-import { BlogContext } from '../../Context/BlogContext.jsx';
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { jobData } from "../../libs/data.js";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { BlogContext } from "../../Context/BlogContext.jsx";
 import WorkIcon from "../../assets/icons/WorkAt.svg";
-import LocationIcon from "../../assets/icons/location.svg";
-import './CareerPage.css';
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import "./CareerPage.css";
 
 function CareerPage() {
   // const {jobData} = useContext(BlogContext)
-  const [activeFilter, setActiveFilter] = useState('ALL');
+  const [activeFilter, setActiveFilter] = useState("ALL");
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 5;
 
   const categories = [
-    { name: 'ALL', count: jobData.length },
-    { name: 'ADMIN', count: jobData.filter(job => job.category === 'ADMIN').length },
-    { name: 'ENGINEERING', count: jobData.filter(job => job.category === 'ENGINEERING').length },
-    { name: 'DESIGN', count: jobData.filter(job => job.category === 'DESIGN').length },
-    { name: 'DIGITAL MARKETING', count: jobData.filter(job => job.category === 'DIGITAL MARKETING').length },
-    {name : "HR" , count : jobData.filter((job)=> job.category === "HR" ).length},
-    { name: 'OPERATIONS', count: jobData.filter(job => job.category === 'OPERATIONS').length },
-    {name : "FINANCE" , count : jobData.filter((job)=> job.category === "FINANCE" ).length}
+    { name: "ALL", count: jobData.length },
+    {
+      name: "ADMIN",
+      count: jobData.filter((job) => job.category === "ADMIN").length,
+    },
+    {
+      name: "ENGINEERING",
+      count: jobData.filter((job) => job.category === "ENGINEERING").length,
+    },
+    {
+      name: "SUPPORT",
+      count: jobData.filter((job) => job.category === "SUPPORT")
+        .length,
+    },
+    {
+      name: "DESIGN",
+      count: jobData.filter((job) => job.category === "DESIGN").length,
+    },
+    {
+      name: "DIGITAL MARKETING",
+      count: jobData.filter((job) => job.category === "DIGITAL MARKETING")
+        .length,
+    },
   ];
 
-  console.log("job data is here for contatc us page" , jobData)
+  console.log("job data is here for contatc us page", jobData);
 
-  const filteredJobs = activeFilter === 'ALL'
-    ? jobData
-    : jobData.filter(job => job.category === activeFilter);
+  const filteredJobs =
+    activeFilter === "ALL"
+      ? jobData
+      : jobData.filter((job) => job.category === activeFilter);
 
-  // reset to page 1 whenever the filter changes
   useEffect(() => {
     setPage(1);
   }, [activeFilter]);
@@ -40,9 +54,9 @@ function CareerPage() {
   const startIdx = (page - 1) * PAGE_SIZE;
   const currentJobs = filteredJobs.slice(startIdx, startIdx + PAGE_SIZE);
 
-   const handleFilterClick = (categoryName) => {
-     setActiveFilter(categoryName);
-   };
+  const handleFilterClick = (categoryName) => {
+    setActiveFilter(categoryName);
+  };
 
   const listRef = useRef(null);
   const [canLeft, setCanLeft] = useState(false);
@@ -50,7 +64,7 @@ function CareerPage() {
 
   const scrollBy = (offset) => {
     if (listRef.current) {
-      listRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+      listRef.current.scrollBy({ left: offset, behavior: "smooth" });
     }
   };
 
@@ -94,70 +108,61 @@ function CareerPage() {
 
         <div className="career-page">
           <div className="career-container">
-         <section className="w-full relative flex flex-col items-center mt-2">
-        {/* Badge with left-aligned icon */}
-        <div
-          className="flex items-center space-x-2 px-4"
-          style={{
-            width: '143px',
-            height: '24px',
-            borderRadius: '9999px',
-            border: '0.5px solid #1F40B0',
-            background: '#111E3D',
-          }}
-        >
-          <img src={WorkIcon} alt="Work Icon" className="w-4 h-4" />
-          <span className="text-white text-[10px] font-medium"style={{ color: '#61A6FB' }} >Work At Anslation</span>
-        </div>
-          {/* Heading */}
-        <h1
-          className="text-center font-bold mt-4"
-          style={{
-            width: '634px',
-            height: '49px',
-            fontFamily: 'Helvetica Neue',
-            fontWeight: 700,
-            fontSize: '40px',
-            lineHeight: '100%',
-            color: '#FFFFFF',
-          }}
-        >
-          We're always seeking{' '}
-          <span
-            className="font-bold"
-            style={{
-              fontFamily: 'Helvetica Neue',
-              fontWeight: 700,
-              fontSize: '40px',
-              lineHeight: '100%',
-              background: '#FFFFFF',
-              WebkitBackgroundClip: 'text',
-              color: '#5DA7FA' ,
-            }}
-          >
-            talent
-          </span>
-          .
-        </h1>
+            <section className="w-full relative flex flex-col items-center mt-2">
+              {/* Badge with left-aligned icon */}
+              <div className="work-badge flex items-center gap-2">
+                <img src={WorkIcon} alt="Work Icon" className="w-4 h-4" />
+                <span className="badge-text">Work At Anslation</span>
+              </div>
+              {/* Heading */}
+              <h1
+                className="text-center font-bold mt-4"
+                style={{
+                  width: "634px",
+                  height: "49px",
+                  fontFamily: "Helvetica Neue",
+                  fontWeight: 700,
+                  fontSize: "40px",
+                  lineHeight: "100%",
+                  color: "#FFFFFF",
+                }}
+              >
+                We're always seeking{" "}
+                <span
+                  className="font-bold"
+                  style={{
+                    fontFamily: "Helvetica Neue",
+                    fontWeight: 700,
+                    fontSize: "40px",
+                    lineHeight: "100%",
+                    background: "#FFFFFF",
+                    WebkitBackgroundClip: "text",
+                    color: "#5DA7FA",
+                  }}
+                >
+                  talent
+                </span>
+                .
+              </h1>
 
-        {/* Subtitle */}
-        <p
-          className="text-center mt-4"
-          style={{
-            width: '634px',
-            height: '56px',
-            fontFamily: 'Helvetica Neue',
-            fontWeight: 400,
-            fontSize: '20px',
-            lineHeight: '140%',
-            color: '#9C9C9C',
-          }}
-        >
-          Join a team that values innovation, growth, and a people-first culture. 
-          We're building the future of business solutions together.
-        </p>
-      </section>
-            
+              {/* Subtitle */}
+              <p
+                className="text-center mt-4"
+                style={{
+                  width: "634px",
+                  height: "56px",
+                  fontFamily: "Helvetica Neue",
+                  fontWeight: 400,
+                  fontSize: "20px",
+                  lineHeight: "140%",
+                  color: "#9C9C9C",
+                }}
+              >
+                Join a team that values innovation, growth, and a people-first
+                culture. We're building the future of business solutions
+                together.
+              </p>
+            </section>
 
             {/* Filter Tabs */}
             <div className="filter-section">
@@ -168,16 +173,22 @@ function CareerPage() {
                   aria-label="Scroll left"
                   onClick={() => scrollTabs(-1)}
                   disabled={!canLeft}
-                  className={`scroll-arrow scroll-arrow-left ${!canLeft ? 'disabled' : ''}`}
+                  className={`scroll-arrow scroll-arrow-left ${
+                    !canLeft ? "disabled" : ""
+                  }`}
                 >
-                  <svg 
-                    viewBox="0 0 24 24" 
+                  <svg
+                    viewBox="0 0 24 24"
                     className="arrow-icon"
-                    fill="none" 
-                    stroke="currentColor" 
+                    fill="none"
+                    stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 18l-6-6 6-6"
+                    />
                   </svg>
                 </button>
 
@@ -187,16 +198,22 @@ function CareerPage() {
                   aria-label="Scroll right"
                   onClick={() => scrollTabs(1)}
                   disabled={!canRight}
-                  className={`scroll-arrow scroll-arrow-right ${!canRight ? 'disabled' : ''}`}
+                  className={`scroll-arrow scroll-arrow-right ${
+                    !canRight ? "disabled" : ""
+                  }`}
                 >
-                  <svg 
-                    viewBox="0 0 24 24" 
-                    className="arrow-icon" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="arrow-icon"
+                    fill="none"
+                    stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 6l6 6-6 6"
+                    />
                   </svg>
                 </button>
 
@@ -207,26 +224,33 @@ function CareerPage() {
                   aria-orientation="horizontal"
                   ref={listRef}
                   onKeyDown={(e) => {
-                    const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+                    const tabs = Array.from(
+                      e.currentTarget.querySelectorAll('[role="tab"]')
+                    );
                     const current = document.activeElement;
                     const i = tabs.indexOf(current);
                     if (i === -1) return;
                     let nextIdx = i;
-                    if (e.key === 'ArrowRight') nextIdx = (i + 1) % tabs.length;
-                    if (e.key === 'ArrowLeft')  nextIdx = (i - 1 + tabs.length) % tabs.length;
-                    if (e.key === 'Home')       nextIdx = 0;
-                    if (e.key === 'End')        nextIdx = tabs.length - 1;
+                    if (e.key === "ArrowRight") nextIdx = (i + 1) % tabs.length;
+                    if (e.key === "ArrowLeft")
+                      nextIdx = (i - 1 + tabs.length) % tabs.length;
+                    if (e.key === "Home") nextIdx = 0;
+                    if (e.key === "End") nextIdx = tabs.length - 1;
                     if (nextIdx !== i) {
                       e.preventDefault();
                       tabs[nextIdx].focus();
                       if (window.innerWidth < 640) {
-                        tabs[nextIdx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        tabs[nextIdx].scrollIntoView({
+                          behavior: "smooth",
+                          inline: "center",
+                          block: "nearest",
+                        });
                       }
                     }
                   }}
                   className="filter-tabs"
                 >
-                  {categories.map(category => (
+                  {categories.map((category) => (
                     <button
                       key={category.name}
                       role="tab"
@@ -235,17 +259,20 @@ function CareerPage() {
                       aria-selected={activeFilter === category.name}
                       onClick={(e) => {
                         handleFilterClick(category.name);
-                        if(window.innerWidth < 640){
+                        if (window.innerWidth < 640) {
                           e.currentTarget.scrollIntoView({
-                            behavior: 'smooth',
-                            inline: 'center', 
-                            block: 'nearest' 
+                            behavior: "smooth",
+                            inline: "center",
+                            block: "nearest",
                           });
                         }
                       }}
-                      className={`filter-tab ${activeFilter === category.name ? 'active' : ''}`}
+                      className={`filter-tab ${
+                        activeFilter === category.name ? "active" : ""
+                      }`}
                     >
-                      {category.name} {category.name !== 'ALL' && `(${category.count})`}
+                      {category.name}{" "}
+                      {category.name !== "ALL" && `(${category.count})`}
                     </button>
                   ))}
                 </div>
@@ -256,59 +283,80 @@ function CareerPage() {
               </div>
             </div>
 
-            <div className="job-cards">
-  {currentJobs.map(job => (
-    <Link key={job.id} to={`/career/${job.id}`}>
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        whileHover={{
-          scale: 1.01,
-          borderColor: "#5DA7FA",
-          transition: { type: "spring", mass: 1, stiffness: 100, damping: 15 },
-        }}
-        className="job-card"
-      >
-        {/* Top row with title */}
-        <div className="job-card-header">
-          <h3 className="job-title">{job.title}</h3>
-        </div>
+            {/* jobcards */}
+            <div className={`job-cards ${
+    currentJobs.length === 0 ? "no-jobs-state" : ""
+  }`}>
+              {currentJobs.length > 0 ? (
+                currentJobs.map((job) => (
+                  <Link key={job.id} to={`/career/${job.id}`}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      whileHover={{
+                        scale: 1.01,
+                        boxShadow: "0 8px 20px rgba(93,167,250,0.3)",
+                      }}
+                      className="job-card"
+                    >
+                      <h3 className="job-title">{job.title}</h3>
+                      {/* Description */}
+                      <p className="job-description">{job.description}</p>
+                      {/* Meta row */}
+                      <div className="job-card-meta">
+                        <span className="job-category-badge">
+                          {job.category}
+                        </span>
 
-        {/* Category and location row */}
-        <div className="job-card-meta">
-          <span className="job-category-badge">{job.category}</span>
-          <span className="job-location">{job.location}</span>
-        </div>
+                        {/* Location */}
+                        <span className="job-location">
+                          <span>
+                            <LocationOnOutlinedIcon />
+                          </span>
 
-        {/* Description */}
-        <p className="job-description">
-          <img src={LocationIcon} alt="Location" />
-          {job.description}</p>
+                          {job.location}
+                        </span>
+                      </div>
 
-        {/* CTA */}
-        <div className="job-card-footer">
-          <span className="view-role">View Role →</span>
-        </div>
-      </motion.div>
-    </Link>
-  ))}
-</div>
+                      {/* Divider */}
+                      <div className="job-divider" />
 
+                      {/* Footer */}
+                      <div className="job-card-footer">
+                        <span className="view-role">View Role</span>
+                        <span className="arrow">→</span>
+                      </div>
+                    </motion.div>
+                  </Link>
+                ))
+              ) : (
+                <div className="no-jobs-wrapper">
+                  <p className="no-jobs-title">
+                    No positions available in this category at the moment.
+                  </p>
+                  <p className="no-jobs-subtitle">
+                    Check back soon or subscribe to our newsletter for updates
+                  </p>
+                </div>
+              )}
+            </div>
 
             {/* Pagination controls */}
             {filteredJobs.length > 0 && totalPages > 1 && (
               <div className="pagination">
                 {/* Showing count */}
                 <span className="pagination-info">
-                  Showing {startIdx + 1}–{Math.min(startIdx + PAGE_SIZE, filteredJobs.length)} of {filteredJobs.length}
+                  Showing {startIdx + 1}–
+                  {Math.min(startIdx + PAGE_SIZE, filteredJobs.length)} of{" "}
+                  {filteredJobs.length}
                 </span>
 
                 <div className="pagination-controls">
                   <button
-                    onClick={() => setPage(p => Math.max(1, p - 1))}
+                    onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className={`pagination-btn ${page === 1 ? 'disabled' : ''}`}
+                    className={`pagination-btn ${page === 1 ? "disabled" : ""}`}
                   >
                     Prev
                   </button>
@@ -318,9 +366,11 @@ function CareerPage() {
                   </span>
 
                   <button
-                    onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                     disabled={page === totalPages}
-                    className={`pagination-btn ${page === totalPages ? 'disabled' : ''}`}
+                    className={`pagination-btn ${
+                      page === totalPages ? "disabled" : ""
+                    }`}
                   >
                     Next
                   </button>
