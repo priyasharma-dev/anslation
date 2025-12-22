@@ -1,25 +1,33 @@
 import React, { useContext } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { jobData } from '../../libs/data'
-import jobHeader from "../../assets/jobposter.jpeg"
-import LinkedIn from "../../assets/Linkedin.png"
-import instagram from "../../assets/Instagram 2.png"
-import twitter from "../../assets/Twiter.png"
-import fb from "../../assets/Facebook.png"
-import time from "../../assets/Group 2.png"
-import jobType from "../../assets/Vector-2.png"
-import posteDAte from "../../assets/Vector-3.png"
-import exprience from "../../assets/Vector-4.png"
-import vacancy from "../../assets/Vector-5.png"
-import location from "../../assets/Vector.png"
-import working from "../../assets/Group.png"
-import { CareerProfileGradiantBottom, CareerProfileGradiantop } from '../../gradient/gradiant'
+import { useParams,useNavigate, Link } from 'react-router-dom'
+ import { jobData } from '../../libs/data'
+import {
+  FiArrowLeft,
+  FiShare2,
+} from "react-icons/fi";
+import { CiLocationOn } from "react-icons/ci";
+import { GrCurrency } from "react-icons/gr";
+import { RiBriefcase4Line } from "react-icons/ri";
+import { FaRegClock } from "react-icons/fa6";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { BsJournalBookmarkFill } from "react-icons/bs";
+import { FaClockRotateLeft } from "react-icons/fa6";
 import { motion } from 'framer-motion'
 import { BlogContext } from '../../Context/BlogContext'
 
+const WORKING_HOURS = "10 AM to 7 PM";
+const WORKING_DAYS = "5 days a week";
+
+const STATIC_PERKS = [
+  "Creative freedom",
+  "Growth opportunities",
+  "Flexible working hours",
+];
+
 function CareerProfile() {
-    const { id } = useParams()
-     const {jobData} = useContext(BlogContext)
+    const { id } = useParams();
+    const navigate = useNavigate();
+    //  const {jobData} = useContext(BlogContext)
 
     const job = jobData.find((job) => job.id == parseInt(id))
 
@@ -37,283 +45,193 @@ function CareerProfile() {
     }
 
     return (
-        <div className="relative">
-            <div>
-                <CareerProfileGradiantop />
-            </div>
-            <div>
-                <CareerProfileGradiantBottom />
-            </div>
-            <div className='mx-auto w-full container max-w-7xl px-3 sm:px-6 lg:px-8 mt-4  sm:mt-8 lg:mt-10' >
-                {/* Header image + title */}
-                <div className='relative w-full overflow-hidden rounded-2xl' >
-                    <img
-                     src={jobHeader}
-                      alt="jobPoster" 
-                      className='w-full h-48 sm:h-64 md:h-72 lg:h-80 object-cover' />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                    <div className='absolute bottom-4 left-4 sm:bottom-6 sm:left-6' >
-                        <h1 className='text-white/90 text-[10px] sm:text-xs md:text-sm tracking-wide' >{job.category}</h1>
-                        <motion.p
-                            className='mt-1 text-base sm:text-2xl md:text-4xl lg:text-6xl font-extrabold leading-tight drop-shadow' >
+        <div className="min-h-screen text-white">
+        <div className="mt-20 max-w-[1004px] mx-auto flex items-center gap-4 px-4 sm:px-6">
+        <button
+          onClick={() => navigate("/career")}
+          className="w-8 h-8 flex items-center justify-center
+          hover:bg-[#24354E] rounded-md transition-colors"
+        >
+          <FiArrowLeft size={25} />
+        </button>
 
-                            <motion.span
-                                style={{ display: "inline-block", clipPath: "inset(0 100% 0 0)" }}
-                                initial={{ clipPath: "inset(0 100% 0 0)" }}
-                                animate={{ clipPath: "inset(0 0% 0 0)" }}
-                                transition={{ duration: 3, ease: "easeInOut" }}
-                            >
-                                {job.title}
-                            </motion.span>
-                        </motion.p>
-                    </div>
-                </div>
+        <h1 className="text-[28px] font-bold leading-[34px]">{job.title}</h1>
+      </div>
+       {/* ===== Main Card ===== */}
+      <motion.div
+       whileHover={{
+          boxShadow:
+            "0 0 0 1.5px rgba(70,168,255,0.9), 0 20px 40px rgba(0,163,255,0.15)",
+        }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="mt-6 sm:mt-8 mx-auto w-full max-w-[1004px] rounded-[10px] border border-transparent 
+        p-4 sm:p-6 md:p-8 lg:p-10"
+        style={{
+          background:
+            "linear-gradient(98.28deg, #0F1929 -3.49%, #1B2635 106.83%)",
+        }}
+      >
+        {/*Title + Share*/}
+        <div className="flex items-center justify-between">
+          <h2 className="text-[22px] font-medium leading-[28px]" >
+            {job.title}
+          </h2>
 
-                      {/* Content Grid */}
-                
-                    <div className="mt-4 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-12 items-start">
-                         {/* Left Column */}
-                       <main className="order-2 lg:order-1 lg:col-span-8 min-w-0">
-
-                            <section className="space-y-5 sm:space-y-8 md:space-y-10 pb-8 sm:pb-12">
-                                <div>
-                                <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >
-                                    Who Are We Looking For
-                                </h2>
-                                <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                    {job.whoWeAreLookingFor?.map((point, idx) => (
-                                        <li key={idx}>{point}</li>
-                                    ))}
-                                </ul>
-                                  </div>
-                            
-
-                            <div>
-                                <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >
-                                    What You Will Be Doing
-                                </h2>
-                                <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                    {job.whatYouWillBeDoing?.map((point, idx) => (
-                                        <li key={idx}>{point}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold'>
-                                    Bonus Points for Familiarity with
-                                </h2>
-                                <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                    {job.bonusPoints?.map((point, idx) => (
-                                        <li key={idx}>{point}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >
-                                Educational Requirement
-                                </h2>
-                            
-                                <p className="mt-2 pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300 max-w-prose break-words">
-                                {job?.educationalRequirement}
-                                </p>
-                        </div>
-
-                          <div >
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >
-                                Salary</h2>
-                            <ul className=" mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1 text-xs sm:text-sm text-gray-300">
-                                <li>{job?.salary?.range}</li>
-                                <li>{job?.salary?.review}</li>
-                            </ul>
-                        </div>
-
-                           <div >
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >Working Hours</h2>
-                            <ul className="mt-2 pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                <li>{job?.workingHours}</li>
-                            </ul>
-                        </div>
-
-                         <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >Working Days</h2>
-                            <ul className="mt-2  pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                <li>{job?.workingDays?.weekly}</li>
-                                <li>{job?.workingDays?.weekend}</li>
-                            </ul>
-                        </div>
-
-                         <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >Perks &amp; Benefits You’ll Get </h2>
-                            <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                {job.perksAndBenefits?.map((point, idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
-                        </div>
-
-
-                             <hr className="border-gray-800/70" />
-
-                        <div >
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >
-                                The Application Process
-                                </h2>
-                            <ul className="mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300 ">
-                                {job.applicationProcess?.map((point, idx) => (
-                                    <li key={idx}>{point}</li>
-                                ))}
-                            </ul>
-                        </div>
-
-                       <div>
-                            <h2 className='text-sm sm:text-lg md:text-2xl font-extrabold ' >Our Statement</h2>
-                            <div className=' mt-2 list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-[11px] sm:text-sm text-gray-300' >
-                                <p>{job?.ourStatement}</p>
-                            </div>
-                        </div>
-                        </section>
-                        
-                         <div className='pt-2' >
-                            <button className='w-full sm:w-80 md:w-96 py-2 sm:py-3 bg-blue-600 hover:bg-blue-500 transition cursor-pointer rounded-lg font-semibold text-sm sm:text-base' >
-                                Apply Now
-                                </button>
-                        </div>
-                        
-                           </main>
-
-                        <div className='border-1 mt-10 w-full '></div>
-                      
-               
-
-                {/* right div */}
-                <aside
-                 className='
-                 order-1 lg:order-2 lg:col-span-4 lg:justify-self-end w-full'>
-                    <div
-                     className='w-full mx-auto lg:mx-0
-                             max-w-[360px] sm:max-w-[420px] lg:max-w-[380px]
-                             bg-white text-black shadow-lg rounded-2xl 
-                     p-3 sm:px-5 space-y-5 lg:sticky lg:top-6 ' >
-
-                        {/* Apply Button */}
-                        <button className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg  hover:bg-blue-500 transition text-sm sm:text-base">
-                            Apply Now
-                        </button>
-
-                        {/* job summary */}
-                        <div>
-                            <h2 className="text-base sm:text-xl font-bold">Job Summary</h2>
-                             <ul className="mt-2 space-y-3 text-xs sm:text-sm">
-                            <li className="flex items-center gap-2">
-                                <img src={location} alt="location" className='w-5 sm:w-6 mt-0.5' />
-                                <span className="text-gray-600">Location <br /> 
-                                <span className='text-black' >{job.location}</span>
-                                </span>
-                            </li>
-
-                            
-                                <li className="flex items-center gap-2">
-                                <img src={jobType} alt="location" className='w-5 sm:w-6 mt-0.5' />
-                                    <span className="text-gray-600">Job Type: 
-                                        <br />
-                                         <span className='text-black'>{job.jobType}</span>
-                                         </span>
-                                </li>
-                        
-
-                            
-                                <li className="flex items-center gap-2">
-                                <img src={posteDAte} alt="location" className='w-5 sm:w-6 mt-0.5' />
-                                    <span className="text-gray-600">Date Posted:
-                                     <br /> 
-                                     <span className='text-black'>{job.postedDate}</span>
-                                     </span>
-                                </li>
-                            
-
-                                <li className="flex items-center gap-2">
-                                <img src={exprience} alt="location" className='w-5 sm:w-6 mt-0.5' />
-                                    <span className="text-gray-600">Experience: 
-                                        <br />
-                                         <span className='text-black' >{job.experience}</span>
-                                         </span>
-                                </li>
-                            
-
-                             <li className="flex items-start gap-2">
-                                <img src={time} alt="location" className='w-5 sm:w-6 mt-0.5'/>
-                                    <span className="text-gray-600">
-                                        Working Hours:
-                                         <br />
-                                    <span className='text-black' >{job.workingHours}</span>
-                                     </span>
-                                </li>
-                       
-
-                                <li className="flex items-center  gap-3">
-                                <img src={working} alt="location" className='w-5 sm:w-6 mt-0.5' />
-                                    <span className="text-gray-600">
-                                        Working Days
-                                         <br />
-                                     <span className='text-black' >{job.workingDays.weekly}</span>
-                                     <br/>
-                                     
-                                     </span>
-                                </li>
-                        
-                    
-                                <li className="flex items-start gap-2">
-                                <img src={vacancy} alt="location" className='w-5 sm:w-6 mt-0.5' />
-                                    <span className="text-gray-600">
-                                        Vacancy:
-                                         <br />
-                                     <span className='text-black' >{job.noOfVacancy}</span>
-                                     </span>
-                                </li>
-                                </ul>
-                            
-                                <div className='text-center mt-5' >
-                                <li className="mt-4 items-center gap-3">
-                                    <Link href="/career" className="text-blue-600  font-semibold" >
-                                        View all job
-                                    </Link>
-                                   
-                                </li>
-                            </div>
-                        </div>
-                        </div>
-                    </aside>
-
-                </div>
-
-                      {/* Share block */}
-                    <div className=' mt-6' >
-                    <p className='text-white text-center text-base sm:text-lg mb-2' >Share this:</p>
-                    <div className='flex flex-wrap gap-3 sm:gap-6 items-center justify-center'>
-                        <a href="#">
-                        <img src={fb} alt="facebook_icon" className='w-8 sm:w-12' />
-                        </a>
-                        <a href="#">
-                        <img src={instagram} alt="facebook_icon" className='w-8 sm:w-12' />
-                        </a>
-                       <a href="#">
-                       <img src={twitter} alt="facebook_icon" className='w-8 sm:w-12' />
-                       </a>
-                       <a href="#">
-                       <img src={LinkedIn} alt="facebook_icon" className='w-8 sm:w-12' />
-                       </a>
-                        
-                    </div>
-                    </div>
-                
-
-            </div>
-
+          <button className="w-8 h-8 rounded-md flex items-center justify-center
+                       transition-all duration-200
+                       hover:bg-[#24354E] hover:scale-105">
+            <FiShare2 size={20} color="#46A8FF" />
+          </button>
         </div>
+
+        {/*Location*/}
+        <div className="mt-3 inline-flex items-center gap-1 px-3 h-8 border-[#9CA3B0] rounded-md">
+          <CiLocationOn size={18} className="text-[#9CA3B0]" />
+          <span
+            className="text-[16px] font-medium leading-none"
+          >
+            {job.location}
+          </span>
+        </div>
+
+        {/* Job Info Row */}
+       <div className="mt-10 flex gap-10">
+          <InfoItem icon={<RiBriefcase4Line />} label="Job Type" value={job.jobType} />
+          <InfoItem icon={<GrCurrency />} label="Salary (Annual)" value={job.salary} />
+          <InfoItem icon={<BsJournalBookmarkFill />} label="Experience" value={job.experienceRange} />
+          <InfoItem icon={<FaRegClock />} label="Working Hours" value={WORKING_HOURS} />
+          <InfoItem icon={<FaRegCalendarAlt/>} label="Working Days" value={WORKING_DAYS} />
+        </div>
+     
+       {/* Posted + Apply */}
+      <div className="mt-6 flex items-center justify-between">
+      <div className="inline-flex items-center px-4 py-1 rounded-full bg-[#1E293B] text-xs text-[#9CA3B0] gap-1">
+      <FaClockRotateLeft size={16} className="text-[#9CA3B0]" />
+       <span>Posted {job.posted}</span>
+      </div>
+
+      <motion.button
+     whileHover={{ scale: 1.03 }}
+     className="px-4 py-2 rounded-full bg-[#1677FF] text-white font-semibold"
+     style={{
+      background: "linear-gradient(180deg, rgba(0, 104, 255, 0.8) -13.78%, rgba(0, 163, 255, 0.8) 110.46%)",
+
+     }}
+     >
+     Apply Now
+     </motion.button>
+    </div>
+
+        <hr className="my-8 border-[#293444]" />
+
+        {/*Description Sections*/}
+        <div className="space-y-10 max-w-[900px]">
+
+        {job.whoWeAreLookingFor?.length > 0 && (
+       <Section title="What We're Looking For">
+      <ol className="list-decimal pl-6 text-[#CBD5E1] leading-7 space-y-3">
+        {job.whoWeAreLookingFor.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ol>
+      </Section>
+     )}
+
+
+          {/* Responsibilities */}
+          {job.responsibilities?.length > 0 && (
+            <Section title="Key Responsibilities">
+              <ol className="list-decimal pl-6 text-[16px]leading-7 text-[#CBD5E1] space-y-3">
+                {job.responsibilities.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ol>
+            </Section>
+          )}
+
+          {/*Experience Section */}
+         {job.experience?.length > 0 && (
+         <Section title="Experience">
+          <ol className="list-decimal pl-6 text-[16px] leading-7 text-[#CBD5E1] space-y-3">
+          {job.experience.map((item, i) => (
+          <li key={i}>{item}</li>
+         ))}
+        </ol>
+         </Section>
+        )}
+
+          {/* Perks */}
+          <Section title="Perks">
+      <div className="flex flex-wrap gap-4">
+    {STATIC_PERKS.map((perk, index) => (
+      <span
+        key={index}
+        className="
+          bg-[#24354E]
+          text-[16px]
+          font-medium
+          text-white
+          px-5
+          py-2
+          rounded-full
+          leading-7
+        "
+      >
+        {perk}
+      </span>
+    ))}
+  </div>
+</Section>
         
-    );
-}
+
+         {/* Number of Openings */}
+          {job.openings && (
+            <Section title="Number of Openings">
+              <p className="text-[16px] text-[#CBD5E1]">
+                {job.openings}
+              </p>
+            </Section>
+          )}
+
+           <hr className="my-8 border-[#293444]" />
+        
+
+        {/* ===== Apply Button ===== */}
+        <div className="flex justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="w-[317px] h-11 rounded-[40px] px-5 py-2.5 font-semibold text-white flex items-center justify-center gap-2.5"
+            style={{
+      background:
+        "linear-gradient(180deg, rgba(0, 104, 255, 0.8) -13.78%, rgba(0, 163, 255, 0.8) 110.46%)",
+    }}
+          >
+            Apply Now
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+    </div>
+  );
+};
+
+const InfoItem = ({ icon, label, value }) => (
+  <div className="flex flex-col gap-1 min-w-[120px]">
+    <div className="flex items-center gap-1 text-[#9CA3B0] text-xs">
+      {icon}
+      {label}
+    </div>
+    <span className="text-sm font-medium">{value}</span>
+  </div>
+);
+const Section = ({ title, children }) => (
+  <div className="space-y-4">
+    <h3 className="text-[24px] font-semibold leading-[30px]">
+      {title}
+    </h3>
+    {children}
+  </div>
+);
+
 
 export default CareerProfile;

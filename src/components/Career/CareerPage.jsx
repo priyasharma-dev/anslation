@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BlogContext } from "../../Context/BlogContext.jsx";
 import WorkIcon from "../../assets/icons/WorkAt.svg";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { CiLocationOn } from "react-icons/ci";
+
 import "./CareerPage.css";
 
 function CareerPage() {
@@ -98,13 +99,6 @@ function CareerPage() {
   return (
     <>
       <div>
-        {/* <div>
-          <CareerGradiantTop />
-        </div> */}
-
-        {/* <div>
-          <CareerGradiantBottom />
-        </div> */}
 
         <div className="career-page">
           <div className="career-container">
@@ -120,7 +114,6 @@ function CareerPage() {
                 style={{
                   width: "634px",
                   height: "49px",
-                  fontFamily: "Helvetica Neue",
                   fontWeight: 700,
                   fontSize: "40px",
                   lineHeight: "100%",
@@ -131,7 +124,6 @@ function CareerPage() {
                 <span
                   className="font-bold"
                   style={{
-                    fontFamily: "Helvetica Neue",
                     fontWeight: 700,
                     fontSize: "40px",
                     lineHeight: "100%",
@@ -151,7 +143,6 @@ function CareerPage() {
                 style={{
                   width: "634px",
                   height: "56px",
-                  fontFamily: "Helvetica Neue",
                   fontWeight: 400,
                   fontSize: "20px",
                   lineHeight: "140%",
@@ -271,8 +262,8 @@ function CareerPage() {
                         activeFilter === category.name ? "active" : ""
                       }`}
                     >
-                      {category.name}{" "}
-                      {category.name !== "ALL" && `(${category.count})`}
+                      {category.name} ({category.count})
+
                     </button>
                   ))}
                 </div>
@@ -312,7 +303,7 @@ function CareerPage() {
                         {/* Location */}
                         <span className="job-location">
                           <span>
-                            <LocationOnOutlinedIcon />
+                            <CiLocationOn size={18} className="text-[#9CA3B0]" />
                           </span>
 
                           {job.location}
