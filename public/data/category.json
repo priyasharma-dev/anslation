@@ -1,0 +1,8 @@
+[
+  {"id":"all","label":"ALL"},
+  {"id": "company","label":"Company"},
+  {"id":"engineering","label":"Engineering"},
+  {"id":"product","label":"Product"},
+  {"id":"marketing","label":"Marketing"},
+  {"id":"design","label":"Design"}
+]

@@ -81,3 +81,4 @@ function CardLink({ to, post }) {
     </Link>
   );
 }
+

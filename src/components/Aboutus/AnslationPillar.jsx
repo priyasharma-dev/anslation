@@ -72,10 +72,10 @@ function AnslationPillar() {
       className="
         relative
         flex flex-col items-center justify-center
-        w-[90vw] max-w-[1250px]
-        h-[275px]
+        w-[90vw] max-w-[1259px]
+        h-[218px]
         mx-auto mt-[70px]
-        rounded-[28px] overflow-hidden
+        rounded-[24px] overflow-hidden
         text-center select-none
       "
     >

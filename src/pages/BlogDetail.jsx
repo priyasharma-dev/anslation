@@ -11,6 +11,7 @@ import GradientButton from "../components/ui/GradientButton";
 // 🔴 NEW: use the dynamic service instead of blogData
 import { listPosts } from "../libs/postsService";
 
+
 export default function BlogDetail() {
   const { id } = useParams(); // /blog/:id → id from URL
 
@@ -76,6 +77,7 @@ export default function BlogDetail() {
     title,
     image,
     date = "—",
+    author="Sarah",
     category = "Blogs",
     readTime = "—",
     desc,
@@ -84,11 +86,12 @@ export default function BlogDetail() {
 
   return (
     <div className="bg-[#0b1020] text-white min-h-screen">
+    
       <DetailsHero
         image={image}
         category={category}
         title={title}
-        meta={`${date} • ${readTime}`}
+        meta={`${author} • ${date} • ${readTime}`}
       />
 
       <ContentRenderer desc={desc} content={content} />
@@ -99,6 +102,11 @@ export default function BlogDetail() {
 
       {/* use allPosts (dynamic) for related */}
       <RelatedGrid items={allPosts} currentId={String(post.id)} />
+
+
+
+
+
     </div>
   );
 }

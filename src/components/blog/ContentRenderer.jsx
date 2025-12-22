@@ -1,3 +1,6 @@
+// this is our dynaic content render block page
+
+
 import React from "react";
 
 export default function ContentRenderer({ desc, content }) {
@@ -109,8 +112,7 @@ export default function ContentRenderer({ desc, content }) {
                 );
             }
           })
-        ) : paragraphs.length ? (
-          // 2) Plain text content (string or array of strings)
+        ) : paragraphs.length ? (       
           paragraphs.map((p, i) => (
             <p
               key={i}
@@ -122,7 +124,7 @@ export default function ContentRenderer({ desc, content }) {
         ) : (
           // 3) Fallback placeholder (no content provided)
           <>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">
+            {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#86b2ff]">
               Introduction
             </h2>
             <p className="text-sm sm:text-base md:text-lg">
@@ -141,7 +143,7 @@ export default function ContentRenderer({ desc, content }) {
               <li>Fast, accurate translations</li>
               <li>Developer-friendly APIs</li>
               <li>Scales with your product</li>
-            </ul>
+            </ul> */}
           </>
         )}
       </div>

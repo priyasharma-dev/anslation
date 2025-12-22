@@ -128,7 +128,7 @@ background:
                 : icon.title === "LinkedIn"
                 ? "#0A66C2"
                 : icon.title === "Twitter"
-                ? "#1DA1F2"
+                ? "#000000"
                 : icon.title === "YouTube"
                 ? "#FF0000"
                 : "#1F2937",
