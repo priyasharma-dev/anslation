@@ -21,7 +21,9 @@ const leaders = [
     role: "Chief Executive Officer",
     desc: "With over 15 years of experience in tech leadership, Nikhil drives our vision of transforming digital experiences through innovation.",
     linkedin: "#",
-  },
+  }
+  
+  
 ];
 
 // -------------------------- CARD COMPONENT --------------------------

@@ -1,7 +1,13 @@
+
+// ISME BACT TO BLOG PAGE KA BUTTON HAI
+
+
 import React from "react";
 import { Link } from "react-router-dom";
 import GradientButton from "../ui/GradientButton";
 import { ArrowLeft } from "lucide-react";
+
+
 
 export default function BackToAllButton({ to = "/blog", className = "" }) {
   return (

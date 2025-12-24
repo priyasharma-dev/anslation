@@ -45,7 +45,7 @@ function AboutSection() {
             alignItems: "center",
             border: "2px solid rgba(59,130,246,0.3)",
             borderRadius: "40px",
-            width: "175px",
+            width: "139px",
             py: "7px",
             gap: "6px",
             color: "#60A5FA",

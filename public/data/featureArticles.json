@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "tag": "Featured Article",
+    "title": "The Future of Technology : ",
+    "highlight": "AI and Human Expertise",
+    "description": "Exploring how artificial intelligence is transforming the translation industry while maintaining the irreplaceable value of human expertise and cultural understanding.",
+    "author": "Sarah",
+    "date": "Dec 13, 2025",
+    "image": "/img/robot.jpg"
+  },
+  {
+    "id": 2,
+    "tag": "Featured Article",
+    "title": "Designing Smarter Interfaces :",
+    "highlight": "UX & Accessibility",
+    "description": "How inclusive design and accessibility-first thinking are shaping modern digital products.",
+    "author": "John",
+    "date": "Jan 02, 2026",
+    "image": "/img/robot.jpg"
+  },
+  {
+    "id": 3,
+    "tag": "Featured Article",
+    "title": "The Future of Technology :",
+    "highlight": "AI and Human Expertise",
+    "description": "Exploring how artificial intelligence is transforming the translation industry while maintaining the irreplaceable value of human expertise and cultural understanding.",
+    "author": "Sarah",
+    "date": "Dec 13, 2025",
+    "image": "/img/robot.jpg"
+  },
+  {
+    "id": 4,
+    "tag": "Featured Article",
+   "title": "Designing Smarter Interfaces :",
+    "highlight": "AI and Human Expertise",
+    "description": "Exploring how artificial intelligence is transforming the translation industry while maintaining the irreplaceable value of human expertise and cultural understanding.",
+    "author": "Sarah",
+    "date": "Dec 13, 2025",
+    "image": "/img/robot.jpg"
+  },
+  {
+    "id": 5,
+    "tag": "Featured Article",
+     "title": "Designing Smarter Interfaces :",
+    "highlight": "AI and Human Expertise",
+    "description": "Exploring how artificial intelligence is transforming the translation industry while maintaining the irreplaceable value of human expertise and cultural understanding.",
+    "author": "Sarah",
+    "date": "Dec 13, 2025",
+    "image": "/img/robot.jpg"
+  },
+  {
+    "id": 6,
+    "tag": "Featured Article",
+     "title": "Designing Smarter Interfaces :",
+    "highlight": "AI and Human Expertise",
+    "description": "Exploring how artificial intelligence is transforming the translation industry while maintaining the irreplaceable value of human expertise and cultural understanding.",
+    "author": "Sarah",
+    "date": "Dec 13, 2025",
+    "image": "/img/robot.jpg"
+  },
+  {
+    "id": 7,
+    "tag": "Featured Article",
+    "title": "Designing Smarter Interfaces :",
+    "highlight": "AI and Human Expertise",
+    "description": "Exploring how artificial intelligence is transforming the translation industry while maintaining the irreplaceable value of human expertise and cultural understanding.",
+    "author": "Sarah",
+    "date": "Dec 13, 2025",
+    "image": "/img/robot.jpg"
+  }
+]
