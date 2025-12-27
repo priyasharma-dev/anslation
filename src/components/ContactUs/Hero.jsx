@@ -1,52 +1,99 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, Clock, Users } from 'lucide-react';
+import React from 'react';
+import Form from './Form';
+import Address from './Address';
+import star from'../../assets/icons/star.svg';
 
 function ContactPage() {
- 
-
   return (
-    <div>
-      {/* Hero Section */}
-      <div className="w-full  rounded-b-3xl shadow-2xl overflow-hidden relative">
-        <div className="absolute  bg-black opacity-10"></div>
-        <div className="relative top-10 px-6 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center items-center gap-4 mb-6">
-              <div className="w-16 h-0.5 bg-white/50"></div>
-              <div className="text-white/90 font-semibold tracking-widest text-xl">LET'S TALK</div>
-              <div className="w-16 h-0.5 bg-white/50"></div>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Get in Touch
-            </h1>
-            
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join 50+ Satisfied Clients. Response within 48 hours
-            </p>
+  <div className="min-h-screen text-white relative overflow-hidden">
 
-            <div className="flex flex-wrap justify-center gap-8 mt-12">
-              <div className="flex items-center gap-3 text-white/90">
-                <Users className="w-5 h-5" />
-                <span className="text-sm font-medium">50+ Happy Clients</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/90">
-                <Clock className="w-5 h-5" />
-                <span className="text-sm font-medium">48hr Response Time</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/90">
-                <CheckCircle className="w-5 h-5" />
-                <span className="text-sm font-medium">100% Satisfaction</span>
-              </div>
-            </div>
+    {/* HERO */}
+    <section className="relative text-center pt-40 pb-22 overflow-hidden">
+ {/* Content */}
+   <div
+          className="
+            relative z-10
+            flex flex-col items-center
+            gap-6
+            w-full
+            max-w-2xl  
+            mx-auto
+            px-6
+            text-center
+          "
+        >
+
+  {/*Get In Touch pill  */}
+   <div
+            className="
+              inline-flex items-center gap-2
+              px-3 py-1
+              rounded-full
+              bg-[#111E3D]
+              border border-[#1F40B0]
+              border-[0.5px]
+            "
+          >
+  <div className="flex items-center justify-center">
+    <img
+  src={star}
+  alt="star"
+  className="w-4 h-4"
+  style={{
+    filter:
+      'brightness(0) saturate(100%) invert(55%) sepia(85%) saturate(500%) hue-rotate(185deg)'
+  }}
+/>
+
+  </div>
+
+  {/* Text */}
+   <span className="font-roboto text-[0.75rem] leading-[1rem] text-[#61A6FB]">
+              Get In Touch
+            </span>
+</div>
+ {/* Heading + Subtitle */}
+   <div className="flex flex-col items-center gap-5 w-full">
+            {/* Contact Us */}
+            <h1
+              className="
+                font-helvetica font-bold
+                text-[clamp(2.25rem,4vw,2.5rem)]  
+                leading-none
+              "
+            >
+              Contact Us
+            </h1>
+
+            {/* Subtitle */}
+            <p
+              className="
+                mt-0.8
+  text-[18px]
+  leading-[140%]
+  text-[#9C9C9C]
+  max-w-[674px]
+  mx-auto
+  text-center
+              "
+            >
+              Have a question or want to work together? We’d love to hear from you.
+            </p>
           </div>
         </div>
-      </div>
-
-      {/* Main Content */}
-
+    </section>
+     {/* MAIN CARD */}
+      <section className="px-4">
+        <div className="max-w-[1200px] mx-auto rounded-3xl border border-[#1E293B] bg-[#080E20] pb-14">
+          <Form />
+          <Address />
+        </div>
+      </section>
     </div>
-  );
+
+  
+);
 }
 
 export default ContactPage;
+

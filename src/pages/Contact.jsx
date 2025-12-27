@@ -8,8 +8,6 @@ function Contact() {
   return (
     <div className='relative bottom-32' >
           <Hero/>
-          <Form/>
-          <Address/>
     </div>
   )
 }

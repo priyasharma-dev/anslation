@@ -5,10 +5,6 @@ import './index.css'
 import App from './App.jsx'
 import BlogContextProvider from "./Context/BlogContext.jsx";
 
-
-
-
-
 createRoot(document.getElementById('root')).render(
           <BlogContextProvider>
                  <App />
