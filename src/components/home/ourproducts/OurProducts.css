@@ -17,7 +17,7 @@
   textAlign: center;
 }
 
-/* Small "Products" pill above heading */
+/* Small "Products" pill  */
 .op-pill {
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@
   padding: 4px 12px;
    margin-bottom: 16px; 
 
-  background: transparent;
+  background: #111E3D;
   border-radius: 9999px;
   outline: 0.5px solid #1f40b0;
   outline-offset: -0.25px;
