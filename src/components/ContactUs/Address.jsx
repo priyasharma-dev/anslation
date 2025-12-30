@@ -14,7 +14,9 @@ function Address() {
       email: 'business@anslation.com',
       phone: '8839631260 || 7974657918',
       mapUrl:
-        'https://www.google.com/maps?q=alt.f%20coworking%20Orchid%20Business%20Park%20Sohna%20Road%20Gurgaon&output=embed&z=15',
+     "https://www.google.com/maps?q=alt.f+coworking+Orchid+Business+Park+Sohna+Road+Gurgaon&output=embed"
+
+
     },
     {
       id: 2,
@@ -25,8 +27,8 @@ function Address() {
       sunday: 'Off',
       email: 'business@anslation.com',
       phone: '8839631260 || 7974657918',
-      mapUrl:
-       'https://www.google.com/maps?q=Shriram%20Traders%20Genda%20Chowk%20Betul&output=embed',
+     mapUrl:
+     'https://www.google.com/maps?q=Anslation+Pvt.+Ltd.+Genda+Chowk+Sadar+Betul+Madhya+Pradesh&output=embed&z=15',
     },
   ];
 
@@ -37,9 +39,9 @@ function Address() {
   );
 
   return (
-    <section className="mt-32 flex flex-col items-center text-white">
+    <section className="mt-16 md:mt-32 flex flex-col items-center text-white px-4 sm:px-6 lg:px-0">
       {/* LOCATION SWITCHER */}
-      <div className="mb-20 inline-flex rounded-full p-1 bg-[#24354E]">
+      <div className="mb-10 md:mb-20 inline-flex rounded-full p-1 bg-[#24354E] shadow-inner">
         {locations.map((loc) => (
           <button
             key={loc.id}

@@ -23,7 +23,6 @@ function CareerGrowth() {
       borderColor: "#1F40B0",
       background: "#111E3D",
       color: "#61A6FB",
-      fontFamily: "Helvetica Neue",
     }}
   >
     <img src={DrivesUsIcon} alt="Drives Us" className="w-4 h-4" />
@@ -33,7 +32,6 @@ function CareerGrowth() {
   <h1
     className="text-center mt-6"
     style={{
-      fontFamily: "Helvetica Neue",
       fontWeight: 700,
       fontSize: "40px",
       color: "#FFFFFF",
@@ -59,7 +57,7 @@ function CareerGrowth() {
     className="text-center mt-6"
     style={{
       maxWidth: "934px",
-      fontFamily: "Helvetica Neue",
+     
       fontWeight: 400,
       fontSize: "20px",
       color: "#9C9C9C",
@@ -103,7 +101,6 @@ function CareerGrowth() {
 
         <h3
           style={{
-            fontFamily: "Helvetica Neue",
             fontWeight: 700,
             fontSize: "22px",
             color: "#FFFFFF",
@@ -114,7 +111,6 @@ function CareerGrowth() {
 
         <p
           style={{
-            fontFamily: "Helvetica Neue",
             fontWeight: 400,
             fontSize: "14px",
             color: "#9C9C9C",
@@ -142,7 +138,6 @@ function CareerGrowth() {
            border: "0.5px solid #1F40B0",
             background: "#111E3D",
             color: "#61A6FB",
-             fontFamily: "Helvetica Neue",
             opacity: 1,
             }}
           >
@@ -151,7 +146,7 @@ function CareerGrowth() {
           <h2
             className="mt-6"
             style={{
-              fontFamily: "Helvetica Neue",
+              
               fontWeight: 700,
               fontSize: "32px",
               lineHeight: "100%",
@@ -171,7 +166,7 @@ function CareerGrowth() {
           <p
             className="mt-6"
             style={{
-              fontFamily: "Helvetica Neue",
+             
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "140%",
