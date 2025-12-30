@@ -1,6 +1,7 @@
 import React from "react";
 import "./OurProducts.css";
 import AdsAstraLogo from "../../../assets/icons/ads astra logo.svg";
+import { BsStars } from "react-icons/bs";
 
 
 export default function OurProducts({ onAdsClick } ={}) {
@@ -13,9 +14,9 @@ export default function OurProducts({ onAdsClick } ={}) {
   return (
     <section id="our-products" className="op-section">
       <div className="op-heading-wrap">
-        {/* NEW: Products pill */}
+        {/* Products pill */}
         <div className="op-pill">
-          <span className="op-pill-icon" />
+         <BsStars style={{color:"#61A6FB" }}/>
           <span className="op-pill-label">Products</span>
         </div>
         

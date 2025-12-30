@@ -37,7 +37,7 @@ function Always() {
     };
 
     return (
-        <div className="w-full relative overflow-hidden">
+        <div className="w-full relative overflow-hidden mt-20">
             <ThemeProvider theme={theme}>
                 <CssBaseline />
 
@@ -54,6 +54,7 @@ function Always() {
                     sx={{
                         position:"relative",
                         display: "flex",
+                        minHeight: "40vh",
                         flexDirection: { xs: "column", md: "row" },
                         alignItems: "center",
                         justifyContent: "space-between",
