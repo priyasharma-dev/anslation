@@ -8,8 +8,7 @@ function ContactPage() {
   <div className="min-h-screen text-white relative overflow-hidden">
 
     {/* HERO */}
-    <section className="relative text-center pt-40 pb-22 overflow-hidden">
- {/* Content */}
+    <section className="relative text-center pt-24 md:pt-32 pb-14 md:pb-22 overflow-hidden">
    <div
           className="
             relative z-10
@@ -18,7 +17,7 @@ function ContactPage() {
             w-full
             max-w-2xl  
             mx-auto
-            px-6
+            px-4 sm:px-6
             text-center
           "
         >
@@ -53,7 +52,7 @@ function ContactPage() {
             </span>
 </div>
  {/* Heading + Subtitle */}
-   <div className="flex flex-col items-center gap-5 w-full">
+   <div className="flex flex-col items-center gap-4 w-full">
             {/* Contact Us */}
             <h1
               className="
@@ -69,12 +68,12 @@ function ContactPage() {
             <p
               className="
                 mt-0.8
-  text-[18px]
-  leading-[140%]
-  text-[#9C9C9C]
-  max-w-[674px]
-  mx-auto
-  text-center
+               text-[16px] md:text-[18px]
+               leading-[140%]
+               text-[#9C9C9C]
+               max-w-[674px]
+                mx-auto
+              text-center
               "
             >
               Have a question or want to work together? We’d love to hear from you.
@@ -83,7 +82,7 @@ function ContactPage() {
         </div>
     </section>
      {/* MAIN CARD */}
-      <section className="px-4">
+      <section className="px-4 sm:px-6">
         <div className="max-w-[1200px] mx-auto rounded-3xl border border-[#1E293B] bg-[#080E20] pb-14">
           <Form />
           <Address />

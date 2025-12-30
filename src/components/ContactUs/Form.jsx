@@ -15,7 +15,7 @@ const Input = ({ label, ...props }) => (
         leading-none
         text-white
         bg-[#0C1726]
-        border border-[#293444]
+        border border-[#475569]
         outline-none
         focus:border-[#1E6DDD]
         transition"
@@ -53,11 +53,11 @@ function Form() {
   };
 
   return (
-    <div className="flex justify-center py-16">
+    <div className="flex justify-center  px-4 sm:px-6 py-12 md:py-16">
       <div
         className="
           w-full max-w-5xl
-          rounded-2xl border p-10
+          rounded-2xl border p-5 sm:p-8 md:p-10
         "
         style={{
           background:
@@ -66,11 +66,11 @@ function Form() {
           backdropFilter: 'blur(4.2px)',
         }}
       >
-        <h2 className="text-white text-xl font-medium mb-6">
+        <h2 className="text-white text-lg md:text-xl font-medium mb-5 md:mb-6">
           Send us a message
         </h2>
          {submitted && (
-          <div className="mb-6 p-3 rounded-lg bg-green-900/20 border border-green-600/40 text-green-400 flex items-center gap-2">
+          <div className="mb-5 p-3 rounded-lg bg-green-900/20 border border-green-600/40 text-green-400 flex items-center gap-2">
             <CheckCircle size={18} />
             Message sent successfully
           </div>
@@ -79,10 +79,10 @@ function Form() {
 
                 <form
                   onSubmit={handleSubmit}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
                 >
                   {/* LEFT */}
-                  <div className="space-y-6">
+                  <div className="space-y-5 md:space-y-6">
                     <Input
                       label="Your Name"
                       name="name"
@@ -110,9 +110,9 @@ function Form() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full min-h-[14rem] px-4 py-3 rounded-lg text-white bg-[#0C1726] border border-[#475569] resize-none outline-none
-    focus:border-[#1E6DDD]
-    transition"
+                      className="w-full  min-h-[180px] md:min-h-[15rem] px-4 py-3 rounded-lg text-white bg-[#0C1726] border border-[#475569] resize-none outline-none
+                   focus:border-[#1E6DDD]
+                    transition"
                     />
                   </div>
               
@@ -122,7 +122,8 @@ function Form() {
             <button
               type="submit"
               className="
-               w-full mt-6 py-3 rounded-lg
+               w-full md:w-[240px]
+                mt-4 md:mt-6 py-3 rounded-lg
                 text-white font-medium
                 transition hover:opacity-90
               "

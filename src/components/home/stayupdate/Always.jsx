@@ -42,22 +42,17 @@ function Always() {
                 <CssBaseline />
 
                 {/* Background Glow */}
-                <div
-                    style={{
-                        position: "absolute",
-                        width: "1800px",
-                        height: "1400px",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        background:
-                            "radial-gradient(50% 50% at 50% 50%, #004DFF 0%, rgba(0, 81, 255, 0.48) 49%, rgba(0, 111, 255, 0) 100%)",
-                        opacity: 0.35,
-                        zIndex: 0,
-                    }}
-                ></div>
+                <Box
+        sx={{
+          position: "relative",
+          overflow: "hidden",
+          background: "linear-gradient(257.85deg, #0E1629 -0.99%, #050A1C 103.46%)",
+        }}>
+        
 
                 <Box
                     sx={{
+                        position:"relative",
                         display: "flex",
                         flexDirection: { xs: "column", md: "row" },
                         alignItems: "center",
@@ -84,7 +79,7 @@ function Always() {
                         {/* Stay Updated Badge */}
                         <Box
                             sx={{
-                                bgcolor: "#0E1629",
+                                bgcolor: "#111E3D",
                                 px: { xs: 1.2, sm: 1.7 },
                                 py: "3px",
                                 borderRadius: "9999px",
@@ -133,12 +128,12 @@ function Always() {
                                 alignItems: "center",
                                 width: "100%",
                                 maxWidth: 700,
-                                bgcolor: "#1A2333",
+                                bgcolor: "#1E293B",
                                 borderRadius: "12px",
                                 px: { xs: 1.5, sm: 2 },
                                 py: { xs: 0.8, sm: 1 },
                                 mb: 4,
-                                border: "1px solid #2C3E55",
+                                border: "1px solid #475569",
                             }}
                         >
                             <InputBase
@@ -159,13 +154,13 @@ function Always() {
                                 }}
                             >
                                <LuSend
-  style={{
-    color: "#fff",
+                              style={{
+                             color: "#fff",
   
-    width: "28px",
-    height: "28px",
-  }}
-/>
+                              width: "28px",
+                             height: "28px",
+                             }}
+                               />
                             </IconButton>
                         </Box>
 
@@ -227,14 +222,6 @@ function Always() {
                     >
 
 
-
-
-
-
-
-
-
-
                         <Box
                             sx={{
                                 bgcolor: "rgba(255,255,255,0.05)",
@@ -267,7 +254,7 @@ function Always() {
                                 <Box
                                     sx={{
                                        width: 32,
-height: 32,
+                                     height: 32,
                                         borderRadius: "50%",
                                         bgcolor: "#22C55E",
                                         display: "flex",
@@ -275,7 +262,7 @@ height: 32,
                                         justifyContent: "center",
                                         position: "absolute",
                                         top: -1,
-right: -1,
+                                      right: -1,
  
                                     }}
                                 >
@@ -305,6 +292,7 @@ right: -1,
                             >
                                 Join thousands of companies transforming their digital presence with Anslation.
                             </Typography>
+                              </Box>
                         </Box>
                     </Box> 
 

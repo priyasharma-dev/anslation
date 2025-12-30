@@ -46,7 +46,7 @@ function CareerProfile() {
 
     return (
         <div className="min-h-screen text-white">
-        <div className="mt-20 max-w-[1004px] mx-auto flex items-center gap-4 px-4 sm:px-6">
+        <div className="mt-20 max-w-[1004px] mx-auto flex items-center gap-4 ">
         <button
           onClick={() => navigate("/career")}
           className="w-8 h-8 flex items-center justify-center
@@ -59,11 +59,6 @@ function CareerProfile() {
       </div>
        {/* ===== Main Card ===== */}
       <motion.div
-       whileHover={{
-          boxShadow:
-            "0 0 0 1.5px rgba(70,168,255,0.9), 0 20px 40px rgba(0,163,255,0.15)",
-        }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
         className="mt-6 sm:mt-8 mx-auto w-full max-w-[1004px] rounded-[10px] border border-transparent 
         p-4 sm:p-6 md:p-8 lg:p-10"
         style={{
@@ -85,7 +80,7 @@ function CareerProfile() {
         </div>
 
         {/*Location*/}
-        <div className="mt-3 inline-flex items-center gap-1 px-3 h-8 border-[#9CA3B0] rounded-md">
+        <div className="mt-3 inline-flex items-center gap-1 h-8 border-[#9CA3B0] rounded-md">
           <CiLocationOn size={18} className="text-[#9CA3B0]" />
           <span
             className="text-[16px] font-medium leading-none"
