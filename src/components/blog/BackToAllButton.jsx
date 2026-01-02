@@ -1,5 +1,4 @@
 
-// ISME BACT TO BLOG PAGE KA BUTTON HAI
 
 
 import React from "react";
